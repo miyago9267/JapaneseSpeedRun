@@ -16,7 +16,9 @@ two consumers (rendered website + LLM/Obsidian reading the raw markdown).
 - `vault/` — markdown source = the pages AND the Claude/Obsidian vault. Keep it **pure markdown**.
   - `index.md` — home (hero layout)
   - `<topic>-conjugation.md` — one lesson per file
-- `.vitepress/config.ts` — VitePress config (`srcDir: ./vault`, nav/sidebar, tabs plugin, local search)
+- `.vitepress/config.ts` — VitePress config (`srcDir: ./vault`, nav/sidebar, tabs plugin, local
+  search). Holds the `obsidian_tabs` markdown-it rule that derives `::: tabs` from the comment
+  markers at build time (see Content tone) — the source stays Obsidian-native.
 - `.vitepress/theme/` — custom theme: `index.ts` (extends default + registers tabs) + `custom.css`
   (brand blue, Noto Sans TC, table / rule-chip / callout styling that reproduces the old look)
 - `package.json` — scripts `docs:dev` / `docs:build` / `docs:preview` (run with Bun)
@@ -26,8 +28,14 @@ two consumers (rendered website + LLM/Obsidian reading the raw markdown).
 
 Notes are **scannable comparison tables, not prose**. Optimize for "glance and recall the rule."
 
-- One lesson = one `.md`. Use `::: tabs` / `== Label` (vitepress-plugin-tabs) for multi-view
-  switching — e.g. 按變化型 / 按詞類 / 肯定否定.
+- One lesson = one `.md`. For multi-view switching (按變化型 / 按詞類 / 肯定否定) wrap the views
+  in `<!-- tabs:start -->` … `<!-- tabs:end -->` and start each view with a `## Label` heading.
+  A markdown-it rule in `.vitepress/config.ts` rewrites this to VitePress tabs at build time; in
+  Obsidian the comments are invisible and the `##` headings read as normal sections. **Do not
+  write `::: tabs` / `== Label` directly** — that breaks Obsidian rendering.
+- Internal links use relative markdown paths: `[形容詞變化型](adjective-conjugation.md)`. VitePress
+  rewrites `.md` to clean URLs at build; Obsidian follows them natively. **Never** root-absolute
+  `/adjective-conjugation` — Obsidian can't resolve it.
 - The core unit is a markdown table (columns like **類型 / 規則 / 例**).
 - **Rules go in `backticks`** → the theme renders inline code as a blue "chip" (the old `.rule`
   pill). Keep them terse and formula-like: `あ段 ＋ ない`, `い → くない`.
@@ -45,8 +53,10 @@ Notes are **scannable comparison tables, not prose**. Optimize for "glance and r
 2. Register it in `.vitepress/config.ts` (nav + sidebar).
 3. `bun run docs:dev` to preview, `bun run docs:build` to produce `.vitepress/dist/`.
 
-Because `vault/` is also the Claude/Obsidian vault, the markdown you write **is** the teaching
-material — keep it clean (plain GFM tables + `::: tabs` + alerts; avoid heavy HTML/Vue in the md).
+Because `vault/` is also the Claude/Obsidian vault, write **Obsidian-native** markdown: plain GFM
+tables, `> [!WARNING]` alerts, `<!-- tabs:start/end -->` + `## Label` for tabs, relative `(other.md)`
+links. The VitePress build derives the site-only syntax — never hand-write VitePress-only
+constructs (`::: tabs`, root-absolute links) or heavy HTML/Vue in the source.
 
 ## Deploy
 
@@ -59,7 +69,9 @@ not `sudo`; hand `sudo nginx -t && sudo systemctl reload nginx` to Miyago.
 
 - **Single source**: edit content in `vault/*.md` only. Do not reintroduce a parallel hand-
   maintained HTML copy — that dual-maintenance problem is exactly what VitePress removed.
-- Keep the markdown LLM-friendly (it doubles as the teaching vault). Tables + `::: tabs` +
-  `> [!WARNING]` are fine; don't embed large Vue components in the md.
+- Keep the markdown **Obsidian-native** (it doubles as the teaching vault, edited in Obsidian):
+  GFM tables, `> [!WARNING]`, `<!-- tabs:start/end -->` + `## Label`, relative `(other.md)` links.
+  VitePress-only syntax (`::: tabs`, root-absolute links) is derived at build time by
+  `.vitepress/config.ts`, never written by hand. Don't embed large Vue components in the md.
 - Toolchain is Bun: `bun install`, then `bun run docs:build`. Commit `bun.lock`.
 - Verify Japanese content (kana, conjugation, furigana) before publishing.
