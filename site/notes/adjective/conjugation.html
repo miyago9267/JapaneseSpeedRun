@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>形容詞變化型完全對照表</title>
+<link rel="stylesheet" href="/assets/note.css">
+<script src="/assets/note.js" defer></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    background: #f5f5f5;
+    color: #1a1a1a;
+    padding: 32px 20px;
+  }
+  h1 { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+  .subtitle { font-size: 0.85rem; color: #777; margin-bottom: 24px; }
+
+  .tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 28px;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  .tab-btn {
+    padding: 10px 22px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #888;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .tab-btn.active { color: #2d5be3; border-bottom-color: #2d5be3; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 28px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+  .block-header { padding: 14px 18px; display: flex; align-items: baseline; gap: 12px; }
+  .block-title { font-size: 1rem; font-weight: 700; }
+  .block-desc { font-size: 0.83rem; color: #777; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th {
+    padding: 9px 16px; text-align: left; font-size: 0.78rem;
+    font-weight: 600; letter-spacing: 0.03em; color: #555;
+    background: #f9f9f9; border-bottom: 1px solid #eee;
+  }
+  td { padding: 11px 16px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .type { font-size: 0.78rem; color: #999; white-space: nowrap; }
+  .jp { font-size: 1.05em; }
+  .rule {
+    font-size: 0.82rem; background: #f0f4ff; color: #2d5be3;
+    border-radius: 5px; padding: 2px 8px; display: inline-block; margin-bottom: 2px;
+  }
+  .rule-na { background: #e6f4ea; color: #188038; }
+  .ex { font-size: 0.82rem; color: #555; margin-top: 3px; }
+  .warn {
+    font-size: 0.8rem; background: #fff8e1;
+    border-left: 3px solid #f5a623; padding: 8px 12px; margin: 0; color: #6b5000;
+  }
+  .err { color: #c5221f; }
+
+  .c1 .block-header { background: #e8f0fe; }
+  .c2 .block-header { background: #e6f4ea; }
+  .c3 .block-header { background: #fce8e6; }
+  .c4 .block-header { background: #f3e8fd; }
+  .ci-header { background: #e8f0fe; }
+  .cna-header { background: #e6f4ea; }
+
+  .section-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+    color: #aaa; text-transform: uppercase; margin: 32px 0 10px 2px;
+  }
+  .section-label:first-child { margin-top: 0; }
+</style>
+</head>
+<body>
+
+<h1>形容詞變化型完全對照表</h1>
+<div class="subtitle">い形容詞 vs な形容詞・兩種視角切換</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('byForm', this)">按變化型</button>
+  <button class="tab-btn" onclick="switchTab('byType', this)">按詞類（い形 / な形）</button>
+</div>
+
+<!-- TAB 1：按變化型 -->
+<div id="byForm" class="tab-panel active">
+
+  <div class="block c1">
+    <div class="block-header">
+      <span class="block-title">否定形</span>
+      <span class="block-desc">「不～」</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">い形</td>
+        <td><span class="rule">い → くない</span></td>
+        <td class="jp">高い → 高く<strong>ない</strong><div class="ex">寒い → 寒くない　／　難しい（むずかしい）→ 難しくない</div></td>
+      </tr>
+      <tr>
+        <td class="type">な形</td>
+        <td><span class="rule rule-na">字根 ＋ じゃない</span></td>
+        <td class="jp">暇（ひま）→ 暇じゃ<strong>ない</strong><div class="ex">静か（しずか）→ 静かじゃない　／　便利（べんり）→ 便利じゃない</div></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="block c1">
+    <div class="block-header">
+      <span class="block-title">過去形</span>
+      <span class="block-desc">「曾經是～」</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">い形</td>
+        <td><span class="rule">い → かった</span></td>
+        <td class="jp">高い → 高<strong>かった</strong><div class="ex">寒い → 寒かった　／　楽しい（たのしい）→ 楽しかった</div></td>
+      </tr>
+      <tr>
+        <td class="type">な形</td>
+        <td><span class="rule rule-na">字根 ＋ だった</span></td>
+        <td class="jp">暇 → 暇<strong>だった</strong><div class="ex">静か → 静かだった　／　好き（すき）→ 好きだった</div></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="block c1">
+    <div class="block-header">
+      <span class="block-title">過去否定形</span>
+      <span class="block-desc">「以前不是～」</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">い形</td>
+        <td><span class="rule">い → くなかった</span></td>
+        <td class="jp">高い → 高く<strong>なかった</strong><div class="ex">忙しい（いそがしい）→ 忙しくなかった</div></td>
+      </tr>
+      <tr>
+        <td class="type">な形</td>
+        <td><span class="rule rule-na">字根 ＋ じゃなかった</span></td>
+        <td class="jp">暇 → 暇じゃ<strong>なかった</strong><div class="ex">有名（ゆうめい）→ 有名じゃなかった</div></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="block c2">
+    <div class="block-header">
+      <span class="block-title">て形　連接</span>
+      <span class="block-desc">「～而且～」／串接多個描述</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">い形</td>
+        <td><span class="rule">い → くて</span></td>
+        <td class="jp">安い（やすい）→ 安く<strong>て</strong>うまい<div class="ex">小さい → 小さくて　／　寒い → 寒くて</div></td>
+      </tr>
+      <tr>
+        <td class="type">な形</td>
+        <td><span class="rule rule-na">字根 ＋ で</span></td>
+        <td class="jp">静か → 静か<strong>で</strong>きれいな部屋（へや）<div class="ex">便利 → 便利で　／　親切（しんせつ）→ 親切で</div></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="block c2">
+    <div class="block-header">
+      <span class="block-title">副詞化</span>
+      <span class="block-desc">修飾動詞・程度</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">い形</td>
+        <td><span class="rule">い → く</span></td>
+        <td class="jp">早い（はやい）→ 早<strong>く</strong>起きる<div class="ex">強く（つよく）押す　／　上手く（うまく）やる</div></td>
+      </tr>
+      <tr>
+        <td class="type">な形</td>
+        <td><span class="rule rule-na">字根 ＋ に</span></td>
+        <td class="jp">静か → 静か<strong>に</strong>してください<div class="ex">丁寧（ていねい）に書く　／　親切に教える</div></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="block c2">
+    <div class="block-header">
+      <span class="block-title">接名詞</span>
+      <span class="block-desc">直接修飾名詞</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">い形</td>
+        <td><span class="rule">原形 ＋ 名詞</span></td>
+        <td class="jp">高い山（やま）　／　寒い日（ひ）<div class="ex">うるさい人　／　眠い（ねむい）授業（じゅぎょう）</div></td>
+      </tr>
+      <tr>
+        <td class="type">な形</td>
+        <td><span class="rule rule-na">字根 ＋ な ＋ 名詞</span></td>
+        <td class="jp">静か<strong>な</strong>場所（ばしょ）　／　有名<strong>な</strong>人<div class="ex">便利<strong>な</strong>アプリ　／　好き<strong>な</strong>曲（きょく）</div></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="block c4">
+    <div class="block-header">
+      <span class="block-title">たら形　假定</span>
+      <span class="block-desc">「如果～的話」（具體情境假設）</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">い形</td>
+        <td><span class="rule">い → かったら</span></td>
+        <td class="jp">高い → 高<strong>かったら</strong>買わない<div class="ex">安かったら買う　／　暑かったらエアコンつけて</div></td>
+      </tr>
+      <tr>
+        <td class="type">な形</td>
+        <td><span class="rule rule-na">字根 ＋ だったら</span></td>
+        <td class="jp">暇 → 暇<strong>だったら</strong>来て<div class="ex">便利だったら使う　／　嫌いだったら残していい</div></td>
+      </tr>
+    </table>
+    <p class="warn">⚠ たら 帶「到那個時間點／如果真的發生」的語感，最口語通用。四種條件的差別見下面比較表。</p>
+  </div>
+
+  <div class="block c4">
+    <div class="block-header">
+      <span class="block-title">ば形　條件</span>
+      <span class="block-desc">「如果～就～」（一般條件／假設）</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">い形</td>
+        <td><span class="rule">い → ければ</span></td>
+        <td class="jp">高い → 高<strong>ければ</strong>買わない<div class="ex">安ければ買う　／　寒ければ窓（まど）を閉めて</div></td>
+      </tr>
+      <tr>
+        <td class="type">な形</td>
+        <td><span class="rule rule-na">字根 ＋ なら（ば）</span></td>
+        <td class="jp">暇 → 暇<strong>なら</strong>来て<div class="ex">便利なら使う　／　静かなら集中（しゅうちゅう）できる</div></td>
+      </tr>
+    </table>
+    <p class="warn">⚠ いい（好い）は例外：よ<strong>ければ</strong>。な形的 ば 一般用「なら」，正式可説「字根 ＋ であれば」（暇であれば）。</p>
+  </div>
+
+  <div class="block c4">
+    <div class="block-header">
+      <span class="block-title">條件形比較　たら／ば／なら／と</span>
+      <span class="block-desc">四種「如果」的語感差別</span>
+    </div>
+    <table>
+      <tr><th>條件形</th><th>い形（高い）</th><th>な形（暇）</th></tr>
+      <tr>
+        <td class="type">たら</td>
+        <td class="jp">高かったら</td>
+        <td class="jp">暇だったら</td>
+      </tr>
+      <tr>
+        <td class="type">ば</td>
+        <td class="jp">高ければ</td>
+        <td class="jp">暇なら（ば）</td>
+      </tr>
+      <tr>
+        <td class="type">なら</td>
+        <td class="jp">高いなら</td>
+        <td class="jp">暇なら</td>
+      </tr>
+      <tr>
+        <td class="type">と</td>
+        <td class="jp">高いと</td>
+        <td class="jp">暇だと</td>
+      </tr>
+    </table>
+    <p class="warn">⚠ 語感：たら＝具體情境，最口語通用；ば＝一般條件／假設；なら＝「如果是～的話」帶前提或主題；と＝必然結果「一～就～」。な形的 ば 形其實就用「なら」。</p>
+  </div>
+
+  <div class="block c3">
+    <div class="block-header">
+      <span class="block-title">陷阱：看起來像い形、其實是な形</span>
+      <span class="block-desc">字尾碰巧是い音，但行為像な形容詞</span>
+    </div>
+    <table>
+      <tr><th>詞</th><th>錯誤變法</th><th>正確變法</th></tr>
+      <tr>
+        <td class="jp">きれい</td>
+        <td class="jp err">きれいくない ✗</td>
+        <td class="jp">きれいじゃない ✓　／　きれいな部屋 ✓</td>
+      </tr>
+      <tr>
+        <td class="jp">嫌い（きらい）</td>
+        <td class="jp err">嫌いくない ✗</td>
+        <td class="jp">嫌いじゃない ✓　／　嫌いな食べ物 ✓</td>
+      </tr>
+      <tr>
+        <td class="jp">真面目（まじめ）</td>
+        <td class="jp err">真面目くない ✗</td>
+        <td class="jp">真面目じゃない ✓　／　真面目な人 ✓</td>
+      </tr>
+      <tr>
+        <td class="jp">素直（すなお）</td>
+        <td class="jp err">素直くない ✗</td>
+        <td class="jp">素直じゃない ✓　／　素直な子 ✓</td>
+      </tr>
+      <tr>
+        <td class="jp">有名（ゆうめい）</td>
+        <td class="jp err">有名くない ✗</td>
+        <td class="jp">有名じゃない ✓　／　有名な人 ✓</td>
+      </tr>
+      <tr>
+        <td class="jp">丁寧（ていねい）</td>
+        <td class="jp err">丁寧くない ✗</td>
+        <td class="jp">丁寧じゃない ✓　／　丁寧に ✓</td>
+      </tr>
+    </table>
+    <p class="warn">⚠ 判斷方式：試著在後面加「な＋名詞」。可以的就是な形容詞。きれいな部屋 → OK → な形。</p>
+  </div>
+
+</div>
+
+<!-- TAB 2：按詞類 -->
+<div id="byType" class="tab-panel">
+
+  <div class="section-label">い形容詞</div>
+
+  <div class="block">
+    <div class="block-header ci-header">
+      <span class="block-title">い形容詞・全變化型</span>
+      <span class="block-desc">字尾是い・直接改字尾</span>
+    </div>
+    <table>
+      <tr><th>變化型</th><th>規則</th><th>例：高い　／　寒い　／　楽しい（たのしい）</th></tr>
+      <tr>
+        <td class="type">原形<br>現在肯定</td>
+        <td><span class="rule">字典形（不變）</span></td>
+        <td class="jp">高い　／　寒い　／　楽しい</td>
+      </tr>
+      <tr>
+        <td class="type">否定</td>
+        <td><span class="rule">い → くない</span></td>
+        <td class="jp">高くない　／　寒くない　／　楽しくない</td>
+      </tr>
+      <tr>
+        <td class="type">過去</td>
+        <td><span class="rule">い → かった</span></td>
+        <td class="jp">高かった　／　寒かった　／　楽しかった</td>
+      </tr>
+      <tr>
+        <td class="type">過去否定</td>
+        <td><span class="rule">い → くなかった</span></td>
+        <td class="jp">高くなかった　／　寒くなかった　／　楽しくなかった</td>
+      </tr>
+      <tr>
+        <td class="type">て形</td>
+        <td><span class="rule">い → くて</span></td>
+        <td class="jp">高くて　／　寒くて　／　楽しくて</td>
+      </tr>
+      <tr>
+        <td class="type">副詞化</td>
+        <td><span class="rule">い → く</span></td>
+        <td class="jp">高く　／　寒く　／　楽しく</td>
+      </tr>
+      <tr>
+        <td class="type">接名詞</td>
+        <td><span class="rule">原形＋名詞</span></td>
+        <td class="jp">高い山　／　寒い夜（よる）　／　楽しい時間（じかん）</td>
+      </tr>
+      <tr>
+        <td class="type">たら形</td>
+        <td><span class="rule">い → かったら</span></td>
+        <td class="jp">高かったら　／　寒かったら　／　楽しかったら</td>
+      </tr>
+      <tr>
+        <td class="type">ば形</td>
+        <td><span class="rule">い → ければ</span></td>
+        <td class="jp">高ければ　／　寒ければ　／　楽しければ</td>
+      </tr>
+    </table>
+    <p class="warn">⚠ いい（好い）は例外：否定 → よくない　過去 → よかった　副詞 → よく　條件 → よければ。「いくない」は存在しない。</p>
+  </div>
+
+  <div class="section-label">な形容詞</div>
+
+  <div class="block">
+    <div class="block-header cna-header">
+      <span class="block-title">な形容詞・全變化型</span>
+      <span class="block-desc">字根不動・靠だ屈折</span>
+    </div>
+    <table>
+      <tr><th>變化型</th><th>規則</th><th>例：暇（ひま）　／　静か（しずか）　／　便利（べんり）</th></tr>
+      <tr>
+        <td class="type">原形<br>現在肯定</td>
+        <td><span class="rule rule-na">字根 ＋ だ</span></td>
+        <td class="jp">暇だ　／　静かだ　／　便利だ</td>
+      </tr>
+      <tr>
+        <td class="type">否定</td>
+        <td><span class="rule rule-na">字根 ＋ じゃない</span></td>
+        <td class="jp">暇じゃない　／　静かじゃない　／　便利じゃない</td>
+      </tr>
+      <tr>
+        <td class="type">過去</td>
+        <td><span class="rule rule-na">字根 ＋ だった</span></td>
+        <td class="jp">暇だった　／　静かだった　／　便利だった</td>
+      </tr>
+      <tr>
+        <td class="type">過去否定</td>
+        <td><span class="rule rule-na">字根 ＋ じゃなかった</span></td>
+        <td class="jp">暇じゃなかった　／　静かじゃなかった　／　便利じゃなかった</td>
+      </tr>
+      <tr>
+        <td class="type">て形</td>
+        <td><span class="rule rule-na">字根 ＋ で</span></td>
+        <td class="jp">暇で　／　静かで　／　便利で</td>
+      </tr>
+      <tr>
+        <td class="type">副詞化</td>
+        <td><span class="rule rule-na">字根 ＋ に</span></td>
+        <td class="jp">暇に（較少用）　／　静かに　／　便利に</td>
+      </tr>
+      <tr>
+        <td class="type">接名詞</td>
+        <td><span class="rule rule-na">字根 ＋ な ＋ 名詞</span></td>
+        <td class="jp">暇な時間　／　静かな場所　／　便利なアプリ</td>
+      </tr>
+      <tr>
+        <td class="type">たら形</td>
+        <td><span class="rule rule-na">字根 ＋ だったら</span></td>
+        <td class="jp">暇だったら　／　静かだったら　／　便利だったら</td>
+      </tr>
+      <tr>
+        <td class="type">ば形</td>
+        <td><span class="rule rule-na">字根 ＋ なら（ば）</span></td>
+        <td class="jp">暇なら　／　静かなら　／　便利なら</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section-label">陷阱詞一覧</div>
+
+  <div class="block">
+    <div class="block-header" style="background:#fce8e6;">
+      <span class="block-title">看起來像い形、其實是な形</span>
+      <span class="block-desc">用「な＋名詞」測試</span>
+    </div>
+    <table>
+      <tr><th>詞</th><th>接名詞</th><th>否定</th><th>て形</th></tr>
+      <tr>
+        <td class="jp">きれい</td>
+        <td class="jp">きれいな部屋 ✓</td>
+        <td class="jp">きれいじゃない</td>
+        <td class="jp">きれいで</td>
+      </tr>
+      <tr>
+        <td class="jp">嫌い（きらい）</td>
+        <td class="jp">嫌いな食べ物 ✓</td>
+        <td class="jp">嫌いじゃない</td>
+        <td class="jp">嫌いで</td>
+      </tr>
+      <tr>
+        <td class="jp">真面目（まじめ）</td>
+        <td class="jp">真面目な人 ✓</td>
+        <td class="jp">真面目じゃない</td>
+        <td class="jp">真面目で</td>
+      </tr>
+      <tr>
+        <td class="jp">素直（すなお）</td>
+        <td class="jp">素直な子 ✓</td>
+        <td class="jp">素直じゃない</td>
+        <td class="jp">素直で</td>
+      </tr>
+      <tr>
+        <td class="jp">有名（ゆうめい）</td>
+        <td class="jp">有名な人 ✓</td>
+        <td class="jp">有名じゃない</td>
+        <td class="jp">有名で</td>
+      </tr>
+      <tr>
+        <td class="jp">丁寧（ていねい）</td>
+        <td class="jp">丁寧な人 ✓</td>
+        <td class="jp">丁寧じゃない</td>
+        <td class="jp">丁寧で</td>
+      </tr>
+    </table>
+    <p class="warn">⚠ 判斷方式：試著在後面加「な＋名詞」。可以的就是な形容詞。きれいな部屋 → OK → な形。</p>
+  </div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>

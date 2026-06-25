@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "japanese-notes": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/ABSOLUTE/PATH/TO/JapaneseSpeedRun/vault"
+      ]
+    }
+  }
+}

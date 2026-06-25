@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>動詞變化型完全對照表</title>
+<link rel="stylesheet" href="/assets/note.css">
+<script src="/assets/note.js" defer></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    background: #f5f5f5;
+    color: #1a1a1a;
+    padding: 32px 20px;
+  }
+  h1 { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+  .subtitle { font-size: 0.85rem; color: #777; margin-bottom: 24px; }
+
+  .tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 28px;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  .tab-btn {
+    padding: 10px 22px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #888;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .tab-btn.active { color: #2d5be3; border-bottom-color: #2d5be3; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 28px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+  .block-header { padding: 14px 18px; display: flex; align-items: baseline; gap: 12px; }
+  .block-title { font-size: 1rem; font-weight: 700; }
+  .block-desc { font-size: 0.83rem; color: #777; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th {
+    padding: 9px 16px; text-align: left; font-size: 0.78rem;
+    font-weight: 600; letter-spacing: 0.03em; color: #555;
+    background: #f9f9f9; border-bottom: 1px solid #eee;
+  }
+  td { padding: 11px 16px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .type { font-size: 0.78rem; color: #999; white-space: nowrap; }
+  .jp { font-size: 1.05em; }
+  .rule {
+    font-size: 0.82rem; background: #f0f4ff; color: #2d5be3;
+    border-radius: 5px; padding: 2px 8px; display: inline-block; margin-bottom: 2px;
+  }
+  .ex { font-size: 0.82rem; color: #555; margin-top: 3px; }
+  .warn {
+    font-size: 0.8rem; background: #fff8e1;
+    border-left: 3px solid #f5a623; padding: 8px 12px; margin: 0; color: #6b5000;
+  }
+
+  /* header colors per block */
+  .c1 .block-header { background: #e8f0fe; }
+  .c2 .block-header { background: #e6f4ea; }
+  .c3 .block-header { background: #fce8e6; }
+  .c4 .block-header { background: #f3e8fd; }
+  .c5 .block-header { background: #e8f6fd; }
+  .c6 .block-header { background: #fff3e0; }
+  .c7 .block-header { background: #fce8f0; }
+  .c8 .block-header { background: #e8fdf3; }
+  .c9 .block-header { background: #fdf5e8; }
+  .intro .block-header { background: #eceff1; }
+
+  .section-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+    color: #aaa; text-transform: uppercase; margin: 32px 0 10px 2px;
+  }
+  .section-label:first-child { margin-top: 0; }
+</style>
+</head>
+<body>
+
+<h1>動詞變化型完全對照表</h1>
+<div class="subtitle">五段 vs 一段 vs 不規則・兩種視角切換</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('byForm', this)">按變化型</button>
+  <button class="tab-btn" onclick="switchTab('byType', this)">按詞類（五段 / 一段 / 不規則）</button>
+  <button class="tab-btn" onclick="switchTab('byPolarity', this)">肯定／否定</button>
+</div>
+
+<!-- TAB 1：按變化型 -->
+<div id="byForm" class="tab-panel active">
+
+  <!-- 先辨認三類 -->
+  <div class="block intro">
+    <div class="block-header">
+      <span class="block-title">先辨認動詞屬於哪一類</span>
+      <span class="block-desc">下面每個變化型都分五段／一段／不規則，先會分類才套得了規則</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>怎麼認</th><th>例</th></tr>
+      <tr>
+        <td class="type">一段<br>（る動詞）</td>
+        <td><span class="rule">字尾る，且る前是い段／え段音</span></td>
+        <td class="jp">見る　／　食べる　／　起きる<div class="ex">寝る（ね）　／　教える（おし）</div></td>
+      </tr>
+      <tr>
+        <td class="type">五段<br>（う動詞）</td>
+        <td><span class="rule">字尾是う段：く・ぐ・す・つ・ぬ・ぶ・む・る・う</span></td>
+        <td class="jp">書く　／　泳ぐ　／　話す　／　待つ<div class="ex">飲む　／　買う　／　帰る（る前是え段，仍是五段）</div></td>
+      </tr>
+      <tr>
+        <td class="type">不規則</td>
+        <td><span class="rule">只有兩個，整組背</span></td>
+        <td class="jp">する　／　くる（来る）</td>
+      </tr>
+    </table>
+    <p class="warn">⚠ 陷阱：字尾る＋前面是い／え段音「看起來像一段」，但這些其實是五段 → 帰る・入る（はいる）・走る（はしる）・要る（いる）・知る（しる）・切る（きる）。同音不同類：切る（きる・五段）vs 着る（きる・一段）。分不出來就查字典。</p>
+  </div>
+
+  <!-- ない形 -->
+  <div class="block c1">
+    <div class="block-header">
+      <span class="block-title">ない形　否定</span>
+      <span class="block-desc">「不做～」</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">五段</td>
+        <td><span class="rule">字尾 → あ段 ＋ ない</span></td>
+        <td class="jp">書く → 書か<strong>ない</strong><div class="ex">飲む → 飲まない　／　待つ → 待たない　／　買う → 買わない（あ段用わ）</div></td>
+      </tr>
+      <tr>
+        <td class="type">一段</td>
+        <td><span class="rule">去る ＋ ない</span></td>
+        <td class="jp">食べる → 食べ<strong>ない</strong><div class="ex">起きる → 起きない</div></td>
+      </tr>
+      <tr>
+        <td class="type">不規則</td>
+        <td><span class="rule">單獨記</span></td>
+        <td class="jp">する → し<strong>ない</strong>　／　くる → こ<strong>ない</strong></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ます形 -->
+  <div class="block c2">
+    <div class="block-header">
+      <span class="block-title">ます形　禮貌肯定</span>
+      <span class="block-desc">「做～（禮貌）」／ ません＝禮貌否定</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">五段</td>
+        <td><span class="rule">字尾 → い段 ＋ ます</span></td>
+        <td class="jp">書く → 書き<strong>ます</strong><div class="ex">飲む → 飲みます　／　待つ → 待ちます</div></td>
+      </tr>
+      <tr>
+        <td class="type">一段</td>
+        <td><span class="rule">去る ＋ ます</span></td>
+        <td class="jp">食べる → 食べ<strong>ます</strong><div class="ex">起きる → 起きます</div></td>
+      </tr>
+      <tr>
+        <td class="type">不規則</td>
+        <td><span class="rule">單獨記</span></td>
+        <td class="jp">する → し<strong>ます</strong>　／　くる → き<strong>ます</strong></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- て形 -->
+  <div class="block c3">
+    <div class="block-header">
+      <span class="block-title">て形　連接／請求／進行</span>
+      <span class="block-desc">接續其他句型的基礎形</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">五段<br>（く）</td>
+        <td><span class="rule">く → いて</span></td>
+        <td class="jp">書く → 書い<strong>て</strong></td>
+      </tr>
+      <tr>
+        <td class="type">五段<br>（ぐ）</td>
+        <td><span class="rule">ぐ → いで</span></td>
+        <td class="jp">泳ぐ → 泳い<strong>で</strong></td>
+      </tr>
+      <tr>
+        <td class="type">五段<br>（す）</td>
+        <td><span class="rule">す → して</span></td>
+        <td class="jp">話す → 話し<strong>て</strong></td>
+      </tr>
+      <tr>
+        <td class="type">五段<br>（む・ぬ・ぶ）</td>
+        <td><span class="rule">→ んで</span></td>
+        <td class="jp">飲む → 飲ん<strong>で</strong>　／　遊ぶ → 遊ん<strong>で</strong></td>
+      </tr>
+      <tr>
+        <td class="type">五段<br>（る・う・つ）</td>
+        <td><span class="rule">→ って</span></td>
+        <td class="jp">帰る → 帰っ<strong>て</strong>　／　買う → 買っ<strong>て</strong>　／　待つ → 待っ<strong>て</strong></td>
+      </tr>
+      <tr>
+        <td class="type">一段</td>
+        <td><span class="rule">去る ＋ て</span></td>
+        <td class="jp">食べる → 食べ<strong>て</strong>　／　起きる → 起き<strong>て</strong></td>
+      </tr>
+      <tr>
+        <td class="type">不規則</td>
+        <td><span class="rule">單獨記</span></td>
+        <td class="jp">する → し<strong>て</strong>　／　くる → き<strong>て</strong></td>
+      </tr>
+    </table>
+    <p class="warn">⚠ 例外：行く → 行って（不是行いて）</p>
+  </div>
+
+  <!-- た形 -->
+  <div class="block c4">
+    <div class="block-header">
+      <span class="block-title">た形　過去式</span>
+      <span class="block-desc">「做了～」／規則與て形完全相同，て換成た</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">五段（く）</td>
+        <td><span class="rule">く → いた</span></td>
+        <td class="jp">書く → 書い<strong>た</strong></td>
+      </tr>
+      <tr>
+        <td class="type">五段（ぐ）</td>
+        <td><span class="rule">ぐ → いだ</span></td>
+        <td class="jp">泳ぐ → 泳い<strong>だ</strong></td>
+      </tr>
+      <tr>
+        <td class="type">五段（す）</td>
+        <td><span class="rule">す → した</span></td>
+        <td class="jp">話す → 話し<strong>た</strong></td>
+      </tr>
+      <tr>
+        <td class="type">五段（む・ぬ・ぶ）</td>
+        <td><span class="rule">→ んだ</span></td>
+        <td class="jp">飲む → 飲ん<strong>だ</strong>　／　遊ぶ → 遊ん<strong>だ</strong></td>
+      </tr>
+      <tr>
+        <td class="type">五段（る・う・つ）</td>
+        <td><span class="rule">→ った</span></td>
+        <td class="jp">帰る → 帰っ<strong>た</strong>　／　買う → 買っ<strong>た</strong>　／　待つ → 待っ<strong>た</strong></td>
+      </tr>
+      <tr>
+        <td class="type">一段</td>
+        <td><span class="rule">去る ＋ た</span></td>
+        <td class="jp">食べる → 食べ<strong>た</strong>　／　起きる → 起き<strong>た</strong></td>
+      </tr>
+      <tr>
+        <td class="type">不規則</td>
+        <td><span class="rule">單獨記</span></td>
+        <td class="jp">する → し<strong>た</strong>　／　くる → き<strong>た</strong></td>
+      </tr>
+    </table>
+    <p class="warn">⚠ 例外：行く → 行った（不是行いた）</p>
+  </div>
+
+  <!-- ば形 -->
+  <div class="block c5">
+    <div class="block-header">
+      <span class="block-title">ば形　條件</span>
+      <span class="block-desc">「如果做～的話」</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">五段</td>
+        <td><span class="rule">字尾 → え段 ＋ ば</span></td>
+        <td class="jp">書く → 書け<strong>ば</strong><div class="ex">飲む → 飲めば　／　待つ → 待てば</div></td>
+      </tr>
+      <tr>
+        <td class="type">一段</td>
+        <td><span class="rule">去る ＋ れば</span></td>
+        <td class="jp">食べる → 食べれ<strong>ば</strong>　／　起きる → 起きれ<strong>ば</strong></td>
+      </tr>
+      <tr>
+        <td class="type">不規則</td>
+        <td><span class="rule">單獨記</span></td>
+        <td class="jp">する → すれ<strong>ば</strong>　／　くる → くれ<strong>ば</strong></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 可能形 -->
+  <div class="block c6">
+    <div class="block-header">
+      <span class="block-title">可能形　能力</span>
+      <span class="block-desc">「做得到～／能做～」</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">五段</td>
+        <td><span class="rule">字尾 → え段 ＋ る</span></td>
+        <td class="jp">書く → 書け<strong>る</strong><div class="ex">飲む → 飲める　／　待つ → 待てる</div></td>
+      </tr>
+      <tr>
+        <td class="type">一段</td>
+        <td><span class="rule">去る ＋ られる</span></td>
+        <td class="jp">食べる → 食べ<strong>られる</strong>　／　起きる → 起き<strong>られる</strong></td>
+      </tr>
+      <tr>
+        <td class="type">不規則</td>
+        <td><span class="rule">單獨記</span></td>
+        <td class="jp">する → <strong>できる</strong>　／　くる → こ<strong>られる</strong></td>
+      </tr>
+    </table>
+    <p class="warn">⚠ するの可能形是できる，不是しられる</p>
+  </div>
+
+  <!-- 意向形 -->
+  <div class="block c7">
+    <div class="block-header">
+      <span class="block-title">意向形　意志／邀請</span>
+      <span class="block-desc">「（我）要做～吧／一起做～吧」</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">五段</td>
+        <td><span class="rule">字尾 → お段 ＋ う</span></td>
+        <td class="jp">書く → 書こ<strong>う</strong><div class="ex">飲む → 飲もう　／　待つ → 待とう</div></td>
+      </tr>
+      <tr>
+        <td class="type">一段</td>
+        <td><span class="rule">去る ＋ よう</span></td>
+        <td class="jp">食べる → 食べ<strong>よう</strong>　／　起きる → 起き<strong>よう</strong></td>
+      </tr>
+      <tr>
+        <td class="type">不規則</td>
+        <td><span class="rule">單獨記</span></td>
+        <td class="jp">する → し<strong>よう</strong>　／　くる → こ<strong>よう</strong></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 受身形 -->
+  <div class="block c8">
+    <div class="block-header">
+      <span class="block-title">受身形　被動</span>
+      <span class="block-desc">「被～／受到～」</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">五段</td>
+        <td><span class="rule">字尾 → あ段 ＋ れる</span></td>
+        <td class="jp">書く → 書か<strong>れる</strong><div class="ex">飲む → 飲まれる　／　待つ → 待たれる</div></td>
+      </tr>
+      <tr>
+        <td class="type">一段</td>
+        <td><span class="rule">去る ＋ られる</span></td>
+        <td class="jp">食べる → 食べ<strong>られる</strong>　／　起きる → 起き<strong>られる</strong></td>
+      </tr>
+      <tr>
+        <td class="type">不規則</td>
+        <td><span class="rule">單獨記</span></td>
+        <td class="jp">する → さ<strong>れる</strong>　／　くる → こ<strong>られる</strong></td>
+      </tr>
+    </table>
+    <p class="warn">⚠ 一段的可能形和受身形都是られる，靠語境判斷</p>
+  </div>
+
+  <!-- 使役形 -->
+  <div class="block c9">
+    <div class="block-header">
+      <span class="block-title">使役形　使役</span>
+      <span class="block-desc">「讓～做／叫～做」</span>
+    </div>
+    <table>
+      <tr><th>類型</th><th>規則</th><th>例子</th></tr>
+      <tr>
+        <td class="type">五段</td>
+        <td><span class="rule">字尾 → あ段 ＋ せる</span></td>
+        <td class="jp">書く → 書か<strong>せる</strong><div class="ex">飲む → 飲ませる　／　待つ → 待たせる</div></td>
+      </tr>
+      <tr>
+        <td class="type">一段</td>
+        <td><span class="rule">去る ＋ させる</span></td>
+        <td class="jp">食べる → 食べ<strong>させる</strong>　／　起きる → 起き<strong>させる</strong></td>
+      </tr>
+      <tr>
+        <td class="type">不規則</td>
+        <td><span class="rule">單獨記</span></td>
+        <td class="jp">する → さ<strong>せる</strong>　／　くる → こ<strong>させる</strong></td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+<!-- TAB 2：按詞類 -->
+<div id="byType" class="tab-panel">
+
+  <div class="section-label">五段動詞</div>
+
+  <div class="block c1">
+    <div class="block-header">
+      <span class="block-title">先懂原理：字尾在「自己那一行」的あ→お間移動</span>
+      <span class="block-desc">以 書く（か行：か・き・く・け・こ）為例</span>
+    </div>
+    <table>
+      <tr><th>五十音段</th><th>書く 變成</th><th>這個段位接哪些變化型</th></tr>
+      <tr>
+        <td class="type">あ段</td>
+        <td class="jp">書<strong>か</strong></td>
+        <td>ない形・受身・使役<div class="ex">書かない　／　書かれる　／　書かせる</div></td>
+      </tr>
+      <tr>
+        <td class="type">い段</td>
+        <td class="jp">書<strong>き</strong></td>
+        <td>ます形<div class="ex">書きます</div></td>
+      </tr>
+      <tr>
+        <td class="type">う段</td>
+        <td class="jp">書<strong>く</strong></td>
+        <td>辞書形（原形・字典上的樣子，不變）</td>
+      </tr>
+      <tr>
+        <td class="type">え段</td>
+        <td class="jp">書<strong>け</strong></td>
+        <td>ば形・可能形<div class="ex">書けば　／　書ける</div></td>
+      </tr>
+      <tr>
+        <td class="type">お段</td>
+        <td class="jp">書<strong>こ</strong></td>
+        <td>意向形<div class="ex">書こう</div></td>
+      </tr>
+    </table>
+    <p class="warn">⚠ 換動詞就換成「它自己那一行」：待つ → た行（た・ち・つ・て・と）、飲む → ま行（ま・み・む・め・も）。う 結尾的動詞 あ段 用「わ」：買う → 買わない（不是買あない）。て形／た形另外走音便，見下表。</p>
+  </div>
+
+  <div class="block c1">
+    <div class="block-header">
+      <span class="block-title">五段・全變化型對照</span>
+      <span class="block-desc">每列標出字尾落在哪個段位</span>
+    </div>
+    <table>
+      <tr><th>變化型（用途）</th><th>字尾落點</th><th>例：書く・泳ぐ・話す・飲む・待つ・買う</th></tr>
+      <tr>
+        <td class="type">辞書形<br>原形</td>
+        <td><span class="rule">う段（不變）</span></td>
+        <td class="jp">書く　／　泳ぐ　／　話す<div class="ex">飲む　／　待つ　／　買う</div></td>
+      </tr>
+      <tr>
+        <td class="type">ない形<br>否定</td>
+        <td><span class="rule">あ段 ＋ ない</span></td>
+        <td class="jp">書かない　／　泳がない　／　話さない<div class="ex">飲まない　／　待たない　／　買わない（わ）</div></td>
+      </tr>
+      <tr>
+        <td class="type">ます形<br>禮貌</td>
+        <td><span class="rule">い段 ＋ ます</span></td>
+        <td class="jp">書きます　／　泳ぎます　／　話します<div class="ex">飲みます　／　待ちます　／　買います</div></td>
+      </tr>
+      <tr>
+        <td class="type">て形<br>連接</td>
+        <td><span class="rule">音便</span></td>
+        <td class="jp">書いて　／　泳いで　／　話して<div class="ex">飲んで　／　待って　／　買って</div></td>
+      </tr>
+      <tr>
+        <td class="type">た形<br>過去</td>
+        <td><span class="rule">音便（て→た）</span></td>
+        <td class="jp">書いた　／　泳いだ　／　話した<div class="ex">飲んだ　／　待った　／　買った</div></td>
+      </tr>
+      <tr>
+        <td class="type">ば形<br>條件</td>
+        <td><span class="rule">え段 ＋ ば</span></td>
+        <td class="jp">書けば　／　泳げば　／　話せば<div class="ex">飲めば　／　待てば　／　買えば</div></td>
+      </tr>
+      <tr>
+        <td class="type">可能形<br>能力</td>
+        <td><span class="rule">え段 ＋ る</span></td>
+        <td class="jp">書ける　／　泳げる　／　話せる<div class="ex">飲める　／　待てる　／　買える</div></td>
+      </tr>
+      <tr>
+        <td class="type">意向形<br>意志</td>
+        <td><span class="rule">お段 ＋ う</span></td>
+        <td class="jp">書こう　／　泳ごう　／　話そう<div class="ex">飲もう　／　待とう　／　買おう</div></td>
+      </tr>
+      <tr>
+        <td class="type">受身形<br>被動</td>
+        <td><span class="rule">あ段 ＋ れる</span></td>
+        <td class="jp">書かれる　／　泳がれる　／　話される<div class="ex">飲まれる　／　待たれる　／　買われる</div></td>
+      </tr>
+      <tr>
+        <td class="type">使役形<br>使役</td>
+        <td><span class="rule">あ段 ＋ せる</span></td>
+        <td class="jp">書かせる　／　泳がせる　／　話させる<div class="ex">飲ませる　／　待たせる　／　買わせる</div></td>
+      </tr>
+    </table>
+    <p class="warn">⚠ て形／た形音便：く→いて／いた・ぐ→いで／いだ・す→して／した・む/ぬ/ぶ→んで／んだ・る/う/つ→って／った。例外 行く → 行って／行った。</p>
+  </div>
+
+  <div class="section-label">一段動詞</div>
+
+  <div class="block c2">
+    <div class="block-header">
+      <span class="block-title">一段動詞・全變化型</span>
+      <span class="block-desc">字尾る・一律「去る」再接，沒有段位移動、沒有音便</span>
+    </div>
+    <table>
+      <tr><th>變化型（用途）</th><th>規則</th><th>例：食べる（たべる）／見る（みる）／起きる（おきる）</th></tr>
+      <tr>
+        <td class="type">辞書形<br>原形</td>
+        <td><span class="rule">原形（不變）</span></td>
+        <td class="jp">食べる　／　見る　／　起きる</td>
+      </tr>
+      <tr>
+        <td class="type">ない形<br>否定</td>
+        <td><span class="rule">去る ＋ ない</span></td>
+        <td class="jp">食べない　／　見ない　／　起きない</td>
+      </tr>
+      <tr>
+        <td class="type">ます形<br>禮貌</td>
+        <td><span class="rule">去る ＋ ます</span></td>
+        <td class="jp">食べます　／　見ます　／　起きます</td>
+      </tr>
+      <tr>
+        <td class="type">て形<br>連接</td>
+        <td><span class="rule">去る ＋ て</span></td>
+        <td class="jp">食べて　／　見て　／　起きて</td>
+      </tr>
+      <tr>
+        <td class="type">た形<br>過去</td>
+        <td><span class="rule">去る ＋ た</span></td>
+        <td class="jp">食べた　／　見た　／　起きた</td>
+      </tr>
+      <tr>
+        <td class="type">ば形<br>條件</td>
+        <td><span class="rule">去る ＋ れば</span></td>
+        <td class="jp">食べれば　／　見れば　／　起きれば</td>
+      </tr>
+      <tr>
+        <td class="type">可能形<br>能力</td>
+        <td><span class="rule">去る ＋ られる</span></td>
+        <td class="jp">食べられる　／　見られる　／　起きられる</td>
+      </tr>
+      <tr>
+        <td class="type">意向形<br>意志</td>
+        <td><span class="rule">去る ＋ よう</span></td>
+        <td class="jp">食べよう　／　見よう　／　起きよう</td>
+      </tr>
+      <tr>
+        <td class="type">受身形<br>被動</td>
+        <td><span class="rule">去る ＋ られる</span></td>
+        <td class="jp">食べられる　／　見られる　／　起きられる</td>
+      </tr>
+      <tr>
+        <td class="type">使役形<br>使役</td>
+        <td><span class="rule">去る ＋ させる</span></td>
+        <td class="jp">食べさせる　／　見させる　／　起きさせる</td>
+      </tr>
+    </table>
+    <p class="warn">⚠ 可能形和受身形同形（られる），靠語境判斷。口語可能形常「ら抜き」：食べれる・見れる。</p>
+  </div>
+
+  <div class="section-label">不規則動詞</div>
+
+  <div class="block c3">
+    <div class="block-header">
+      <span class="block-title">不規則動詞・全變化型</span>
+      <span class="block-desc">する・くる 兩個整組單獨記</span>
+    </div>
+    <table>
+      <tr><th>變化型（用途）</th><th>する</th><th>くる（来る）</th></tr>
+      <tr>
+        <td class="type">辞書形<br>原形</td>
+        <td class="jp">する</td>
+        <td class="jp">くる</td>
+      </tr>
+      <tr>
+        <td class="type">ない形<br>否定</td>
+        <td class="jp">しない</td>
+        <td class="jp">こない</td>
+      </tr>
+      <tr>
+        <td class="type">ます形<br>禮貌</td>
+        <td class="jp">します</td>
+        <td class="jp">きます</td>
+      </tr>
+      <tr>
+        <td class="type">て形<br>連接</td>
+        <td class="jp">して</td>
+        <td class="jp">きて</td>
+      </tr>
+      <tr>
+        <td class="type">た形<br>過去</td>
+        <td class="jp">した</td>
+        <td class="jp">きた</td>
+      </tr>
+      <tr>
+        <td class="type">ば形<br>條件</td>
+        <td class="jp">すれば</td>
+        <td class="jp">くれば</td>
+      </tr>
+      <tr>
+        <td class="type">可能形<br>能力</td>
+        <td class="jp">できる</td>
+        <td class="jp">こられる</td>
+      </tr>
+      <tr>
+        <td class="type">意向形<br>意志</td>
+        <td class="jp">しよう</td>
+        <td class="jp">こよう</td>
+      </tr>
+      <tr>
+        <td class="type">受身形<br>被動</td>
+        <td class="jp">される</td>
+        <td class="jp">こられる</td>
+      </tr>
+      <tr>
+        <td class="type">使役形<br>使役</td>
+        <td class="jp">させる</td>
+        <td class="jp">こさせる</td>
+      </tr>
+    </table>
+    <p class="warn">⚠ する 的可能形是 できる，不是 しられる。くる 的讀音整組在變（こ／き／く），不是只換字尾。</p>
+  </div>
+
+</div>
+
+<!-- TAB 3：肯定／否定 -->
+<div id="byPolarity" class="tab-panel">
+
+  <div class="section-label">述語的肯定／否定 × 時制</div>
+
+  <div class="block c1">
+    <div class="block-header">
+      <span class="block-title">五段（例：書く）</span>
+      <span class="block-desc">同一個動詞・四種時制文體 × 肯否</span>
+    </div>
+    <table>
+      <tr><th>時制・文體</th><th>肯定</th><th>否定</th></tr>
+      <tr>
+        <td class="type">現在・普通</td>
+        <td class="jp">書く</td>
+        <td class="jp">書か<strong>ない</strong></td>
+      </tr>
+      <tr>
+        <td class="type">現在・丁寧</td>
+        <td class="jp">書き<strong>ます</strong></td>
+        <td class="jp">書き<strong>ません</strong></td>
+      </tr>
+      <tr>
+        <td class="type">過去・普通</td>
+        <td class="jp">書い<strong>た</strong></td>
+        <td class="jp">書か<strong>なかった</strong></td>
+      </tr>
+      <tr>
+        <td class="type">過去・丁寧</td>
+        <td class="jp">書き<strong>ました</strong></td>
+        <td class="jp">書き<strong>ませんでした</strong></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="block c2">
+    <div class="block-header">
+      <span class="block-title">一段（例：食べる）</span>
+      <span class="block-desc">去る再接，沒有音便</span>
+    </div>
+    <table>
+      <tr><th>時制・文體</th><th>肯定</th><th>否定</th></tr>
+      <tr>
+        <td class="type">現在・普通</td>
+        <td class="jp">食べる</td>
+        <td class="jp">食べ<strong>ない</strong></td>
+      </tr>
+      <tr>
+        <td class="type">現在・丁寧</td>
+        <td class="jp">食べ<strong>ます</strong></td>
+        <td class="jp">食べ<strong>ません</strong></td>
+      </tr>
+      <tr>
+        <td class="type">過去・普通</td>
+        <td class="jp">食べ<strong>た</strong></td>
+        <td class="jp">食べ<strong>なかった</strong></td>
+      </tr>
+      <tr>
+        <td class="type">過去・丁寧</td>
+        <td class="jp">食べ<strong>ました</strong></td>
+        <td class="jp">食べ<strong>ませんでした</strong></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="block c3">
+    <div class="block-header">
+      <span class="block-title">不規則（する）</span>
+      <span class="block-desc">整組單獨記</span>
+    </div>
+    <table>
+      <tr><th>時制・文體</th><th>肯定</th><th>否定</th></tr>
+      <tr>
+        <td class="type">現在・普通</td>
+        <td class="jp">する</td>
+        <td class="jp">し<strong>ない</strong></td>
+      </tr>
+      <tr>
+        <td class="type">現在・丁寧</td>
+        <td class="jp">し<strong>ます</strong></td>
+        <td class="jp">し<strong>ません</strong></td>
+      </tr>
+      <tr>
+        <td class="type">過去・普通</td>
+        <td class="jp">し<strong>た</strong></td>
+        <td class="jp">し<strong>なかった</strong></td>
+      </tr>
+      <tr>
+        <td class="type">過去・丁寧</td>
+        <td class="jp">し<strong>ました</strong></td>
+        <td class="jp">し<strong>ませんでした</strong></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="block c3">
+    <div class="block-header">
+      <span class="block-title">不規則（くる・来る）</span>
+      <span class="block-desc">讀音 こ／き 跟著切換</span>
+    </div>
+    <table>
+      <tr><th>時制・文體</th><th>肯定</th><th>否定</th></tr>
+      <tr>
+        <td class="type">現在・普通</td>
+        <td class="jp">くる</td>
+        <td class="jp"><strong>こ</strong>ない</td>
+      </tr>
+      <tr>
+        <td class="type">現在・丁寧</td>
+        <td class="jp"><strong>き</strong>ます</td>
+        <td class="jp"><strong>き</strong>ません</td>
+      </tr>
+      <tr>
+        <td class="type">過去・普通</td>
+        <td class="jp"><strong>き</strong>た</td>
+        <td class="jp"><strong>こ</strong>なかった</td>
+      </tr>
+      <tr>
+        <td class="type">過去・丁寧</td>
+        <td class="jp"><strong>き</strong>ました</td>
+        <td class="jp"><strong>き</strong>ませんでした</td>
+      </tr>
+    </table>
+  </div>
+
+  <p class="warn" style="margin-bottom:28px;">普通形＝常體（朋友・家人・日記）；丁寧形＝です・ます體（對外・正式）。否定的「過去」是 ない → なかった、ません → ませんでした。</p>
+
+  <div class="section-label">其他變化型的否定</div>
+
+  <div class="block c4">
+    <div class="block-header">
+      <span class="block-title">其他變化型怎麼變否定</span>
+      <span class="block-desc">以 書く 為例</span>
+    </div>
+    <table>
+      <tr><th>變化型</th><th>肯定</th><th>否定</th></tr>
+      <tr>
+        <td class="type">て形</td>
+        <td class="jp">書いて</td>
+        <td class="jp">書か<strong>なくて</strong>　／　書か<strong>ないで</strong></td>
+      </tr>
+      <tr>
+        <td class="type">ば形</td>
+        <td class="jp">書けば</td>
+        <td class="jp">書か<strong>なければ</strong></td>
+      </tr>
+      <tr>
+        <td class="type">可能形</td>
+        <td class="jp">書ける</td>
+        <td class="jp">書け<strong>ない</strong></td>
+      </tr>
+      <tr>
+        <td class="type">受身形</td>
+        <td class="jp">書かれる</td>
+        <td class="jp">書かれ<strong>ない</strong></td>
+      </tr>
+      <tr>
+        <td class="type">使役形</td>
+        <td class="jp">書かせる</td>
+        <td class="jp">書かせ<strong>ない</strong></td>
+      </tr>
+    </table>
+    <p class="warn">⚠ て形否定有兩種：〜なくて＝原因／狀態（書かなくて困る）；〜ないで＝請求／不做某事（書かないでください）。可能・受身・使役本身是一段型，否定一律「去る ＋ ない」。</p>
+  </div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
