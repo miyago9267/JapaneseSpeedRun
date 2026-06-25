@@ -26,6 +26,12 @@ jobs:
       - uses: actions/configure-pages@v5
       - run: bun install --frozen-lockfile
       - run: bun run docs:build
+      - name: Verify build output
+        run: |
+          for f in index.html verb-conjugation.html adjective-conjugation.html CNAME; do
+            test -f ".vitepress/dist/$f" || { echo "::error::missing expected build output: dist/$f"; exit 1; }
+          done
+          echo "Build output verified — all expected pages and CNAME present."
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .vitepress/dist
