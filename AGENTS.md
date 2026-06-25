@@ -1,71 +1,65 @@
 # AGENTS.md — JapaneseSpeedRun
 
 Runtime-agnostic guide for any AI working on this repo. `CLAUDE.md` imports this file.
-For human-facing setup (layout, how-to, nginx commands) see `README.md` — do not duplicate it here.
+Human-facing intro is in `README.md`.
 
 ## What this is
 
-A static site of Japanese-learning notes, organized by topic, built with Claude for fast
-review ("speedrun"). Served directly by local nginx at `jlpt.miyago9267.com`. No build step,
-no framework, no JS dependencies — plain HTML + a tiny vanilla manifest/render layer.
+A VitePress site of Japanese-learning notes, built for fast review ("speedrun"). **Single
+source of truth: markdown in `vault/`.** VitePress builds it to `.vitepress/dist/`, which local
+nginx serves at `jlpt.miyago9267.com`. The same `vault/*.md` is also the note vault that Claude
+Desktop / Obsidian reference as teaching material (see `docs/claude-desktop.md`) — one source,
+two consumers (rendered website + LLM/Obsidian reading the raw markdown).
 
-## Two representations of the same content
+## Layout
 
-The same lesson content lives in two layers — keep them in sync when content changes:
-
-- **`site/`** — the web layer. Rich, interactive HTML (tabbed views, color-coded cards). This
-  is what nginx serves. `raw/` holds the standalone HTML drafts that `site/notes/` derives from.
-- **`vault/`** — the teaching-material layer. Clean markdown of the same content, Obsidian-
-  compatible, meant to be referenced by Claude Desktop via a filesystem MCP server (see
-  `docs/claude-desktop.md`). Markdown reads far better for an LLM than the styled HTML.
-
-There is no generator between them yet — they are maintained as parallel artifacts. If you
-change a lesson's content, update both `site/notes/<cat>/<name>.html` and the matching
-`vault/<name>.md`. Presentation-only changes (styling, tabs) stay in `site/` only.
+- `vault/` — markdown source = the pages AND the Claude/Obsidian vault. Keep it **pure markdown**.
+  - `index.md` — home (hero layout)
+  - `<topic>-conjugation.md` — one lesson per file
+- `.vitepress/config.ts` — VitePress config (`srcDir: ./vault`, nav/sidebar, tabs plugin, local search)
+- `.vitepress/theme/` — custom theme: `index.ts` (extends default + registers tabs) + `custom.css`
+  (brand blue, Noto Sans TC, table / rule-chip / callout styling that reproduces the old look)
+- `package.json` — scripts `docs:dev` / `docs:build` / `docs:preview` (run with Bun)
+- `docs/claude-desktop.md` + `claude_desktop_config.example.json` — wire the vault to Claude Desktop (filesystem MCP)
 
 ## Content tone — this is the important part
 
-Notes are **scannable comparison tables, not prose**. Optimize for "glance and recall the
-rule," not for reading. Each note follows the lesson-1 pattern in
-`site/notes/verb/conjugation.html` — copy its shape exactly:
+Notes are **scannable comparison tables, not prose**. Optimize for "glance and recall the rule."
 
-- One **conjugation/usage form per card** (`.block`), each with a distinct colored header
-  (`.c1`…`.c9`). One topic = one page of stacked cards.
-- Inside each card: a 3-column table — **類型 / 規則 / 例子** (type / rule / examples).
-- **規則** is a口訣-style chip (`.rule`, blue pill): terse, formula-like
-  (e.g. `字尾 → a段 ＋ ない`, `い → くない`). State the mechanical transform, nothing more.
-- **例子**: lead example with the changing part wrapped in `<strong>`; extra examples go in
-  `.ex` (small grey). Kanji gets furigana in full-width parens, e.g. `難しい（むずかしい）`.
-- Exceptions / traps → `.warn` (yellow callout, lead with `⚠`). Wrong forms → `.err` (red)
-  marked `✗`, correct marked `✓`.
-- Explanations: Traditional Chinese, casual and dense; keep Japanese terms in Japanese.
-  Short, no long paragraphs. Use the full-width middle dot `・` and slash `／` as the raw notes do.
+- One lesson = one `.md`. Use `::: tabs` / `== Label` (vitepress-plugin-tabs) for multi-view
+  switching — e.g. 按變化型 / 按詞類 / 肯定否定.
+- The core unit is a markdown table (columns like **類型 / 規則 / 例**).
+- **Rules go in `backticks`** → the theme renders inline code as a blue "chip" (the old `.rule`
+  pill). Keep them terse and formula-like: `あ段 ＋ ない`, `い → くない`.
+- Wrap the changing morpheme in **bold** in examples. Kanji gets furigana in full-width parens:
+  難しい（むずかしい）.
+- Exceptions / traps → GitHub alert `> [!WARNING]` (theme styles it amber, like the old `.warn`).
+  Wrong forms marked ✗, correct ✓.
+- Explanations: Traditional Chinese, casual and dense; Japanese terms stay in Japanese. Use the
+  full-width middle dot `・` and slash `／` as separators.
 
-## Conventions
+## Adding / editing a lesson
 
-- **`site/manifest.js` is the single source of truth** for the catalog. A note does not exist
-  to the index until it has a manifest entry.
-- New note: copy `_templates/note.html` → `site/notes/<category>/<name>.html`. It must link
-  `/assets/note.css` + `/assets/note.js` (these inject the sticky "← back home" bar) and keep
-  `body { padding: 32px 20px }` — the bar's negative margins are aligned to that exact padding.
-- Each note carries its own inline `<style>` (the comparison-table styleset). Reuse the
-  existing block, extend color classes (`.c1`…) as needed; add `.err` when a note has a trap table.
-- Then add a `lessons` entry under the matching category in `manifest.js`
-  (`{ title, desc, path, tags }`). New topic → add a category object (`{ id, title, desc, lessons }`).
-- Reload to see changes — there is no build.
+1. Add or edit `vault/<name>.md` (frontmatter: `title / aliases / tags / type`). Mirror an
+   existing lesson's shape.
+2. Register it in `.vitepress/config.ts` (nav + sidebar).
+3. `bun run docs:dev` to preview, `bun run docs:build` to produce `.vitepress/dist/`.
 
-## Raw → lesson workflow
+Because `vault/` is also the Claude/Obsidian vault, the markdown you write **is** the teaching
+material — keep it clean (plain GFM tables + `::: tabs` + alerts; avoid heavy HTML/Vue in the md).
 
-Source drafts live in `raw/`. Converting a raw draft into a published lesson means:
-integrate it into the site (note.css/note.js links, viewport meta, inline style with the
-shared styleset), give each card a distinct sequential color, then register it in the manifest.
-Keep the raw author's content faithful — don't pad it with extra forms; this is a speedrun.
+## Deploy
+
+nginx serves the built output `.vitepress/dist/` (NOT `vault/`). Config:
+`/etc/nginx/domains/miyago9267.com/jlpt.conf`, wildcard cert, 80→443. The repo does not commit
+`dist/`, so a build must run (CI or locally) before serving. nginx reload needs root — AI must
+not `sudo`; hand `sudo nginx -t && sudo systemctl reload nginx` to Miyago.
 
 ## Guardrails
 
-- nginx config: `/etc/nginx/domains/miyago9267.com/jlpt.conf` (wildcard cert, port 80→443).
-  Reload needs root — AI must not `sudo`; hand `sudo nginx -t && sudo systemctl reload nginx`
-  to Miyago.
-- Don't introduce a build step, bundler, or runtime dependency. The whole point is plain files
-  nginx can serve as-is.
-- Verify Japanese content (kana, conjugation, furigana) before publishing; it's a learning aid.
+- **Single source**: edit content in `vault/*.md` only. Do not reintroduce a parallel hand-
+  maintained HTML copy — that dual-maintenance problem is exactly what VitePress removed.
+- Keep the markdown LLM-friendly (it doubles as the teaching vault). Tables + `::: tabs` +
+  `> [!WARNING]` are fine; don't embed large Vue components in the md.
+- Toolchain is Bun: `bun install`, then `bun run docs:build`. Commit `bun.lock`.
+- Verify Japanese content (kana, conjugation, furigana) before publishing.

@@ -6,8 +6,10 @@ Project tone, content conventions, and guardrails live in `AGENTS.md`. Read it f
 
 ## Claude-specific notes
 
-- This is a low-ceremony static site: small, well-scoped edits (add a lesson, tweak a style,
-  fix Japanese). No spec/TDD ceremony needed unless a change is genuinely structural.
-- When adding a lesson, mirror `site/notes/verb/conjugation.html` exactly for tone and markup,
-  then update `site/manifest.js`. Reload — there is no build step or test suite to run.
-- Never `sudo`. nginx reload is Miyago's to run.
+- Single source of truth is `vault/*.md` (also the Claude Desktop / Obsidian teaching vault).
+  Edit content there only; never hand-maintain a parallel HTML copy.
+- After editing a lesson: register it in `.vitepress/config.ts` if new, then `bun run docs:build`
+  to regenerate `.vitepress/dist/` (what nginx serves). `bun run docs:dev` for live preview.
+- Keep the markdown LLM-clean: GFM tables, `::: tabs`, `> [!WARNING]`, backtick rules. Avoid
+  heavy Vue/HTML in the md — it doubles as teaching material an LLM reads.
+- Low ceremony: small content edits don't need spec/TDD. Never `sudo`; nginx reload is Miyago's.

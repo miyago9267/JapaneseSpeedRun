@@ -1,4 +1,7 @@
 .ai/
+.claude/
 .DS_Store
 node_modules/
 *.log
+.vitepress/dist/
+.vitepress/cache/
