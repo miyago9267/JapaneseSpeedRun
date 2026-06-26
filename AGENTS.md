@@ -6,10 +6,37 @@ Human-facing intro is in `README.md`.
 ## What this is
 
 A VitePress site of Japanese-learning notes, built for fast review ("speedrun"). **Single
-source of truth: markdown in `vault/`.** VitePress builds it to `.vitepress/dist/`, which local
-nginx serves at `jlpt.miyago9267.com`. The same `vault/*.md` is also the note vault that Claude
-Desktop / Obsidian reference as teaching material (see `docs/claude-desktop.md`) — one source,
-two consumers (rendered website + LLM/Obsidian reading the raw markdown).
+source of truth: markdown in `vault/`.** GitHub Actions builds it to `.vitepress/dist/` and
+deploys to GitHub Pages at `jp.miyago9267.com` on every push to `main`. The same `vault/*.md` is
+also the note vault that Claude Desktop / Obsidian reference as teaching material (see
+`docs/claude-desktop.md`) — one source, two consumers (rendered website + LLM/Obsidian reading
+the raw markdown).
+
+## How this works — Miyago learns, the agent maintains
+
+The whole point: **Miyago supplies the Japanese and judges whether it's correct; the agent owns
+everything else — placement, formatting, structure, build, deploy.** Miyago should not have to
+think about markdown syntax, tabs, links, the build, or DNS. He pastes raw material; he reviews
+the 日文. That is the division of labour — keep it that way.
+
+When Miyago drops raw material (a word list, a grammar point, example sentences), the agent:
+
+1. **Places it** — fold into an existing `vault/<topic>.md` if it fits, else start a new
+   `vault/<name>.md` mirroring an existing lesson's shape.
+2. **Formats to the house style** (see Content tone) — comparison tables, rules in `backticks`,
+   changing morpheme in **bold**, kanji furigana 難しい（むずかしい）, traps in `> [!WARNING]`,
+   multi-view sections in `<!-- tabs:start/end -->` + `## Label`.
+3. **Stays Obsidian-native** — GFM only, relative `(other.md)` links; no `::: tabs`, no heavy HTML.
+4. **Wires a new lesson in** — frontmatter (`title / aliases / tags / type`) + register it in
+   `.vitepress/config.ts` (nav + sidebar).
+5. **Ships it** — `bun run docs:build` must pass, then commit and push `main`. CI re-builds, the
+   verify-output gate runs, and only a green build deploys to Pages; a broken build never touches
+   the live site.
+6. **Hands the 日文 back to Miyago to confirm** — kana, conjugation, furigana, nuance. The agent
+   never silently trusts its own Japanese; that review is Miyago's one job.
+
+If a formatting/structure/tooling call is ambiguous, the agent decides and proceeds — it does not
+pull Miyago back into tooling. The only thing that routinely needs Miyago is Japanese correctness.
 
 ## Layout
 
@@ -20,9 +47,12 @@ two consumers (rendered website + LLM/Obsidian reading the raw markdown).
   search). Holds the `obsidian_tabs` markdown-it rule that derives `::: tabs` from the comment
   markers at build time (see Content tone) — the source stays Obsidian-native.
 - `.vitepress/theme/` — custom theme: `index.ts` (extends default + registers tabs) + `custom.css`
-  (brand blue, Noto Sans TC, table / rule-chip / callout styling that reproduces the old look)
+  (brand blue, Noto Sans TC, clean-paper light + dark theme split via CSS vars, table / rule-chip
+  / callout styling)
 - `package.json` — scripts `docs:dev` / `docs:build` / `docs:preview` (run with Bun)
 - `docs/claude-desktop.md` + `claude_desktop_config.example.json` — wire the vault to Claude Desktop (filesystem MCP)
+- `.github/workflows/deploy.yml` — CI: build + verify-output gate + deploy to GitHub Pages on push to `main`
+- `vault/public/CNAME` — pins the `jp.miyago9267.com` custom domain (copied into `dist/` at build)
 
 ## Content tone — this is the important part
 
@@ -60,10 +90,12 @@ constructs (`::: tabs`, root-absolute links) or heavy HTML/Vue in the source.
 
 ## Deploy
 
-nginx serves the built output `.vitepress/dist/` (NOT `vault/`). Config:
-`/etc/nginx/domains/miyago9267.com/jlpt.conf`, wildcard cert, 80→443. The repo does not commit
-`dist/`, so a build must run (CI or locally) before serving. nginx reload needs root — AI must
-not `sudo`; hand `sudo nginx -t && sudo systemctl reload nginx` to Miyago.
+GitHub Actions deploys to **GitHub Pages** on every push to `main` (`.github/workflows/deploy.yml`):
+`bun install --frozen-lockfile` → `bun run docs:build` → verify expected output → `deploy-pages`.
+The `deploy` job needs `build`, so a failed build or missing output skips deploy — the live site is
+never overwritten by a broken build. Custom domain `jp.miyago9267.com` is pinned by
+`vault/public/CNAME` (copied into `dist/` at build); HTTPS is provisioned by GitHub. The repo does
+not commit `dist/`. No nginx, no server, no sudo.
 
 ## Guardrails
 
