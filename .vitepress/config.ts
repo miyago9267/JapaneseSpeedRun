@@ -35,7 +35,12 @@ export default defineConfig({
     nav: [
       { text: '首頁', link: '/' },
       { text: '動詞', link: '/verb-conjugation' },
-      { text: '形容詞', link: '/adjective-conjugation' }
+      { text: '形容詞', link: '/adjective-conjugation' },
+      { text: '自他動詞', link: '/jidoushi-tadoushi' },
+      { text: 'の 接續', link: '/no-nominalization' },
+      { text: '句子解析', link: '/sentence-parsing' },
+      { text: '細節助詞', link: '/focus-particles' },
+      { text: '我的錯題', link: '/my-pitfalls' }
     ],
     sidebar: [
       {
@@ -43,6 +48,16 @@ export default defineConfig({
         items: [
           { text: '動詞變化型', link: '/verb-conjugation' },
           { text: '形容詞變化型', link: '/adjective-conjugation' }
+        ]
+      },
+      {
+        text: '動詞概念',
+        items: [
+          { text: '自他動詞', link: '/jidoushi-tadoushi' },
+          { text: 'の 接續', link: '/no-nominalization' },
+          { text: '句子解析', link: '/sentence-parsing' },
+          { text: '細節助詞', link: '/focus-particles' },
+          { text: '我的錯題', link: '/my-pitfalls' }
         ]
       }
     ],
