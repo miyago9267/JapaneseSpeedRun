@@ -1,41 +1,50 @@
 # 某人的日文筆記
 
-跟 Claude 整理的日文學習筆記，本身可以被部署成一個靜態網站的部分。
+跟 Claude 整理的日文學習筆記，同時是一個可以線上看的靜態網站。
 反正是某個語言白癡為了考日檢做的學習日誌，連筆記都不算是（雙押喔齁）。
+
+線上版：<https://jp.miyago9267.com>
+
+## 這是什麼
+
+單一來源是 `vault/` 裡的 markdown，它同時是兩種東西：
+
+- VitePress 網站的頁面（build 後部署到 GitHub Pages）
+- Obsidian / Claude Desktop 直接讀的筆記 vault（教材）
+
+一份 markdown、兩種用途。寫法慣例與 AI 協作規則見 [`AGENTS.md`](AGENTS.md)。
 
 ## Layout
 
+```text
+vault/                       <- 唯一來源：markdown = 網站頁面 + Obsidian vault
+  index.md                   <- 首頁（hero）
+  <topic>-conjugation.md     <- 一課一檔
+  public/CNAME               <- 綁定 jp.miyago9267.com
+.vitepress/
+  config.ts                  <- VitePress 設定（nav/sidebar、tabs、Obsidian 相容規則）
+  theme/                     <- 自訂主題（clean-paper 亮色 + 暗色）
+.github/workflows/deploy.yml <- CI：build + 驗證 + 部署到 GitHub Pages
 ```
-site/                       <- nginx root
-  index.html                <- 首頁，依分類列出所有筆記 + 即時搜尋
-  manifest.js               <- 唯一資料來源：分類與筆記清單
-  assets/
-    site.css                <- 首頁樣式
-    app.js                  <- 首頁渲染 + 搜尋邏輯
-    note.css / note.js      <- 每篇筆記共用的「回首頁」頂欄
-  notes/<category>/<name>.html
-_templates/note.html        <- 新筆記模板（不對外 serve）
-```
 
-## 新增一篇筆記
+## 新增 / 編輯一篇筆記
 
-1. 複製 `_templates/note.html` 到 `site/notes/<分類>/<檔名>.html`，把內容填進去。
-2. 在 `site/manifest.js` 對應分類的 `lessons` 陣列加一筆：
+1. 編輯 `vault/<name>.md`（frontmatter：`title / aliases / tags / type`），照既有課的格式。
+2. 若是新檔，在 `.vitepress/config.ts` 註冊（nav + sidebar）。
+3. `bun run docs:dev` 本地預覽、`bun run docs:build` 產生 `.vitepress/dist/`。
 
-   ```js
-   { title: "標題", desc: "說明", path: "notes/<分類>/<檔名>.html", tags: ["標籤"] }
-   ```
+寫法（比較表、rule chip、furigana、tabs、警告框）詳見 [`AGENTS.md`](AGENTS.md) 的 Content tone。
+Markdown 要保持 Obsidian-native（它同時是 Obsidian vault）。
 
-   分類不存在就在 `categories` 新增一個物件（含 `id` / `title` / `desc` / `lessons`）。
-3. 重新整理頁面即可，沒有 build step。
+## 部署
 
-## Nginx
+push 到 `main` → GitHub Actions 自動 build + 驗證產物 + 部署到 GitHub Pages（`jp.miyago9267.com`）。
+build 失敗就不會更新線上站，沒有手動步驟、不碰 server。
 
-設定檔：`/etc/nginx/domains/miyago9267.com/jlpt.conf`
-走既有的 wildcard `*.miyago9267.com` 憑證與 port 80 → 443 全域轉址。
-
-改完設定後套用（需要 root）：
+## 開發
 
 ```bash
-sudo nginx -t && sudo systemctl reload nginx
+bun install
+bun run docs:dev      # 本地預覽
+bun run docs:build    # 產生 dist/
 ```
