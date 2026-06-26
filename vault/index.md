@@ -1,9 +1,9 @@
 ---
 layout: home
 hero:
-  name: 某人的日文筆記
-  text: 跟 Claude 整理・隨時複習
-  tagline: N3 合格中，衝 N2。
+  name: Miyago 的日文筆記
+  text: 絶賛惡補中☆
+  tagline: 連 N3 都不知道合格的人要衝 N2 啦。
   actions:
     - theme: brand
       text: 動詞變化型
