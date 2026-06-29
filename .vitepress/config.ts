@@ -34,12 +34,30 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '首頁', link: '/' },
-      { text: '動詞', link: '/verb-conjugation' },
-      { text: '形容詞', link: '/adjective-conjugation' },
-      { text: '自他動詞', link: '/jidoushi-tadoushi' },
-      { text: 'の 接續', link: '/no-nominalization' },
-      { text: '句子解析', link: '/sentence-parsing' },
-      { text: '細節助詞', link: '/focus-particles' },
+      {
+        text: '變化型',
+        items: [
+          { text: '動詞變化型', link: '/verb-conjugation' },
+          { text: '形容詞變化型', link: '/adjective-conjugation' }
+        ]
+      },
+      {
+        text: '動詞語法',
+        items: [
+          { text: '自他動詞', link: '/jidoushi-tadoushi' },
+          { text: 'の 接續', link: '/no-nominalization' },
+          { text: '授受動詞', link: '/juju-doushi' },
+          { text: 'て形複合', link: '/te-compound' }
+        ]
+      },
+      {
+        text: '文法表現',
+        items: [
+          { text: '句子解析', link: '/sentence-parsing' },
+          { text: '細節助詞', link: '/focus-particles' },
+          { text: '條件形', link: '/conditional-forms' }
+        ]
+      },
       { text: '我的錯題', link: '/my-pitfalls' }
     ],
     sidebar: [
@@ -51,12 +69,20 @@ export default defineConfig({
         ]
       },
       {
-        text: '動詞概念',
+        text: '動詞語法',
         items: [
           { text: '自他動詞', link: '/jidoushi-tadoushi' },
           { text: 'の 接續', link: '/no-nominalization' },
+          { text: '授受動詞', link: '/juju-doushi' },
+          { text: 'て形複合', link: '/te-compound' }
+        ]
+      },
+      {
+        text: '文法表現',
+        items: [
           { text: '句子解析', link: '/sentence-parsing' },
           { text: '細節助詞', link: '/focus-particles' },
+          { text: '條件形', link: '/conditional-forms' },
           { text: '我的錯題', link: '/my-pitfalls' }
         ]
       }

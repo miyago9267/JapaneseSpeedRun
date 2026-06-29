@@ -4,8 +4,11 @@ const cards = [
   { icon: '形', title: '形容詞變化型', sub: 'い・な形，條件陷阱', link: '/adjective-conjugation' },
   { icon: '自', title: '自他動詞', sub: 'を vs が・ている差異', link: '/jidoushi-tadoushi' },
   { icon: 'の', title: 'の 接續', sub: '名詞化，のに，んだ', link: '/no-nominalization' },
+  { icon: '授', title: '授受動詞', sub: 'あげる・くれる・もらう', link: '/juju-doushi' },
+  { icon: 'て', title: 'て形複合', sub: 'しまう・おく・いく・くる', link: '/te-compound' },
   { icon: '文', title: '句子解析', sub: '格助詞・修飾語方向', link: '/sentence-parsing' },
   { icon: '助', title: '細節助詞', sub: 'も・しか・だけ・ばかり', link: '/focus-particles' },
+  { icon: '条', title: '條件形', sub: 'と・ば・たら・なら', link: '/conditional-forms' },
   { icon: '誤', title: '我的錯題', sub: '反覆出錯的模式整理', link: '/my-pitfalls' },
 ]
 
@@ -39,7 +42,7 @@ function openSearch() {
     <div class="jph-body">
       <div class="jph-status">
         <span class="jph-dot"></span>
-        共 7 篇筆記・涵蓋 N3–N2・持續更新
+        共 10 篇筆記・涵蓋 N3–N2・持續更新
       </div>
 
       <div
