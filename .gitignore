@@ -5,6 +5,7 @@ node_modules/
 *.log
 .vitepress/dist/
 .vitepress/cache/
+.vitepress/.temp/
 .obsidian/
 .playwright-mcp/
 homepage-*.png
