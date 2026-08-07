@@ -6,3 +6,5 @@ node_modules/
 .vitepress/dist/
 .vitepress/cache/
 .obsidian/
+.playwright-mcp/
+homepage-*.png

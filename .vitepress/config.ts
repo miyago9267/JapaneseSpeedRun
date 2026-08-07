@@ -55,7 +55,9 @@ export default defineConfig({
         items: [
           { text: '句子解析', link: '/sentence-parsing' },
           { text: '細節助詞', link: '/focus-particles' },
-          { text: '條件形', link: '/conditional-forms' }
+          { text: '條件形', link: '/conditional-forms' },
+          { text: '推量・様態', link: '/modality' },
+          { text: '新聞日文', link: '/news-japanese' }
         ]
       },
       { text: '我的錯題', link: '/my-pitfalls' }
@@ -83,6 +85,8 @@ export default defineConfig({
           { text: '句子解析', link: '/sentence-parsing' },
           { text: '細節助詞', link: '/focus-particles' },
           { text: '條件形', link: '/conditional-forms' },
+          { text: '推量・様態', link: '/modality' },
+          { text: '新聞日文', link: '/news-japanese' },
           { text: '我的錯題', link: '/my-pitfalls' }
         ]
       }
