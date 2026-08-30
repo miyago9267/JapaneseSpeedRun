@@ -60,6 +60,12 @@ export default defineConfig({
           { text: '新聞日文', link: '/news-japanese' }
         ]
       },
+      {
+        text: '練習卷',
+        items: [
+          { text: 'N2 模擬・文法卷 01', link: '/n2-mock-grammar-01' }
+        ]
+      },
       { text: '我的錯題', link: '/my-pitfalls' }
     ],
     sidebar: [
@@ -86,7 +92,13 @@ export default defineConfig({
           { text: '細節助詞', link: '/focus-particles' },
           { text: '條件形', link: '/conditional-forms' },
           { text: '推量・様態', link: '/modality' },
-          { text: '新聞日文', link: '/news-japanese' },
+          { text: '新聞日文', link: '/news-japanese' }
+        ]
+      },
+      {
+        text: '練習卷',
+        items: [
+          { text: 'N2 模擬・文法卷 01', link: '/n2-mock-grammar-01' },
           { text: '我的錯題', link: '/my-pitfalls' }
         ]
       }
