@@ -35,6 +35,12 @@ export default defineConfig({
     nav: [
       { text: '首頁', link: '/' },
       {
+        text: '基礎文法',
+        items: [
+          { text: 'は vs が', link: '/wa-ga' }
+        ]
+      },
+      {
         text: '變化型',
         items: [
           { text: '動詞變化型', link: '/verb-conjugation' },
@@ -69,6 +75,12 @@ export default defineConfig({
       { text: '我的錯題', link: '/my-pitfalls' }
     ],
     sidebar: [
+      {
+        text: '基礎文法',
+        items: [
+          { text: 'は vs が', link: '/wa-ga' }
+        ]
+      },
       {
         text: '變化型筆記',
         items: [
