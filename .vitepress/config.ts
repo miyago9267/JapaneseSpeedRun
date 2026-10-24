@@ -70,7 +70,8 @@ export default defineConfig({
       {
         text: '練習卷',
         items: [
-          { text: 'N2 模擬・文法卷 01', link: '/n2-mock-grammar-01' }
+          { text: 'N2 模擬・文法卷 01', link: '/n2-mock-grammar-01' },
+          { text: '讀解筆記', link: '/reading-notes' }
         ]
       },
       { text: '我的錯題', link: '/my-pitfalls' }
@@ -113,6 +114,7 @@ export default defineConfig({
         text: '練習卷',
         items: [
           { text: 'N2 模擬・文法卷 01', link: '/n2-mock-grammar-01' },
+          { text: '讀解筆記', link: '/reading-notes' },
           { text: '我的錯題', link: '/my-pitfalls' }
         ]
       }
