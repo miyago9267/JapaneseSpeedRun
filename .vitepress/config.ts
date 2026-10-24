@@ -53,7 +53,8 @@ export default defineConfig({
           { text: '自他動詞', link: '/jidoushi-tadoushi' },
           { text: 'の 接續', link: '/no-nominalization' },
           { text: '授受動詞', link: '/juju-doushi' },
-          { text: 'て形複合', link: '/te-compound' }
+          { text: 'て形複合', link: '/te-compound' },
+          { text: '使役形用法', link: '/causative' }
         ]
       },
       {
@@ -96,7 +97,8 @@ export default defineConfig({
           { text: '自他動詞', link: '/jidoushi-tadoushi' },
           { text: 'の 接續', link: '/no-nominalization' },
           { text: '授受動詞', link: '/juju-doushi' },
-          { text: 'て形複合', link: '/te-compound' }
+          { text: 'て形複合', link: '/te-compound' },
+          { text: '使役形用法', link: '/causative' }
         ]
       },
       {
