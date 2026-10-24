@@ -63,7 +63,8 @@ export default defineConfig({
           { text: '細節助詞', link: '/focus-particles' },
           { text: '條件形', link: '/conditional-forms' },
           { text: '推量・様態', link: '/modality' },
-          { text: '新聞日文', link: '/news-japanese' }
+          { text: '新聞日文', link: '/news-japanese' },
+          { text: '理由・程度', link: '/reason-degree' }
         ]
       },
       {
@@ -104,7 +105,8 @@ export default defineConfig({
           { text: '細節助詞', link: '/focus-particles' },
           { text: '條件形', link: '/conditional-forms' },
           { text: '推量・様態', link: '/modality' },
-          { text: '新聞日文', link: '/news-japanese' }
+          { text: '新聞日文', link: '/news-japanese' },
+          { text: '理由・程度', link: '/reason-degree' }
         ]
       },
       {
