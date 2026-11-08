@@ -25,6 +25,10 @@
 }
 
 .dark {
+  --vp-c-text-1: rgba(255, 255, 245, 0.86);
+  --vp-c-brand-1: #7a9cff;
+  --vp-c-brand-2: #93afff;
+  --vp-c-brand-3: #7a9cff;
   --vp-c-brand-soft: #1e2740;
   --jp-table-head-bg: #1c1f26;
   --jp-table-head-fg: #a9b2c0;
