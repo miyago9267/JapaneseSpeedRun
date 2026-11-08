@@ -2,6 +2,7 @@
 title: 生活用語
 aliases: [生活用語, 日常用語, 中翻日, 怎麼說, daily phrases]
 tags: [japanese, examples, daily, phrases, 日常]
+level: [日常]
 type: lesson
 ---
 

@@ -2,6 +2,7 @@
 title: 學習方法
 aliases: [學習方法, 怎麼做筆記, 複習, 手寫筆記, study method]
 tags: [japanese, study, method, review, jlpt]
+level: [N5, N4, N3, N2, N1]
 type: guide
 ---
 

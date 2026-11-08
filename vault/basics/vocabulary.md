@@ -2,6 +2,7 @@
 title: 基本單字
 aliases: [基本單字, 單字, こそあど, 疑問詞, 時間詞, vocabulary]
 tags: [japanese, vocabulary, basics, N5, N4]
+level: [N5, N4]
 type: lesson
 ---
 

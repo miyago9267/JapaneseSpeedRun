@@ -2,6 +2,7 @@
 title: 常用助詞
 aliases: [助詞, 基本助詞, 格助詞, particles, は が を に で へ]
 tags: [japanese, jlpt, grammar, particle, basics, N5, N4]
+level: [N5, N4]
 type: lesson
 ---
 

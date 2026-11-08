@@ -2,6 +2,7 @@
 title: 活用速查表
 aliases: [活用表, 活用速查, 變化型速查, conjugation cheatsheet]
 tags: [japanese, jlpt, grammar, conjugation, cheatsheet, basics]
+level: [N5, N4, N3]
 type: lesson
 ---
 

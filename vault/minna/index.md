@@ -2,6 +2,7 @@
 title: 大家的日本語 總覽
 aliases: [みんなの日本語, minna no nihongo, 大家的日本語, 教材追蹤]
 tags: [japanese, minna, textbook, checklist, N5, N4]
+level: [N5, N4]
 type: guide
 ---
 

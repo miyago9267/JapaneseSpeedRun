@@ -2,6 +2,7 @@
 title: 動詞變化型
 aliases: [動詞活用, 五段 一段 不規則, verb conjugation]
 tags: [japanese, jlpt, grammar, verb, conjugation]
+level: [N5, N4, N3]
 type: lesson
 ---
 

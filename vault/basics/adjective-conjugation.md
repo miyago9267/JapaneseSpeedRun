@@ -2,6 +2,7 @@
 title: 形容詞變化型
 aliases: [形容詞活用, い形容詞 な形容詞, adjective conjugation]
 tags: [japanese, jlpt, grammar, adjective, conjugation]
+level: [N5, N4]
 type: lesson
 ---
 

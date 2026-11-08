@@ -116,9 +116,28 @@ Notes are **scannable comparison tables, not prose**. Optimize for "glance and r
 - 中級 I・II **只依 Miyago 提供的目次照片建立**，沒照片不憑記憶填。
 - 新增課冊頁時照「寫入檢查清單」註冊 nav / sidebar，並加進 `deploy.yml` 的 verify 清單。
 
+### 難度標記
+
+網站涵蓋 N5–N1（Miyago 重考 N2，同時已在刷 N1 題）。**每個文法點・單字都要帶難度標記**，之後寫的新內容一律照此辦理。
+
+| 標記 | 意思 | 例 |
+|---|---|---|
+| 〔N5〕…〔N1〕 | JLPT 級別 | ～ざるを得ない〔N2〕 |
+| 〔約N2〕・〔N2〜N1〕 | 各家公認級別有爭議時，寫約略級別或跨級區間 | しいて〔N2〜N1〕 |
+| 〔日常〕 | 日常口語，JLPT 不考（じゃん・ちゃう・てる・っす …） | 気にしてなかった〔日常〕 |
+| 〔文言〕 | 文章語・文言殘留，出現在硬的文章・新聞・法律（～べし・～ざる・～ねばならぬ …） | 突如〔N1・文言〕 |
+| 〔死語〕 | 過時・已淘汰，只見於舊作品或角色台詞 | ～でござる |
+
+- 標記可組合：〔N1・文言〕、〔N2・日常〕（前者是文法點本身的級別，後者是它的口語變體）。
+- **一律用全形 〔〕 當純文字，不要包 backtick**（backtick 是藍色 rule chip，標記不是規則）。
+- 位置：緊接在文法點／單字後面；表格有「級」欄就放那一欄（新增一欄時，每一列都要補，欄數要一致）。
+- 單字本（`basics/words/`）表格固定有「級」欄，新背的字照加。
+- 不確定的級別用〔約Nx〕，並在回覆中列出請 Miyago 確認，不要自己默默拍板。
+- Frontmatter 每頁加 `level:` 清單，例：`level: [N4, N3]`。跨很多級就列範圍；教材追蹤線 `minna/shokyu-1` → `[N5]`、`shokyu-2` → `[N4]`；純日常口語頁可寫 `[日常]`。首頁 `index.md`（只有 layout）免。`tags:` 只在該頁本來就有 N 級 tag 時才同步，不要另外亂加。
+
 ### 寫入檢查清單
 
-1. 新頁面一律要有 frontmatter（`title / aliases / tags / type`）。
+1. 新頁面一律要有 frontmatter（`title / aliases / tags / level / type`），內容照「難度標記」標級別。
 2. 新頁面要在 `.vitepress/config.ts` 的 nav + sidebar 註冊，放進對應分類群組；必要時加首頁卡片。
 3. 跨資料夾連結用相對路徑（`../compare/wa-ga.md`），同資料夾直接 `x.md`；不寫 root-absolute。
 4. `bun run docs:build` 必須通過，才 commit + push `main`。
@@ -128,7 +147,7 @@ Practice session 的出題風格（JLPT track / 日常 track）見 `CLAUDE.md`�
 
 ## Adding / editing a lesson
 
-1. Add or edit `vault/<category>/<name>.md` (frontmatter: `title / aliases / tags / type`). Mirror
+1. Add or edit `vault/<category>/<name>.md` (frontmatter: `title / aliases / tags / level / type`; label every point per 「難度標記」). Mirror
    an existing lesson's shape.
 2. Register it in `.vitepress/config.ts` (nav + sidebar, under its category group) and, if it
    deserves a home card, in `.vitepress/theme/HomePage.vue`.

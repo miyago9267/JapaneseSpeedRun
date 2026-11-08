@@ -2,6 +2,7 @@
 title: 初級 II（第26〜50課）
 aliases: [みんなの日本語 初級II, minna shokyu 2, 大家的日本語 初級2]
 tags: [japanese, minna, textbook, checklist, N4, N3]
+level: [N4]
 type: checklist
 ---
 

@@ -2,6 +2,7 @@
 title: は vs が
 aliases: [は和が, 主題主格, wa-ga]
 tags: [japanese, grammar, n5, n4, n3, particles, basics]
+level: [N5, N4, N3]
 type: lesson
 ---
 

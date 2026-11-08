@@ -2,6 +2,7 @@
 title: 自他動詞
 aliases: [自動詞, 他動詞, transitive intransitive]
 tags: [japanese, jlpt, grammar, verb]
+level: [N5, N4]
 type: lesson
 ---
 

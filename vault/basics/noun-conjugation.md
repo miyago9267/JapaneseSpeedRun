@@ -2,6 +2,7 @@
 title: 名詞活用
 aliases: [名詞活用, だ です, 名詞句, noun conjugation, 判斷句]
 tags: [japanese, jlpt, grammar, noun, conjugation, basics, N5, N4]
+level: [N5, N4]
 type: lesson
 ---
 

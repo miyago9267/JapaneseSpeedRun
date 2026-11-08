@@ -2,6 +2,7 @@
 title: 初級 I（第1〜25課）
 aliases: [みんなの日本語 初級I, minna shokyu 1, 大家的日本語 初級1]
 tags: [japanese, minna, textbook, checklist, N5, N4]
+level: [N5]
 type: checklist
 ---
 

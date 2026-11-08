@@ -83,7 +83,7 @@ function openSearch() {
     <div class="jph-body">
       <div class="jph-status">
         <span class="jph-dot"></span>
-        共 31 篇筆記・涵蓋 N5–N2・持續更新
+        共 31 篇筆記・涵蓋 N5–N1・持續更新
       </div>
 
       <div

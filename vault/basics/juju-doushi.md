@@ -1,7 +1,8 @@
 ---
 title: 授受動詞
 aliases: [あげる, くれる, もらう, 授受動詞]
-tags: [grammar, N4, N3, verb]
+tags: [grammar, N5, N4, N3, verb]
+level: [N5, N4, N3]
 type: lesson
 ---
 

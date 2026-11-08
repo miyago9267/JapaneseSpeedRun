@@ -2,6 +2,7 @@
 title: の 接續與名詞化
 aliases: [のは, のが, のを, のに, ので, んだ, nominalization]
 tags: [japanese, jlpt, grammar, particle, の]
+level: [N4, N3]
 type: lesson
 ---
 

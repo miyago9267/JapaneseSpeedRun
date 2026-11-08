@@ -2,6 +2,7 @@
 title: て形複合用法
 aliases: [てしまう, ておく, ていく, てくる, て形複合]
 tags: [grammar, N4, N3, verb, て形]
+level: [N4, N3]
 type: lesson
 ---
 

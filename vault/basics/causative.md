@@ -2,6 +2,7 @@
 title: 使役形用法：誰讓誰做
 aliases: [使役, 使役形, させる, せる, causative]
 tags: [grammar, N4, N3, N2, verb, causative]
+level: [N4, N3, N2]
 type: lesson
 ---
 

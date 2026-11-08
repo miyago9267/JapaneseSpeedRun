@@ -2,6 +2,7 @@
 title: 句子解析：主語・受語・修飾
 aliases: [主語, 受語, 格助詞, 修飾語, sentence structure, parsing]
 tags: [japanese, jlpt, grammar, parsing, particle]
+level: [N4, N3]
 type: lesson
 ---
 
