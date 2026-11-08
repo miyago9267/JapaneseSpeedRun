@@ -23,7 +23,7 @@ type: guide
 
 | 資料夾 | 它是什麼 | 你怎麼用它 |
 | --- | --- | --- |
-| `basics/` 基礎 | 活用・助詞・單字・基本句型 | **補底**。弱的地方整頁慢慢讀，用速查表當字典 |
+| `basics/` 基礎 | `vocab/` 文字・語彙、`grammar/` 文法、`parsing/` 解析（活用・助詞・單字・複合動詞・拆句） | **補底**。弱的地方整頁慢慢讀，用速查表當字典 |
 | `compare/` 比較 | 近義詞的差別（から vs ので…） | **有混淆時才看**。問 agent「A 和 B 差在哪」，它會補進來 |
 | `examples/` 實例 | 你貼的 galgame・書・新聞的拆解、生活用語 | **讀原文時的字典**。貼截圖問，答完自動記錄 |
 | `mistakes/` 我的錯題 | 你答錯・翻錯的點 | **最重要的複習來源**。越常看越有效 |
@@ -67,7 +67,7 @@ type: guide
 | 昨日に映画を見た | 昨日映画を見た | 昨日 這類詞不加 に |
 | ✗学生だので | 学生なので | ので 前面名詞要加 な |
 
-寫完錯因後，在旁邊註記 vault 的對應頁（例：`basics/particles.md`）。**錯題本是三本裡最值錢的一本。**
+寫完錯因後，在旁邊註記 vault 的對應頁（例：`basics/grammar/particles.md`）。**錯題本是三本裡最值錢的一本。**
 
 ### 3.4 一頁一主題・顏色分工
 
@@ -86,7 +86,7 @@ type: guide
 
 很多人背單字卡在「看到變形認不出原型」。對策：**每個字都寫成同一種排版**，把原型和變形綁在一起。
 
-**單字本一行一個字（對應 vault 的 `basics/words/`）：**
+**單字本一行一個字（對應 vault 的 `basics/vocab/`）：**
 
 | 左 | 中 | 右 | 最右 |
 |---|---|---|---|
@@ -109,7 +109,7 @@ type: guide
 
 | 資料夾 | 怎麼複習 | 節奏 |
 | --- | --- | --- |
-| `basics/` | 遮住表格默寫活用・助詞；用 `conjugation-cheatsheet.md` 自測 | 學完後第 1・3・7・14・30 天 |
+| `basics/` | 遮住表格默寫活用・助詞；用 `basics/grammar/conjugation-cheatsheet.md` 自測 | 學完後第 1・3・7・14・30 天 |
 | `compare/` | 不看筆記，自己造兩個句子分別用 A 和 B | 第 3・7・14 天 |
 | `examples/` | 遮住翻譯和結構，自己讀原文、念出意思；生活用語則看中文說日文 | 第 7・14・30 天 |
 | `mistakes/` | **只看左欄的原句**，自己改正並說出錯因 | 第 1・3・7・14・30 天；錯第二次就重新排 |
@@ -156,9 +156,9 @@ type: guide
 
 ## 8. 起手式（今天就能開始）
 
-1. 打開 `basics/conjugation-cheatsheet.md`，選**動詞**那張表，遮住右邊默寫て形和ない形（只做這兩個）。
+1. 打開 `basics/grammar/conjugation-cheatsheet.md`，選**動詞**那張表，遮住右邊默寫て形和ない形（只做這兩個）。
 2. 對答案，錯的用紅筆寫進錯題本。
 3. 明天（第 1 天）再默寫一次；後天不用，第 3 天再來。
 4. 對 agent 說：「出 5 題て形和ない形，考我。」答錯的請它收進 `mistakes/`。
 
-相關：[活用速查表](basics/conjugation-cheatsheet.md)・[我的錯題](mistakes/my-pitfalls.md)・[比較：から vs ので](compare/kara-node.md)
+相關：[活用速查表](basics/grammar/conjugation-cheatsheet.md)・[我的錯題](mistakes/my-pitfalls.md)・[比較：から vs ので](compare/kara-node.md)

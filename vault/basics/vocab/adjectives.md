@@ -8,7 +8,13 @@ type: wordbank
 
 # 形容詞單字本
 
-**新背的字依此表格式往下加**（一字一列；先標清楚是「い」還是「な」，再看否定・過去・副詞化）。活用規則：[活用速查表](../conjugation-cheatsheet.md)・[形容詞變化型](../adjective-conjugation.md)。功能詞在 [基本單字](../vocabulary.md)；其他單字本：[動詞](verbs.md)・[名詞](nouns.md)。
+**新背的字依此表格式往下加**（一字一列；先標清楚是「い」還是「な」，再看否定・過去・副詞化）。活用規則：[活用速查表](../grammar/conjugation-cheatsheet.md)・[形容詞變化型](../grammar/adjective-conjugation.md)。功能詞在 [基本單字](function-words.md)；其他單字本：[動詞](verbs.md)・[名詞](nouns.md)。
+
+**怎麼用這頁：**
+
+- **什麼時候來**：背新形容詞、或不確定一個字是い形還是な形時。
+- **自我測驗**：遮住否定・過去・副詞化欄，看原型默寫；特別檢查「看起來像い形、其實是な形」那節，自己造修飾名詞的短語。
+- **卡住時**：規則 → [形容詞變化型](../grammar/adjective-conjugation.md)・[活用速查表](../grammar/conjugation-cheatsheet.md)。
 
 ## 看起來像い形、其實是な形
 

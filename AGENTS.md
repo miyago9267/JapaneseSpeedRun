@@ -44,7 +44,12 @@ pull Miyago back into tooling. The only thing that routinely needs Miyago is Jap
 - `vault/` — markdown source = the pages AND the Claude/Obsidian vault. Keep it **pure markdown**.
   - `index.md` — home (hero layout)
   - `basics/` 基礎・`compare/` 比較・`examples/` 實例・`mistakes/` 我的錯題 — four categories, one
-    lesson per file (rules: 「Vault 分類與自動筆記規則」)
+    lesson per file (rules: 「Vault 分類與自動筆記規則」). `compare/ examples/ mistakes/` stay flat;
+    `basics/` is split into three sub-folders:
+    - `basics/vocab/` 文字・語彙 — `function-words.md`（基本單字／功能詞）・`verbs.md`・`adjectives.md`・`nouns.md`（單字本）
+    - `basics/grammar/` 文法 — 活用（`conjugation-cheatsheet` / `verb-` / `adjective-` / `noun-conjugation`）・`particles`・
+      `te-compound`・`compound-verbs`（複合動詞）・`jidoushi-tadoushi`・`juju-doushi`・`causative`・`no-nominalization`
+    - `basics/parsing/` 解析 — `sentence-parsing.md`（拆句技巧）
   - `study-method.md` — 學習方法 guide (stays at root, outside the four categories)
 - `.vitepress/config.ts` — VitePress config (`srcDir: ./vault`, nav/sidebar, tabs plugin, local
   search). Holds the `obsidian_tabs` markdown-it rule that derives `::: tabs` from the comment
@@ -87,14 +92,16 @@ Notes are **scannable comparison tables, not prose**. Optimize for "glance and r
 
 | 資料夾 | 分類 | 放什麼 | 何時寫入 |
 |---|---|---|---|
-| `vault/basics/` | 基礎 | 基本單字（功能詞 `vocabulary.md`；動詞／形容詞／名詞單字本 `basics/words/`）、動詞／形容詞／名詞活用、常用助詞、基本句型與動詞語法 | Miyago 問到基礎文法，或 agent 發現他基礎缺口時，補進對應專課；問到或背了**單一單字**時，記進 `basics/words/` 對應的單字本 |
+| `vault/basics/` | 基礎（三個子資料夾：`vocab/` 文字・語彙、`grammar/` 文法、`parsing/` 解析） | `vocab/`：基本單字（功能詞 `function-words.md`；動詞／形容詞／名詞單字本 `verbs.md`・`adjectives.md`・`nouns.md`）。`grammar/`：動詞／形容詞／名詞活用、常用助詞、基本句型與動詞語法、複合動詞。`parsing/`：拆句技巧（`sentence-parsing.md`） | Miyago 問到基礎文法，或 agent 發現他基礎缺口時，補進 `basics/grammar/` 對應專課；問到或背了**單一單字**時，記進 `basics/vocab/` 對應的單字本；問「這句怎麼拆」的通則補進 `basics/parsing/` |
 | `vault/compare/` | 比較 | 近義詞・相近用法的區別（例：から vs ので、は vs が、と・ば・たら・なら） | 問「A 和 B 差在哪」或錯題暴露混淆時；一組比較一個檔，或併入既有比較頁 |
 | `vault/examples/` | 實例 | Miyago 貼的真實素材（galgame、書、新聞截圖）的翻譯＋拆解；以及「中文生活用語 → 日文怎麼講」 | 他貼素材或問「這句日文怎麼講」時，答完自動記錄，不用問。依來源分檔：一部作品／一類來源一個檔，句號遞增（原文 → 翻譯 → 結構 → 片段表）；生活用語進 `examples/daily-phrases.md` |
 | `vault/mistakes/` | 我的錯題 | agent 出題考他時答錯率高的點；他自己造句或中日互譯翻錯的地方（≠ 主動請教） | 出題後依答錯情況斟酌收錄；他造句／翻譯有錯時收錄：原句 ✗ → 正確 ✓ → 錯因 → 連到對應 basics／compare 專課 |
 
 ### 分流判斷
 
-- **單一單字（問到或他在背）→ `basics/words/`**：依詞性記進 `verbs.md`／`adjectives.md`／`nouns.md`，
+- **basics 內部再分流**：單一單字 → `basics/vocab/`；文法・活用・句型 → `basics/grammar/`；拆句技巧 → `basics/parsing/`。
+  新頁放進對應子資料夾，並在 `config.ts` 的 基礎 › 對應子群組註冊。
+- **單一單字（問到或他在背）→ `basics/vocab/`**：依詞性記進 `verbs.md`／`adjectives.md`／`nouns.md`，
   欄位照該頁表頭：動詞標類型（五段／一段／不規則・自／他）＋ます形・て形・ない形；形容詞標 い／な ＋否定・過去・副詞化；
   名詞標能否 ＋ する。**不要記進 `examples/`**；單字在實例中出現時，單字本備註可連回實例。
 - **請教用法（asking）→ `examples/`**：他問「這句什麼意思／這個怎麼講」，記進實例。
@@ -123,7 +130,6 @@ Notes are **scannable comparison tables, not prose**. Optimize for "glance and r
 | 標記 | 意思 | 例 |
 |---|---|---|
 | 〔N5〕…〔N1〕 | JLPT 級別 | ～ざるを得ない〔N2〕 |
-| 〔約N2〕・〔N2〜N1〕 | 各家公認級別有爭議時，寫約略級別或跨級區間 | しいて〔N2〜N1〕 |
 | 〔日常〕 | 日常口語，JLPT 不考（じゃん・ちゃう・てる・っす …） | 気にしてなかった〔日常〕 |
 | 〔文言〕 | 文章語・文言殘留，出現在硬的文章・新聞・法律（～べし・～ざる・～ねばならぬ …） | 突如〔N1・文言〕 |
 | 〔死語〕 | 過時・已淘汰，只見於舊作品或角色台詞 | ～でござる |
@@ -131,9 +137,9 @@ Notes are **scannable comparison tables, not prose**. Optimize for "glance and r
 - 標記可組合：〔N1・文言〕、〔N2・日常〕（前者是文法點本身的級別，後者是它的口語變體）。
 - **一律用全形 〔〕 當純文字，不要包 backtick**（backtick 是藍色 rule chip，標記不是規則）。
 - 位置：緊接在文法點／單字後面；表格有「級」欄就放那一欄（新增一欄時，每一列都要補，欄數要一致）。
-- 單字本（`basics/words/`）表格固定有「級」欄，新背的字照加。
-- 不確定的級別用〔約Nx〕，並在回覆中列出請 Miyago 確認，不要自己默默拍板。
-- Frontmatter 每頁加 `level:` 清單，例：`level: [N4, N3]`。跨很多級就列範圍；教材追蹤線 `minna/shokyu-1` → `[N5]`、`shokyu-2` → `[N4]`；純日常口語頁可寫 `[日常]`。首頁 `index.md`（只有 layout）免。`tags:` 只在該頁本來就有 N 級 tag 時才同步，不要另外亂加。
+- 單字本（`basics/vocab/`）表格固定有「級」欄，新背的字照加。
+- 有爭議時一律標較高（較難）的級數，不寫範圍、不寫「約」（例：しいて〔N1〕）；仍拿不準的，照此規則直接標，並在回覆中列出請 Miyago 確認。
+- Frontmatter 每頁加 `level:` 清單，例：`level: [N4, N3]`。跨很多級就逐級列出（不寫區間）；教材追蹤線 `minna/shokyu-1` → `[N5]`、`shokyu-2` → `[N4]`；純日常口語頁可寫 `[日常]`。首頁 `index.md`（只有 layout）免。`tags:` 只在該頁本來就有 N 級 tag 時才同步，不要另外亂加。
 
 ### 寫入檢查清單
 

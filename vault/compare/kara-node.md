@@ -8,7 +8,7 @@ type: lesson
 
 # から vs ので
 
-兩個都是「因為～所以～」，N5/N4 就會學到，但**主觀 vs 客觀、後句能接什麼、禮貌度**不同，混用會讓句子怪或失禮。延伸：[理由・程度（ものだから・ほどだ）](reason-degree.md)・[常用助詞](../basics/particles.md)（`から` 的「起點」用法）。
+兩個都是「因為～所以～」，N5/N4 就會學到，但**主觀 vs 客觀、後句能接什麼、禮貌度**不同，混用會讓句子怪或失禮。延伸：[理由・程度（ものだから・ほどだ）](reason-degree.md)・[常用助詞](../basics/grammar/particles.md)（`から` 的「起點」用法）。
 
 **一句話：** `から` ＝ 我的理由（主觀・直接，後句想怎麼說都行）；`ので` ＝ 事情的因果（客觀・委婉，後句不強加於人）。
 
@@ -71,4 +71,4 @@ type: lesson
 3. 句尾直接回答「為什麼」→ `からです`
 4. 兩個都通、只差語氣時 → 熟人用 `から`、對外用 `ので`
 
-> 日文請 Miyago 確認。相關：[理由・程度](reason-degree.md)・[條件形](conditional-forms.md)・[名詞活用](../basics/noun-conjugation.md)（名詞＋な＋ので）
+> 日文請 Miyago 確認。相關：[理由・程度](reason-degree.md)・[條件形](conditional-forms.md)・[名詞活用](../basics/grammar/noun-conjugation.md)（名詞＋な＋ので）

@@ -10,7 +10,11 @@ type: lesson
 
 動詞・形容詞・名詞（だ）的所有變化型，一張表看完（動詞用三個代表：五段 書く、一段 見る、不規則 来る）。**這頁只管「查」**；規則的由來和語感看 [動詞變化型](verb-conjugation.md)、[形容詞變化型](adjective-conjugation.md)，名詞的 だ／です 看 [名詞活用](noun-conjugation.md)。
 
-**用法：** 先遮住表格，看左欄的變化型，自己默寫一遍再對答案——不要整張抄。粗體＝**語幹以外**的部分（變掉的音＋接上去的語尾）。
+**怎麼用這頁：**
+
+- **什麼時候來**：需要「立刻查某個變化型」時；這頁是字典，不是教材。
+- **自我測驗**：先遮住表格，看左欄的變化型，自己默寫一遍再對答案——不要整張抄。粗體＝**語幹以外**的部分（變掉的音＋接上去的語尾）。
+- **卡住時**：規則的由來和語感 → [動詞變化型](verb-conjugation.md)・[形容詞變化型](adjective-conjugation.md)・[名詞活用](noun-conjugation.md)。
 
 <!-- tabs:start -->
 
@@ -97,4 +101,4 @@ type: lesson
 ## 相關
 
 - 語感・原理：[動詞變化型](verb-conjugation.md)・[形容詞變化型](adjective-conjugation.md)・[名詞活用](noun-conjugation.md)
-- 條件形（ば・たら・なら）怎麼選：[條件形](../compare/conditional-forms.md)
+- 條件形（ば・たら・なら）怎麼選：[條件形](../../compare/conditional-forms.md)

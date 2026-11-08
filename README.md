@@ -19,7 +19,10 @@
 ```text
 vault/                       <- 唯一來源：markdown = 網站頁面 + Obsidian vault
   index.md                   <- 首頁（hero）
-  basics/                    <- 基礎：活用・助詞・單字・基本句型
+  basics/                    <- 基礎
+    vocab/                   <- 文字・語彙：單字本・功能詞
+    grammar/                 <- 文法：活用・助詞・句型・複合動詞
+    parsing/                 <- 解析：拆句技巧
   compare/                   <- 比較：近義詞・相近用法差在哪
   examples/                  <- 實例：真實素材拆解・生活用語
   mistakes/                  <- 我的錯題

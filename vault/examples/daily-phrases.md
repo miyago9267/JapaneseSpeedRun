@@ -8,7 +8,7 @@ type: lesson
 
 # 生活用語：中文 → 日文怎麼講
 
-Miyago 問「這句日文怎麼講」時，agent 答完會自動記在這裡：**中文原句 → 不同場合的日文 → 語感・對象**。一句一節，句子之間沒有順序。要查文法規則請看 [基礎](../basics/particles.md)／[比較](../compare/kara-node.md)；自己造句翻錯的點記在 [錯題整理](../mistakes/my-pitfalls.md)，不記在這裡。
+Miyago 問「這句日文怎麼講」時，agent 答完會自動記在這裡：**中文原句 → 不同場合的日文 → 語感・對象**。一句一節，句子之間沒有順序。要查文法規則請看 [基礎](../basics/grammar/particles.md)／[比較](../compare/kara-node.md)；自己造句翻錯的點記在 [錯題整理](../mistakes/my-pitfalls.md)，不記在這裡。
 
 ## 條目格式（新增時照抄）
 

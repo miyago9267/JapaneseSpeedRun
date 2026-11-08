@@ -8,7 +8,13 @@ type: wordbank
 
 # 動詞單字本
 
-**新背的字依此表格式往下加**（一字一列；每個動詞都標清楚原型・類型・自他，才不會看到變形就認不出原型）。活用規則：[活用速查表](../conjugation-cheatsheet.md)・[動詞變化型](../verb-conjugation.md)・[自他動詞](../jidoushi-tadoushi.md)。功能詞（こそあど・疑問詞・時間詞）在 [基本單字](../vocabulary.md)；其他單字本：[形容詞](adjectives.md)・[名詞](nouns.md)。
+**新背的字依此表格式往下加**（一字一列；每個動詞都標清楚原型・類型・自他，才不會看到變形就認不出原型）。活用規則：[活用速查表](../grammar/conjugation-cheatsheet.md)・[動詞變化型](../grammar/verb-conjugation.md)・[自他動詞](../grammar/jidoushi-tadoushi.md)。功能詞（こそあど・疑問詞・時間詞）在 [基本單字](function-words.md)；其他單字本：[形容詞](adjectives.md)・[名詞](nouns.md)。
+
+**怎麼用這頁：**
+
+- **什麼時候來**：背新動詞、或看到變形認不出原型時。新背的字依表格式往下加。
+- **自我測驗**：遮住「ます形・て形・ない形」三欄，看辭書形默寫；反過來，看變形說出原型和類型（五段／一段）。
+- **卡住時**：規則 → [活用速查表](../grammar/conjugation-cheatsheet.md)；自他配對 → [自他動詞](../grammar/jidoushi-tadoushi.md)；動詞黏動詞 → [複合動詞](../grammar/compound-verbs.md)。
 
 **類型標記：** 五＝五段／一＝一段／不＝不規則；自＝自動詞／他＝他動詞。
 

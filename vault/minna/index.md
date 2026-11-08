@@ -17,7 +17,7 @@ type: guide
 
 1. 從[初級 I](shokyu-1.md) 第1課開始往下走，每個文型自問：「不看筆記，我能造一句嗎？」
 2. 會用 → 把 `[ ]` 改成 `[x]`；還不熟 → 保持 `[ ]`。
-3. 不熟的點告訴 agent：它會補進 [basics](../basics/particles.md) ／ [compare](../compare/wa-ga.md) 的對應專課（若是你自己造句錯的，再記一筆[錯題](../mistakes/my-pitfalls.md)），並把清單那一行連到專課。
+3. 不熟的點告訴 agent：它會補進 [basics](../basics/grammar/particles.md) ／ [compare](../compare/wa-ga.md) 的對應專課（若是你自己造句錯的，再記一筆[錯題](../mistakes/my-pitfalls.md)），並把清單那一行連到專課。
 4. 每一行 ` → [專課]` 就是該點的詳細說明；沒有連結代表目前還沒有專課。
 
 ## 進度

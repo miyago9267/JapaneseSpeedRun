@@ -8,7 +8,13 @@ type: wordbank
 
 # 名詞單字本
 
-**新背的字依此表格式往下加**（一字一列；標清楚能不能 ＋ する、常見搭配用哪個助詞）。名詞後接 だ／です 的活用：[名詞活用](../noun-conjugation.md)・[活用速查表](../conjugation-cheatsheet.md)。功能詞在 [基本單字](../vocabulary.md)；其他單字本：[動詞](verbs.md)・[形容詞](adjectives.md)。
+**新背的字依此表格式往下加**（一字一列；標清楚能不能 ＋ する、常見搭配用哪個助詞）。名詞後接 だ／です 的活用：[名詞活用](../grammar/noun-conjugation.md)・[活用速查表](../grammar/conjugation-cheatsheet.md)。功能詞在 [基本單字](function-words.md)；其他單字本：[動詞](verbs.md)・[形容詞](adjectives.md)。
+
+**怎麼用這頁：**
+
+- **什麼時候來**：背新名詞、或不確定一個名詞能不能 ＋ する、要搭哪個助詞時。
+- **自我測驗**：遮住「備註・搭配」欄，看名詞自己想「能不能 ＋ する」和常見搭配，再對答案。
+- **卡住時**：名詞後接だ／です → [名詞活用](../grammar/noun-conjugation.md)；助詞搭配 → [常用助詞](../grammar/particles.md)。
 
 ## 名詞＋する（動作名詞）
 

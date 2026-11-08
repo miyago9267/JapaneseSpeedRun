@@ -2,17 +2,18 @@
 const sections = [
   {
     title: '基礎',
-    sub: '活用・助詞・單字・基本句型，補 N5/N4 的底',
+    sub: '文字・語彙／文法／解析，補 N5/N4 的底',
     cards: [
-      { icon: '表', title: '活用速查表', sub: '動詞・形容詞・名詞一張看完', link: '/basics/conjugation-cheatsheet' },
-      { icon: '動', title: '動詞變化型', sub: '全變化型・段位原理', link: '/basics/verb-conjugation' },
-      { icon: '形', title: '形容詞變化型', sub: 'い・な形，條件陷阱', link: '/basics/adjective-conjugation' },
-      { icon: '助', title: '常用助詞', sub: 'は・が・を・に・で・へ…', link: '/basics/particles' },
-      { icon: '語', title: '基本單字', sub: 'こそあど・疑問詞・時間詞', link: '/basics/vocabulary' },
-      { icon: '帳', title: '單字本', sub: '動詞・形容詞・名詞，標原型與變形', link: '/basics/words/verbs' },
-      { icon: '自', title: '自他動詞', sub: 'を vs が・ている差異', link: '/basics/jidoushi-tadoushi' },
-      { icon: '授', title: '授受動詞', sub: 'あげる・くれる・もらう', link: '/basics/juju-doushi' },
-      { icon: '文', title: '句子解析', sub: '格助詞・修飾語方向', link: '/basics/sentence-parsing' },
+      { icon: '表', title: '活用速查表', sub: '動詞・形容詞・名詞一張看完', link: '/basics/grammar/conjugation-cheatsheet' },
+      { icon: '動', title: '動詞變化型', sub: '全變化型・段位原理', link: '/basics/grammar/verb-conjugation' },
+      { icon: '形', title: '形容詞變化型', sub: 'い・な形，條件陷阱', link: '/basics/grammar/adjective-conjugation' },
+      { icon: '助', title: '常用助詞', sub: 'は・が・を・に・で・へ…', link: '/basics/grammar/particles' },
+      { icon: '語', title: '基本單字', sub: 'こそあど・疑問詞・時間詞', link: '/basics/vocab/function-words' },
+      { icon: '帳', title: '單字本', sub: '動詞・形容詞・名詞，標原型與變形', link: '/basics/vocab/verbs' },
+      { icon: '自', title: '自他動詞', sub: 'を vs が・ている差異', link: '/basics/grammar/jidoushi-tadoushi' },
+      { icon: '授', title: '授受動詞', sub: 'あげる・くれる・もらう', link: '/basics/grammar/juju-doushi' },
+      { icon: '複', title: '複合動詞', sub: '飛び込む・言い出す・使い切る…', link: '/basics/grammar/compound-verbs' },
+      { icon: '文', title: '句子解析', sub: '格助詞・修飾語方向', link: '/basics/parsing/sentence-parsing' },
     ],
   },
   {

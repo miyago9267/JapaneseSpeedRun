@@ -41,38 +41,34 @@ export default defineConfig({
         text: '基礎',
         items: [
           {
-            text: '活用',
+            text: '文字・語彙',
             items: [
-              { text: '活用速查表', link: '/basics/conjugation-cheatsheet' },
-              { text: '動詞變化型', link: '/basics/verb-conjugation' },
-              { text: '形容詞變化型', link: '/basics/adjective-conjugation' },
-              { text: '名詞活用', link: '/basics/noun-conjugation' }
+              { text: '基本單字（功能詞）', link: '/basics/vocab/function-words' },
+              { text: '動詞單字本', link: '/basics/vocab/verbs' },
+              { text: '形容詞單字本', link: '/basics/vocab/adjectives' },
+              { text: '名詞單字本', link: '/basics/vocab/nouns' }
             ]
           },
           {
-            text: '助詞・單字',
+            text: '文法',
             items: [
-              { text: '常用助詞', link: '/basics/particles' },
-              { text: '基本單字（功能詞）', link: '/basics/vocabulary' }
+              { text: '活用速查表', link: '/basics/grammar/conjugation-cheatsheet' },
+              { text: '動詞變化型', link: '/basics/grammar/verb-conjugation' },
+              { text: '形容詞變化型', link: '/basics/grammar/adjective-conjugation' },
+              { text: '名詞活用', link: '/basics/grammar/noun-conjugation' },
+              { text: '常用助詞', link: '/basics/grammar/particles' },
+              { text: '自他動詞', link: '/basics/grammar/jidoushi-tadoushi' },
+              { text: 'の 接續', link: '/basics/grammar/no-nominalization' },
+              { text: '授受動詞', link: '/basics/grammar/juju-doushi' },
+              { text: 'て形複合', link: '/basics/grammar/te-compound' },
+              { text: '複合動詞', link: '/basics/grammar/compound-verbs' },
+              { text: '使役形用法', link: '/basics/grammar/causative' }
             ]
           },
           {
-            text: '單字本',
+            text: '解析',
             items: [
-              { text: '動詞單字本', link: '/basics/words/verbs' },
-              { text: '形容詞單字本', link: '/basics/words/adjectives' },
-              { text: '名詞單字本', link: '/basics/words/nouns' }
-            ]
-          },
-          {
-            text: '動詞語法・句型',
-            items: [
-              { text: '自他動詞', link: '/basics/jidoushi-tadoushi' },
-              { text: 'の 接續', link: '/basics/no-nominalization' },
-              { text: '授受動詞', link: '/basics/juju-doushi' },
-              { text: 'て形複合', link: '/basics/te-compound' },
-              { text: '使役形用法', link: '/basics/causative' },
-              { text: '句子解析', link: '/basics/sentence-parsing' }
+              { text: '句子解析', link: '/basics/parsing/sentence-parsing' }
             ]
           }
         ]
@@ -117,27 +113,40 @@ export default defineConfig({
       {
         text: '基礎',
         items: [
-          { text: '活用速查表', link: '/basics/conjugation-cheatsheet' },
-          { text: '動詞變化型', link: '/basics/verb-conjugation' },
-          { text: '形容詞變化型', link: '/basics/adjective-conjugation' },
-          { text: '名詞活用', link: '/basics/noun-conjugation' },
-          { text: '常用助詞', link: '/basics/particles' },
-          { text: '基本單字（功能詞）', link: '/basics/vocabulary' },
           {
-            text: '單字本',
+            text: '文字・語彙',
             collapsed: false,
             items: [
-              { text: '動詞單字本', link: '/basics/words/verbs' },
-              { text: '形容詞單字本', link: '/basics/words/adjectives' },
-              { text: '名詞單字本', link: '/basics/words/nouns' }
+              { text: '基本單字（功能詞）', link: '/basics/vocab/function-words' },
+              { text: '動詞單字本', link: '/basics/vocab/verbs' },
+              { text: '形容詞單字本', link: '/basics/vocab/adjectives' },
+              { text: '名詞單字本', link: '/basics/vocab/nouns' }
             ]
           },
-          { text: '自他動詞', link: '/basics/jidoushi-tadoushi' },
-          { text: 'の 接續', link: '/basics/no-nominalization' },
-          { text: '授受動詞', link: '/basics/juju-doushi' },
-          { text: 'て形複合', link: '/basics/te-compound' },
-          { text: '使役形用法', link: '/basics/causative' },
-          { text: '句子解析', link: '/basics/sentence-parsing' }
+          {
+            text: '文法',
+            collapsed: false,
+            items: [
+              { text: '活用速查表', link: '/basics/grammar/conjugation-cheatsheet' },
+              { text: '動詞變化型', link: '/basics/grammar/verb-conjugation' },
+              { text: '形容詞變化型', link: '/basics/grammar/adjective-conjugation' },
+              { text: '名詞活用', link: '/basics/grammar/noun-conjugation' },
+              { text: '常用助詞', link: '/basics/grammar/particles' },
+              { text: '自他動詞', link: '/basics/grammar/jidoushi-tadoushi' },
+              { text: 'の 接續', link: '/basics/grammar/no-nominalization' },
+              { text: '授受動詞', link: '/basics/grammar/juju-doushi' },
+              { text: 'て形複合', link: '/basics/grammar/te-compound' },
+              { text: '複合動詞', link: '/basics/grammar/compound-verbs' },
+              { text: '使役形用法', link: '/basics/grammar/causative' }
+            ]
+          },
+          {
+            text: '解析',
+            collapsed: false,
+            items: [
+              { text: '句子解析', link: '/basics/parsing/sentence-parsing' }
+            ]
+          }
         ]
       },
       {
