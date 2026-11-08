@@ -359,3 +359,19 @@
   accent-color: var(--vp-c-brand-1);
   opacity: 1;
 }
+
+/* Ruby / furigana: vault 寫 {漢字|かんじ}，build 時轉成 <ruby>。
+   rt 小一點、用次要文字色（亮暗都可讀）；段落・表格・清單加行高避免注音撞到上一行。 */
+.vp-doc ruby { ruby-position: over; ruby-align: center; }
+.vp-doc rt {
+  font-size: 0.6em;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--vp-c-text-2);
+  user-select: none; /* 複製日文時不要把讀音夾進去 */
+}
+.vp-doc strong rt { color: var(--vp-c-brand-1); }
+.vp-doc code rt { font-size: 0.55em; }
+.vp-doc :is(p, li, blockquote):has(ruby) { line-height: 2; }
+.vp-doc :is(td, th):has(ruby) { line-height: 1.95; }

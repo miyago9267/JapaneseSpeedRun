@@ -13,6 +13,9 @@ Project tone, content conventions, and guardrails live in `AGENTS.md`. Read it f
 - After editing a lesson: register it in `.vitepress/config.ts` if new, then `bun run docs:build`
   to regenerate `.vitepress/dist/`. `bun run docs:dev` for live preview. Pushing `main` lets CI
   build + deploy to GitHub Pages (`jp.miyago9267.com`).
+- Furigana is ruby syntax `{漢字|かんじ}` (okurigana outside the braces: `{難|むずか}しい`; in table
+  rows write `{漢字\|かんじ}`; bold/backticks wrap the whole token). Never write full-width-paren
+  furigana `漢字（かんじ）`. Details: `AGENTS.md` → Content tone.
 - Keep the markdown LLM-clean AND Obsidian-native: GFM tables, `<!-- tabs:start/end -->` + `## Label`
   (NOT `::: tabs`), `> [!WARNING]`, backtick rules, relative `(other.md)` links. VitePress-only
   syntax is derived at build by `.vitepress/config.ts`. Avoid heavy Vue/HTML — it doubles as

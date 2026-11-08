@@ -25,7 +25,7 @@ When Miyago drops raw material (a word list, a grammar point, example sentences)
    an existing page under `vault/basics|compare|examples|mistakes/` if it fits, else start a new
    `vault/<category>/<name>.md` mirroring an existing lesson's shape.
 2. **Formats to the house style** (see Content tone) — comparison tables, rules in `backticks`,
-   changing morpheme in **bold**, kanji furigana 難しい（むずかしい）, traps in `> [!WARNING]`,
+   changing morpheme in **bold**, kanji furigana as ruby `{難|むずか}しい`, traps in `> [!WARNING]`,
    multi-view sections in `<!-- tabs:start/end -->` + `## Label`.
 3. **Stays Obsidian-native** — GFM only, relative `(other.md)` links; no `::: tabs`, no heavy HTML.
 4. **Wires a new lesson in** — frontmatter (`title / aliases / tags / type`) + register it in
@@ -78,8 +78,22 @@ Notes are **scannable comparison tables, not prose**. Optimize for "glance and r
 - The core unit is a markdown table (columns like **類型 / 規則 / 例**).
 - **Rules go in `backticks`** → the theme renders inline code as a blue "chip" (the old `.rule`
   pill). Keep them terse and formula-like: `あ段 ＋ ない`, `い → くない`.
-- Wrap the changing morpheme in **bold** in examples. Kanji gets furigana in full-width parens:
-  難しい（むずかしい）.
+- Wrap the changing morpheme in **bold** in examples.
+- **Furigana = ruby syntax `{漢字|かんじ}`** (the syntax of the Obsidian community plugin "Markdown
+  Furigana"; the site turns it into `<ruby>` at build via a markdown-it rule in
+  `.vitepress/config.ts`). Do **not** write full-width-paren furigana `漢字（かんじ）` any more.
+  - Okurigana stays **outside** the braces: `{難|むずか}しい`, `{帰|かえ}る`, `{落|お}ち{着|つ}く`.
+    One ruby token per kanji run; a compound like `{勉強|べんきょう}` takes one reading.
+  - Per-character readings are allowed when the segment count equals the character count:
+    `{漢字|かん|じ}`. The reading is kana / ー only; the base must contain a kanji.
+  - **Inside GFM table rows the pipe must be escaped: `{漢字\|かんじ}`** (an unescaped `|` splits the
+    cell). The plugin and the site both accept `\|`. Use a plain `|` everywhere else (paragraphs,
+    lists, headings, blockquotes).
+  - **Bold / backticks wrap the whole ruby token, never split it**: `**{高|たか}い**` is fine,
+    `{**高**|たか}い` is not (it no longer matches the plugin regex).
+  - Ruby is not rendered inside `` `code spans` `` / fenced blocks, so templates and examples there
+    stay literal on purpose. Don't use it in frontmatter.
+  - Without the plugin Obsidian shows the raw `{…|…}`; install steps are in `vault/study-method.md`.
 - Exceptions / traps → GitHub alert `> [!WARNING]` (theme styles it amber, like the old `.warn`).
   Wrong forms marked ✗, correct ✓.
 - Explanations: Traditional Chinese, casual and dense; Japanese terms stay in Japanese. Use the
@@ -91,7 +105,7 @@ Notes are **scannable comparison tables, not prose**. Optimize for "glance and r
 不用先問「要不要記」。
 
 | 資料夾 | 分類 | 放什麼 | 何時寫入 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `vault/basics/` | 基礎（三個子資料夾：`vocab/` 文字・語彙、`grammar/` 文法、`parsing/` 解析） | `vocab/`：基本單字（功能詞 `function-words.md`；動詞／形容詞／名詞單字本 `verbs.md`・`adjectives.md`・`nouns.md`）。`grammar/`：動詞／形容詞／名詞活用、常用助詞、基本句型與動詞語法、複合動詞。`parsing/`：拆句技巧（`sentence-parsing.md`） | Miyago 問到基礎文法，或 agent 發現他基礎缺口時，補進 `basics/grammar/` 對應專課；問到或背了**單一單字**時，記進 `basics/vocab/` 對應的單字本；問「這句怎麼拆」的通則補進 `basics/parsing/` |
 | `vault/compare/` | 比較 | 近義詞・相近用法的區別（例：から vs ので、は vs が、と・ば・たら・なら） | 問「A 和 B 差在哪」或錯題暴露混淆時；一組比較一個檔，或併入既有比較頁 |
 | `vault/examples/` | 實例 | Miyago 貼的真實素材（galgame、書、新聞截圖）的翻譯＋拆解；以及「中文生活用語 → 日文怎麼講」 | 他貼素材或問「這句日文怎麼講」時，答完自動記錄，不用問。依來源分檔：一部作品／一類來源一個檔，句號遞增（原文 → 翻譯 → 結構 → 片段表）；生活用語進 `examples/daily-phrases.md` |
@@ -117,7 +131,7 @@ Notes are **scannable comparison tables, not prose**. Optimize for "glance and r
 《みんなの日本語》第2版的逐課文型檢查表（`index.md`・`shokyu-1.md`・`shokyu-2.md`），是**進度索引**，不是第五個內容分類。
 
 - 格式：每課 `## 第N課` ＋ GFM task list，一個文型一行；Miyago 會用時把 `[ ]` 勾成 `[x]`（網站上 checkbox 唯讀，勾選在 Obsidian／直接改 md）。
-- Miyago 說某點**不熟**、或造句／答題錯在該點時：agent 把說明補進 `basics/` 或 `compare/` 專課（本體規則只放那裡），自己造句錯的另記 `mistakes/`；`minna/` 該行保留並連到專課（` → [專課](../basics/xxx.md)`）。
+- Miyago 說某點**不熟**、或造句／答題錯在該點時：agent 把說明補進 `basics/` 或 `compare/` 專課（本體規則只放那裡），自己造句錯的另記 `mistakes/`；`minna/` 該行保留並連到專課（`→ [專課](../basics/xxx.md)`）。
 - **絕不抄課本**：只放文型名稱，例句一律自編；不收本文・例文・練習・會話・單字表。
 - 課次歸屬依記憶整理，不確定的標 `⚠待對照`；Miyago 拍目次後再校正。
 - 中級 I・II **只依 Miyago 提供的目次照片建立**，沒照片不憑記憶填。
@@ -128,7 +142,7 @@ Notes are **scannable comparison tables, not prose**. Optimize for "glance and r
 網站涵蓋 N5–N1（Miyago 重考 N2，同時已在刷 N1 題）。**每個文法點・單字都要帶難度標記**，之後寫的新內容一律照此辦理。
 
 | 標記 | 意思 | 例 |
-|---|---|---|
+| --- | --- | --- |
 | 〔N5〕…〔N1〕 | JLPT 級別 | ～ざるを得ない〔N2〕 |
 | 〔日常〕 | 日常口語，JLPT 不考（じゃん・ちゃう・てる・っす …） | 気にしてなかった〔日常〕 |
 | 〔文言〕 | 文章語・文言殘留，出現在硬的文章・新聞・法律（～べし・～ざる・～ねばならぬ …） | 突如〔N1・文言〕 |

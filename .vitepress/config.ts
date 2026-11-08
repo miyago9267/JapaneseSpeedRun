@@ -29,6 +29,80 @@ export default defineConfig({
         }
         state.src = out.join('\n')
       })
+      // 振假名：vault 裡寫 {漢字|かんじ}（Obsidian 社群外掛 Markdown Furigana 的語法），
+      // 表格列內寫 {漢字\|かんじ}。多段讀音 {漢字|かん|じ} 需段數 = base 字數。
+      // build 時轉成 <ruby>。兩階段做是為了不被 CommonMark 的 ** flanking 規則干擾：
+      // 先（inline 解析前）把 token 換成不含標點的 PUA 佔位字元，emphasis 才會把它當一般文字；
+      // 解析後再把 text token 裡的佔位字元切成 <ruby> 的 token，code span / 連結等原樣還原。
+      // 以 code point 組 regex，來源檔不放 unicode 跳脫（formatter 會改寫它們）
+      const cp = (a: number, b?: number) =>
+        b === undefined ? String.fromCharCode(a) : `${String.fromCharCode(a)}-${String.fromCharCode(b)}`
+      const BS = String.fromCharCode(92)
+      const KANJI = cp(0x3005) + cp(0x3006) + cp(0x3400, 0x4dbf) + cp(0x4e00, 0x9fff) + cp(0xf900, 0xfaff)
+      const KANA = cp(0x3041, 0x3096) + cp(0x30a1, 0x30fa) + cp(0x30fc)
+      const RUBY_KANJI = new RegExp(`[${KANJI}]`)
+      // 等價於：(?<!反斜線)\{ ([kana/kanji]+) ( (?:反斜線?\| [kana]+)+ ) \}
+      const RUBY_RE = new RegExp(
+        `(?<!${BS}${BS})${BS}{([${KANA}${KANJI}]+)((?:${BS}${BS}?${BS}|[${KANA}]+)+)${BS}}`, 'g')
+      const P_OPEN = cp(0xe000), P_MID = cp(0xe001), P_END = cp(0xe002), P_SEP = cp(0xe003)
+      const PLACEHOLDER_RE = new RegExp(`${P_OPEN}([^${P_MID}]+)${P_MID}([^${P_END}]+)${P_END}`, 'g')
+      const restoreRuby = (s: string) =>
+        s.replace(PLACEHOLDER_RE, (_m, base: string, rd: string) => `{${base}|${rd.split(P_SEP).join('|')}}`)
+
+      md.core.ruler.before('inline', 'ruby_pre', (state: any) => {
+        for (const tok of state.tokens) {
+          if (tok.type !== 'inline' || tok.content.indexOf('{') === -1) continue
+          tok.content = tok.content.replace(RUBY_RE, (m: string, base: string, rest: string) => {
+            if (!RUBY_KANJI.test(base)) return m
+            const rd = rest.split(/\\?\|/).slice(1)
+            if (rd.length > 1 && rd.length !== [...base].length) return m
+            return P_OPEN + base + P_MID + rd.join(P_SEP) + P_END
+          })
+        }
+      })
+      md.core.ruler.after('inline', 'ruby_post', (state: any) => {
+        const Token = state.Token
+        for (const blk of state.tokens) {
+          if (blk.type !== 'inline' || !blk.children) continue
+          // anchor 的 aria-label 之類會讀 inline content：只留 base，不要讓佔位字元或 {…|…} 漏出去
+          blk.content = blk.content.replace(PLACEHOLDER_RE, (_m: string, base: string) => base)
+          const out: any[] = []
+          for (const t of blk.children) {
+            if (t.type !== 'text' || t.content.indexOf(P_OPEN) === -1) {
+              if (t.content && t.content.indexOf(P_OPEN) !== -1) t.content = restoreRuby(t.content)
+              if (t.attrs) for (const a of t.attrs) a[1] = restoreRuby(a[1])
+              out.push(t)
+              continue
+            }
+            let last = 0
+            let m: RegExpExecArray | null
+            PLACEHOLDER_RE.lastIndex = 0
+            while ((m = PLACEHOLDER_RE.exec(t.content))) {
+              const plain = t.content.slice(last, m.index)
+              if (plain) { const x = new Token('text', '', 0); x.content = plain; out.push(x) }
+              last = m.index + m[0].length
+              const chars = [...m[1]]
+              const rds = m[2].split(P_SEP)
+              const open = new Token('html_inline', '', 0); open.content = '<ruby>'; out.push(open)
+              const esc = state.md.utils.escapeHtml
+              const rt = (r: string) => `<rp>（</rp><rt>${esc(r)}</rt><rp>）</rp>`
+              if (rds.length === 1) {
+                const x = new Token('text', '', 0); x.content = m[1]; out.push(x)
+                const r = new Token('html_inline', '', 0); r.content = rt(rds[0]); out.push(r)
+              } else {
+                chars.forEach((c, i) => {
+                  const x = new Token('text', '', 0); x.content = c; out.push(x)
+                  const r = new Token('html_inline', '', 0); r.content = rt(rds[i]); out.push(r)
+                })
+              }
+              const close = new Token('html_inline', '', 0); close.content = '</ruby>'; out.push(close)
+            }
+            const tail = t.content.slice(last)
+            if (tail) { const x = new Token('text', '', 0); x.content = tail; out.push(x) }
+          }
+          blk.children = out
+        }
+      })
       md.use(tabsMarkdownPlugin)
       // GFM task list（- [ ] / - [x]）→ 唯讀 checkbox；教材追蹤 vault/minna/ 用。
       md.use(taskLists)

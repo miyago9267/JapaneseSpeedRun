@@ -161,4 +161,23 @@ type: guide
 3. 明天（第 1 天）再默寫一次；後天不用，第 3 天再來。
 4. 對 agent 說：「出 5 題て形和ない形，考我。」答錯的請它收進 `mistakes/`。
 
+## 9. Obsidian 顯示振假名（Markdown Furigana 外掛）
+
+筆記裡的讀音用 ruby 語法寫，例如 `{難|むずか}しい`、`{帰|かえ}る`（送假名寫在大括號外面）。網站 build 時會自動變成漢字上方的小假名；在 Obsidian 要**裝一個社群外掛**才看得到同樣的效果：
+
+1. Obsidian → **Settings**（設定）→ **Community plugins**（社群外掛）。第一次用要先關掉「受限模式」（Turn on community plugins）。
+2. 點 **Browse**，搜尋 **Markdown Furigana**（作者 steven-kraft）。
+3. **Install** → **Enable**。
+
+| 狀態 | 你會看到什麼 |
+| --- | --- |
+| 已安裝並啟用 | 漢字上方有小假名（閱讀模式與 Live Preview 都會渲染；游標移到該處時顯示原始碼） |
+| 沒裝／沒啟用 | 看到原始碼 `{難\|むずか}しい` 這種 `{…\|…}`；內容沒壞，只是沒有渲染 |
+
+語法備忘：
+
+- 一般寫法 `{漢字|かんじ}`；一字一音可寫 `{漢字|かん|じ}`（段數要等於字數）。
+- 表格裡的 `|` 要跳脫成 `\|`（`{漢字\|かんじ}`），否則表格欄位會被切開；網站與外掛都吃這個寫法。
+- 程式碼區塊與行內 `` `code` `` 裡不會渲染。
+
 相關：[活用速查表](basics/grammar/conjugation-cheatsheet.md)・[我的錯題](mistakes/my-pitfalls.md)・[比較：から vs ので](compare/kara-node.md)
