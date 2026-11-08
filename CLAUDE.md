@@ -6,8 +6,10 @@ Project tone, content conventions, and guardrails live in `AGENTS.md`. Read it f
 
 ## Claude-specific notes
 
-- Single source of truth is `vault/*.md` (also the Claude Desktop / Obsidian teaching vault).
-  Edit content there only; never hand-maintain a parallel HTML copy.
+- Single source of truth is `vault/**/*.md` (four category folders `basics/ compare/ examples/ mistakes/`
+  plus root `index.md` / `study-method.md`; also the Claude Desktop / Obsidian teaching vault).
+  Edit content there only; never hand-maintain a parallel HTML copy. Where things go and when to
+  auto-record them: `AGENTS.md` → 「Vault 分類與自動筆記規則」.
 - After editing a lesson: register it in `.vitepress/config.ts` if new, then `bun run docs:build`
   to regenerate `.vitepress/dist/`. `bun run docs:dev` for live preview. Pushing `main` lets CI
   build + deploy to GitHub Pages (`jp.miyago9267.com`).

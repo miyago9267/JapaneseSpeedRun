@@ -165,4 +165,4 @@ type: drill
 2. **逆接接續**：`にもかかわらず`（名詞・普通形）／ `ながらも`（動詞ます形・い形辭書形・な形語幹）／ `ものの`（普通形）
 3. **固定整組不拆**：`〜どころではない`・`〜ものか`・`〜ないかぎり`・`〜のはもちろんのこと`
 
-相關：[條件形](conditional-forms.md)・[推量・様態](modality.md)・[我的錯題](my-pitfalls.md)
+相關：[條件形](../compare/conditional-forms.md)・[推量・様態](../compare/modality.md)・[我的錯題](my-pitfalls.md)

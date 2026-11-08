@@ -7,7 +7,7 @@ type: lesson
 
 # 使役形用法：誰讓誰做
 
-變化規則在 [動詞變化型](verb-conjugation.md)，這課只管**讀懂**：助詞怎麼標、三種意思怎麼分。延伸：[自他動詞](jidoushi-tadoushi.md)、[讀解筆記](reading-notes.md)。
+變化規則在 [動詞變化型](verb-conjugation.md)，這課只管**讀懂**：助詞怎麼標、三種意思怎麼分。延伸：[自他動詞](jidoushi-tadoushi.md)、[讀解筆記](../examples/reading-notes.md)。
 
 **這課真正花力氣的是「誘發」那一類**——心配させる・その気にさせる 這種不是強迫誰做事，而是把對方的心弄成某個狀態。讀小說・對話最常遇到，也最容易只靠語感帶過。
 

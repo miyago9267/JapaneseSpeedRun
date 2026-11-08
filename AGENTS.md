@@ -21,8 +21,9 @@ the 日文. That is the division of labour — keep it that way.
 
 When Miyago drops raw material (a word list, a grammar point, example sentences), the agent:
 
-1. **Places it** — fold into an existing `vault/<topic>.md` if it fits, else start a new
-   `vault/<name>.md` mirroring an existing lesson's shape.
+1. **Places it** — route by the four categories (see 「Vault 分類與自動筆記規則」below): fold into
+   an existing page under `vault/basics|compare|examples|mistakes/` if it fits, else start a new
+   `vault/<category>/<name>.md` mirroring an existing lesson's shape.
 2. **Formats to the house style** (see Content tone) — comparison tables, rules in `backticks`,
    changing morpheme in **bold**, kanji furigana 難しい（むずかしい）, traps in `> [!WARNING]`,
    multi-view sections in `<!-- tabs:start/end -->` + `## Label`.
@@ -42,11 +43,14 @@ pull Miyago back into tooling. The only thing that routinely needs Miyago is Jap
 
 - `vault/` — markdown source = the pages AND the Claude/Obsidian vault. Keep it **pure markdown**.
   - `index.md` — home (hero layout)
-  - `<topic>-conjugation.md` — one lesson per file
+  - `basics/` 基礎・`compare/` 比較・`examples/` 實例・`mistakes/` 我的錯題 — four categories, one
+    lesson per file (rules: 「Vault 分類與自動筆記規則」)
+  - `study-method.md` — 學習方法 guide (stays at root, outside the four categories)
 - `.vitepress/config.ts` — VitePress config (`srcDir: ./vault`, nav/sidebar, tabs plugin, local
   search). Holds the `obsidian_tabs` markdown-it rule that derives `::: tabs` from the comment
   markers at build time (see Content tone) — the source stays Obsidian-native.
-- `.vitepress/theme/` — custom theme: `index.ts` (extends default + registers tabs) + `custom.css`
+- `.vitepress/theme/` — custom theme: `index.ts` (extends default + registers tabs) + `HomePage.vue`
+  (home cards grouped by the four categories) + `custom.css`
   (brand blue, Noto Sans TC, clean-paper light + dark theme split via CSS vars, table / rule-chip
   / callout styling)
 - `package.json` — scripts `docs:dev` / `docs:build` / `docs:preview` (run with Bun)
@@ -76,16 +80,52 @@ Notes are **scannable comparison tables, not prose**. Optimize for "glance and r
 - Explanations: Traditional Chinese, casual and dense; Japanese terms stay in Japanese. Use the
   full-width middle dot `・` and slash `／` as separators.
 
+## Vault 分類與自動筆記規則
+
+`vault/` 分四個資料夾。Miyago 問什麼、貼什麼、答錯什麼，agent 依下表**自己判斷放哪、自動寫入**，
+不用先問「要不要記」。
+
+| 資料夾 | 分類 | 放什麼 | 何時寫入 |
+|---|---|---|---|
+| `vault/basics/` | 基礎 | 基本單字（功能詞 `vocabulary.md`；動詞／形容詞／名詞單字本 `basics/words/`）、動詞／形容詞／名詞活用、常用助詞、基本句型與動詞語法 | Miyago 問到基礎文法，或 agent 發現他基礎缺口時，補進對應專課；問到或背了**單一單字**時，記進 `basics/words/` 對應的單字本 |
+| `vault/compare/` | 比較 | 近義詞・相近用法的區別（例：から vs ので、は vs が、と・ば・たら・なら） | 問「A 和 B 差在哪」或錯題暴露混淆時；一組比較一個檔，或併入既有比較頁 |
+| `vault/examples/` | 實例 | Miyago 貼的真實素材（galgame、書、新聞截圖）的翻譯＋拆解；以及「中文生活用語 → 日文怎麼講」 | 他貼素材或問「這句日文怎麼講」時，答完自動記錄，不用問。依來源分檔：一部作品／一類來源一個檔，句號遞增（原文 → 翻譯 → 結構 → 片段表）；生活用語進 `examples/daily-phrases.md` |
+| `vault/mistakes/` | 我的錯題 | agent 出題考他時答錯率高的點；他自己造句或中日互譯翻錯的地方（≠ 主動請教） | 出題後依答錯情況斟酌收錄；他造句／翻譯有錯時收錄：原句 ✗ → 正確 ✓ → 錯因 → 連到對應 basics／compare 專課 |
+
+### 分流判斷
+
+- **單一單字（問到或他在背）→ `basics/words/`**：依詞性記進 `verbs.md`／`adjectives.md`／`nouns.md`，
+  欄位照該頁表頭：動詞標類型（五段／一段／不規則・自／他）＋ます形・て形・ない形；形容詞標 い／な ＋否定・過去・副詞化；
+  名詞標能否 ＋ する。**不要記進 `examples/`**；單字在實例中出現時，單字本備註可連回實例。
+- **請教用法（asking）→ `examples/`**：他問「這句什麼意思／這個怎麼講」，記進實例。
+- **自己造句・翻譯的錯（own-production errors）→ `mistakes/`**：他寫出來或翻出來的東西錯了，記進錯題，
+  格式 `原句 ✗ → 正確 ✓ → 錯因 → 連到專課`（`mistakes/my-pitfalls.md` 的「造句・翻譯錯誤」節）。
+- 一件事兩邊都沾到（例：問了一句、之後造句又錯同一點）→ 兩邊各記一筆，互相連結，不要合併。
+- **實例中冒出新文法點**：必須在對應的 `basics/` 或 `compare/` 頁補一條（或至少加連結），實例頁只留
+  「這句怎麼拆」，規則本體放專課，避免同一規則散在多處。
+- 截圖是 Miyago 挑「不會的句子」截的，不是連續原文；不要推論句與句之間的承接。
+
+### 寫入檢查清單
+
+1. 新頁面一律要有 frontmatter（`title / aliases / tags / type`）。
+2. 新頁面要在 `.vitepress/config.ts` 的 nav + sidebar 註冊，放進對應分類群組；必要時加首頁卡片。
+3. 跨資料夾連結用相對路徑（`../compare/wa-ga.md`），同資料夾直接 `x.md`；不寫 root-absolute。
+4. `bun run docs:build` 必須通過，才 commit + push `main`。
+5. 日文（假名・活用・furigana・語感）一律交回 Miyago 確認；不確定的地方在回覆裡明講，不要自己默默拍板。
+
+Practice session 的出題風格（JLPT track / 日常 track）見 `CLAUDE.md`，這裡不重複。
+
 ## Adding / editing a lesson
 
-1. Add or edit `vault/<name>.md` (frontmatter: `title / aliases / tags / type`). Mirror an
-   existing lesson's shape.
-2. Register it in `.vitepress/config.ts` (nav + sidebar).
+1. Add or edit `vault/<category>/<name>.md` (frontmatter: `title / aliases / tags / type`). Mirror
+   an existing lesson's shape.
+2. Register it in `.vitepress/config.ts` (nav + sidebar, under its category group) and, if it
+   deserves a home card, in `.vitepress/theme/HomePage.vue`.
 3. `bun run docs:dev` to preview, `bun run docs:build` to produce `.vitepress/dist/`.
 
 Because `vault/` is also the Claude/Obsidian vault, write **Obsidian-native** markdown: plain GFM
 tables, `> [!WARNING]` alerts, `<!-- tabs:start/end -->` + `## Label` for tabs, relative `(other.md)`
-links. The VitePress build derives the site-only syntax — never hand-write VitePress-only
+links (between categories: `../compare/wa-ga.md`; same folder: `x.md`). The VitePress build derives the site-only syntax — never hand-write VitePress-only
 constructs (`::: tabs`, root-absolute links) or heavy HTML/Vue in the source.
 
 ## Deploy

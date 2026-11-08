@@ -320,6 +320,21 @@
 .jph-card-sub { font-size: 12px; color: #999; line-height: 1.5; }
 .dark .jph-card-sub { color: #777; }
 
+/* Home: category sections */
+.jph-section { margin-top: 36px; }
+.jph-section:first-of-type { margin-top: 8px; }
+.jph-section-title {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.jph-section-sub { font-size: 13px; font-weight: 400; color: #999; }
+.dark .jph-section-sub { color: #777; }
+
 /* Footer */
 .jph-footer {
   border-top: 1px solid #eee;

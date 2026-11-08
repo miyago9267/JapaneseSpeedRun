@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 
 // Single source of truth: markdown lives in ../vault (also the Claude/Obsidian note vault).
-// Build output goes to .vitepress/dist, which nginx serves.
+// Build output goes to .vitepress/dist; GitHub Actions deploys it to GitHub Pages.
 export default defineConfig({
   lang: 'zh-TW',
   title: '某人的日文筆記',
@@ -35,89 +35,130 @@ export default defineConfig({
     nav: [
       { text: '首頁', link: '/' },
       {
-        text: '基礎文法',
+        text: '基礎',
         items: [
-          { text: 'は vs が', link: '/wa-ga' }
+          {
+            text: '活用',
+            items: [
+              { text: '活用速查表', link: '/basics/conjugation-cheatsheet' },
+              { text: '動詞變化型', link: '/basics/verb-conjugation' },
+              { text: '形容詞變化型', link: '/basics/adjective-conjugation' },
+              { text: '名詞活用', link: '/basics/noun-conjugation' }
+            ]
+          },
+          {
+            text: '助詞・單字',
+            items: [
+              { text: '常用助詞', link: '/basics/particles' },
+              { text: '基本單字（功能詞）', link: '/basics/vocabulary' }
+            ]
+          },
+          {
+            text: '單字本',
+            items: [
+              { text: '動詞單字本', link: '/basics/words/verbs' },
+              { text: '形容詞單字本', link: '/basics/words/adjectives' },
+              { text: '名詞單字本', link: '/basics/words/nouns' }
+            ]
+          },
+          {
+            text: '動詞語法・句型',
+            items: [
+              { text: '自他動詞', link: '/basics/jidoushi-tadoushi' },
+              { text: 'の 接續', link: '/basics/no-nominalization' },
+              { text: '授受動詞', link: '/basics/juju-doushi' },
+              { text: 'て形複合', link: '/basics/te-compound' },
+              { text: '使役形用法', link: '/basics/causative' },
+              { text: '句子解析', link: '/basics/sentence-parsing' }
+            ]
+          }
         ]
       },
       {
-        text: '變化型',
+        text: '比較',
         items: [
-          { text: '動詞變化型', link: '/verb-conjugation' },
-          { text: '形容詞變化型', link: '/adjective-conjugation' }
+          { text: 'から vs ので', link: '/compare/kara-node' },
+          { text: 'は vs が', link: '/compare/wa-ga' },
+          { text: '細節助詞', link: '/compare/focus-particles' },
+          { text: '條件形', link: '/compare/conditional-forms' },
+          { text: '推量・様態', link: '/compare/modality' },
+          { text: '理由・程度', link: '/compare/reason-degree' }
         ]
       },
       {
-        text: '動詞語法',
+        text: '實例',
         items: [
-          { text: '自他動詞', link: '/jidoushi-tadoushi' },
-          { text: 'の 接續', link: '/no-nominalization' },
-          { text: '授受動詞', link: '/juju-doushi' },
-          { text: 'て形複合', link: '/te-compound' },
-          { text: '使役形用法', link: '/causative' }
+          { text: '讀解筆記', link: '/examples/reading-notes' },
+          { text: '新聞日文', link: '/examples/news-japanese' },
+          { text: '生活用語', link: '/examples/daily-phrases' }
         ]
       },
       {
-        text: '文法表現',
+        text: '我的錯題',
         items: [
-          { text: '句子解析', link: '/sentence-parsing' },
-          { text: '細節助詞', link: '/focus-particles' },
-          { text: '條件形', link: '/conditional-forms' },
-          { text: '推量・様態', link: '/modality' },
-          { text: '新聞日文', link: '/news-japanese' },
-          { text: '理由・程度', link: '/reason-degree' }
+          { text: '錯題整理', link: '/mistakes/my-pitfalls' },
+          { text: 'N2 模擬・文法卷 01', link: '/mistakes/n2-mock-grammar-01' }
         ]
       },
-      {
-        text: '練習卷',
-        items: [
-          { text: 'N2 模擬・文法卷 01', link: '/n2-mock-grammar-01' },
-          { text: '讀解筆記', link: '/reading-notes' }
-        ]
-      },
-      { text: '我的錯題', link: '/my-pitfalls' }
+      { text: '學習方法', link: '/study-method' }
     ],
     sidebar: [
       {
-        text: '基礎文法',
+        text: '基礎',
         items: [
-          { text: 'は vs が', link: '/wa-ga' }
+          { text: '活用速查表', link: '/basics/conjugation-cheatsheet' },
+          { text: '動詞變化型', link: '/basics/verb-conjugation' },
+          { text: '形容詞變化型', link: '/basics/adjective-conjugation' },
+          { text: '名詞活用', link: '/basics/noun-conjugation' },
+          { text: '常用助詞', link: '/basics/particles' },
+          { text: '基本單字（功能詞）', link: '/basics/vocabulary' },
+          {
+            text: '單字本',
+            collapsed: false,
+            items: [
+              { text: '動詞單字本', link: '/basics/words/verbs' },
+              { text: '形容詞單字本', link: '/basics/words/adjectives' },
+              { text: '名詞單字本', link: '/basics/words/nouns' }
+            ]
+          },
+          { text: '自他動詞', link: '/basics/jidoushi-tadoushi' },
+          { text: 'の 接續', link: '/basics/no-nominalization' },
+          { text: '授受動詞', link: '/basics/juju-doushi' },
+          { text: 'て形複合', link: '/basics/te-compound' },
+          { text: '使役形用法', link: '/basics/causative' },
+          { text: '句子解析', link: '/basics/sentence-parsing' }
         ]
       },
       {
-        text: '變化型筆記',
+        text: '比較',
         items: [
-          { text: '動詞變化型', link: '/verb-conjugation' },
-          { text: '形容詞變化型', link: '/adjective-conjugation' }
+          { text: 'から vs ので', link: '/compare/kara-node' },
+          { text: 'は vs が', link: '/compare/wa-ga' },
+          { text: '細節助詞', link: '/compare/focus-particles' },
+          { text: '條件形', link: '/compare/conditional-forms' },
+          { text: '推量・様態', link: '/compare/modality' },
+          { text: '理由・程度', link: '/compare/reason-degree' }
         ]
       },
       {
-        text: '動詞語法',
+        text: '實例',
         items: [
-          { text: '自他動詞', link: '/jidoushi-tadoushi' },
-          { text: 'の 接續', link: '/no-nominalization' },
-          { text: '授受動詞', link: '/juju-doushi' },
-          { text: 'て形複合', link: '/te-compound' },
-          { text: '使役形用法', link: '/causative' }
+          { text: '讀解筆記', link: '/examples/reading-notes' },
+          { text: '新聞日文', link: '/examples/news-japanese' },
+          { text: '生活用語', link: '/examples/daily-phrases' }
         ]
       },
       {
-        text: '文法表現',
+        text: '我的錯題',
         items: [
-          { text: '句子解析', link: '/sentence-parsing' },
-          { text: '細節助詞', link: '/focus-particles' },
-          { text: '條件形', link: '/conditional-forms' },
-          { text: '推量・様態', link: '/modality' },
-          { text: '新聞日文', link: '/news-japanese' },
-          { text: '理由・程度', link: '/reason-degree' }
+          { text: '錯題整理', link: '/mistakes/my-pitfalls' },
+          { text: 'N2 模擬・文法卷 01', link: '/mistakes/n2-mock-grammar-01' }
         ]
       },
       {
-        text: '練習卷',
+        text: '學習方法',
         items: [
-          { text: 'N2 模擬・文法卷 01', link: '/n2-mock-grammar-01' },
-          { text: '讀解筆記', link: '/reading-notes' },
-          { text: '我的錯題', link: '/my-pitfalls' }
+          { text: '怎麼用這個 vault 做筆記', link: '/study-method' }
         ]
       }
     ],

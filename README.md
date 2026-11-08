@@ -19,7 +19,11 @@
 ```text
 vault/                       <- 唯一來源：markdown = 網站頁面 + Obsidian vault
   index.md                   <- 首頁（hero）
-  <topic>-conjugation.md     <- 一課一檔
+  basics/                    <- 基礎：活用・助詞・單字・基本句型
+  compare/                   <- 比較：近義詞・相近用法差在哪
+  examples/                  <- 實例：真實素材拆解・生活用語
+  mistakes/                  <- 我的錯題
+  study-method.md            <- 學習方法
   public/CNAME               <- 綁定 jp.miyago9267.com
 .vitepress/
   config.ts                  <- VitePress 設定（nav/sidebar、tabs、Obsidian 相容規則）
@@ -29,7 +33,7 @@ vault/                       <- 唯一來源：markdown = 網站頁面 + Obsidia
 
 ## 新增 / 編輯一篇筆記
 
-1. 編輯 `vault/<name>.md`（frontmatter：`title / aliases / tags / type`），照既有課的格式。
+1. 編輯 `vault/<分類>/<name>.md`（frontmatter：`title / aliases / tags / type`），照既有課的格式。
 2. 若是新檔，在 `.vitepress/config.ts` 註冊（nav + sidebar）。
 3. `bun run docs:dev` 本地預覽、`bun run docs:build` 產生 `.vitepress/dist/`。
 

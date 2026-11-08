@@ -137,4 +137,4 @@ type: lesson
 
 ---
 
-相關：[句子解析](sentence-parsing.md)・[細節助詞](focus-particles.md)・[の 接續](no-nominalization.md)・[我的錯題](my-pitfalls.md)
+相關：[句子解析](../basics/sentence-parsing.md)・[細節助詞](focus-particles.md)・[の 接續](../basics/no-nominalization.md)・[我的錯題](../mistakes/my-pitfalls.md)
