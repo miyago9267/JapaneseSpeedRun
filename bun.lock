@@ -5,6 +5,7 @@
     "": {
       "name": "japanese-speedrun",
       "devDependencies": {
+        "@hackmd/markdown-it-task-lists": "^2.1.4",
         "vitepress": "^1.6.3",
         "vitepress-plugin-tabs": "^0.7.1",
       },
@@ -106,6 +107,8 @@
     "@esbuild/win32-ia32": ["@esbuild/win32-ia32@0.21.5", "", { "os": "win32", "cpu": "ia32" }, "sha512-SWXFF1CL2RVNMaVs+BBClwtfZSvDgtL//G/smwAc5oVK/UPu2Gu9tIaRgFmYFFKrmg3SyAjSrElf0TiJ1v8fYA=="],
 
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.21.5", "", { "os": "win32", "cpu": "x64" }, "sha512-tQd/1efJuzPC6rCFwEvLtci/xNFcTZknmXs98FYDfGE4wP9ClFV98nyKrzJKVPMhdDnjzLhdUyMX4PsQAPjwIw=="],
+
+    "@hackmd/markdown-it-task-lists": ["@hackmd/markdown-it-task-lists@2.1.4", "", {}, "sha512-njMloWVihC7a7N4zxczv547bgNxPVG3GBzh6Z6f2xnO8/92JaxTmQuMV7YvaKKkOyhh2RW4RT84uSgax8u4qfQ=="],
 
     "@iconify-json/simple-icons": ["@iconify-json/simple-icons@1.2.87", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-8YciStObhSji3OZFmWAWK6kBujyqO5bLCxeDwLxf3CR3F4PVelq7keC2LBvgTqviWzSTysj5/g4PCFLiAMVGsw=="],
 

@@ -26,6 +26,15 @@ const sections = [
     ],
   },
   {
+    title: '大家的日本語',
+    sub: '《みんなの日本語》逐課文型檢查表，邊讀邊勾',
+    cards: [
+      { icon: '総', title: '總覽', sub: '怎麼用・各冊進度', link: '/minna/' },
+      { icon: '初', title: '初級 I', sub: '第1〜25課', link: '/minna/shokyu-1' },
+      { icon: '級', title: '初級 II', sub: '第26〜50課', link: '/minna/shokyu-2' },
+    ],
+  },
+  {
     title: '實例',
     sub: '真實素材的翻譯拆解・生活用語怎麼講',
     cards: [
@@ -74,7 +83,7 @@ function openSearch() {
     <div class="jph-body">
       <div class="jph-status">
         <span class="jph-dot"></span>
-        共 27 篇筆記・涵蓋 N5–N2・持續更新
+        共 31 篇筆記・涵蓋 N5–N2・持續更新
       </div>
 
       <div

@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
+import taskLists from '@hackmd/markdown-it-task-lists'
 
 // Single source of truth: markdown lives in ../vault (also the Claude/Obsidian note vault).
 // Build output goes to .vitepress/dist; GitHub Actions deploys it to GitHub Pages.
@@ -29,6 +30,8 @@ export default defineConfig({
         state.src = out.join('\n')
       })
       md.use(tabsMarkdownPlugin)
+      // GFM task list（- [ ] / - [x]）→ 唯讀 checkbox；教材追蹤 vault/minna/ 用。
+      md.use(taskLists)
     }
   },
   themeConfig: {
@@ -86,6 +89,14 @@ export default defineConfig({
         ]
       },
       {
+        text: '大家的日本語',
+        items: [
+          { text: '總覽', link: '/minna/' },
+          { text: '初級 I（第1〜25課）', link: '/minna/shokyu-1' },
+          { text: '初級 II（第26〜50課）', link: '/minna/shokyu-2' }
+        ]
+      },
+      {
         text: '實例',
         items: [
           { text: '讀解筆記', link: '/examples/reading-notes' },
@@ -138,6 +149,14 @@ export default defineConfig({
           { text: '條件形', link: '/compare/conditional-forms' },
           { text: '推量・様態', link: '/compare/modality' },
           { text: '理由・程度', link: '/compare/reason-degree' }
+        ]
+      },
+      {
+        text: '大家的日本語',
+        items: [
+          { text: '總覽', link: '/minna/' },
+          { text: '初級 I', link: '/minna/shokyu-1' },
+          { text: '初級 II', link: '/minna/shokyu-2' }
         ]
       },
       {

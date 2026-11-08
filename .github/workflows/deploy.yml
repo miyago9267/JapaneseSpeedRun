@@ -28,7 +28,7 @@ jobs:
       - run: bun run docs:build
       - name: Verify build output
         run: |
-          for f in index.html basics/verb-conjugation.html basics/adjective-conjugation.html basics/conjugation-cheatsheet.html compare/kara-node.html examples/reading-notes.html mistakes/my-pitfalls.html study-method.html CNAME; do
+          for f in index.html basics/verb-conjugation.html basics/adjective-conjugation.html basics/conjugation-cheatsheet.html compare/kara-node.html examples/reading-notes.html mistakes/my-pitfalls.html study-method.html minna/index.html minna/shokyu-1.html minna/shokyu-2.html CNAME; do
             test -f ".vitepress/dist/$f" || { echo "::error::missing expected build output: dist/$f"; exit 1; }
           done
           echo "Build output verified — all expected pages and CNAME present."

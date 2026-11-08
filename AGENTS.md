@@ -105,6 +105,17 @@ Notes are **scannable comparison tables, not prose**. Optimize for "glance and r
   「這句怎麼拆」，規則本體放專課，避免同一規則散在多處。
 - 截圖是 Miyago 挑「不會的句子」截的，不是連續原文；不要推論句與句之間的承接。
 
+### `vault/minna/` — 教材追蹤線（不屬於上面四類）
+
+《みんなの日本語》第2版的逐課文型檢查表（`index.md`・`shokyu-1.md`・`shokyu-2.md`），是**進度索引**，不是第五個內容分類。
+
+- 格式：每課 `## 第N課` ＋ GFM task list，一個文型一行；Miyago 會用時把 `[ ]` 勾成 `[x]`（網站上 checkbox 唯讀，勾選在 Obsidian／直接改 md）。
+- Miyago 說某點**不熟**、或造句／答題錯在該點時：agent 把說明補進 `basics/` 或 `compare/` 專課（本體規則只放那裡），自己造句錯的另記 `mistakes/`；`minna/` 該行保留並連到專課（` → [專課](../basics/xxx.md)`）。
+- **絕不抄課本**：只放文型名稱，例句一律自編；不收本文・例文・練習・會話・單字表。
+- 課次歸屬依記憶整理，不確定的標 `⚠待對照`；Miyago 拍目次後再校正。
+- 中級 I・II **只依 Miyago 提供的目次照片建立**，沒照片不憑記憶填。
+- 新增課冊頁時照「寫入檢查清單」註冊 nav / sidebar，並加進 `deploy.yml` 的 verify 清單。
+
 ### 寫入檢查清單
 
 1. 新頁面一律要有 frontmatter（`title / aliases / tags / type`）。
