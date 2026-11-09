@@ -45,10 +45,12 @@ pull Miyago back into tooling. The only thing that routinely needs Miyago is Jap
   - `index.md` — home (hero layout)
   - `basics/` 基礎・`compare/` 比較・`examples/` 實例・`mistakes/` 我的錯題 — four categories, one
     lesson per file (rules: 「Vault 分類與自動筆記規則」). `compare/ examples/ mistakes/` stay flat;
-    `basics/` is split into three sub-folders:
+    `basics/` is split into four sub-folders:
     - `basics/vocab/` 文字・語彙 — `function-words.md`（基本單字／功能詞）・`verbs.md`・`adjectives.md`・`nouns.md`（單字本）
     - `basics/grammar/` 文法 — 活用（`conjugation-cheatsheet` / `verb-` / `adjective-` / `noun-conjugation`）・`particles`・
       `te-compound`・`compound-verbs`（複合動詞）・`jidoushi-tadoushi`・`juju-doushi`・`causative`・`no-nominalization`
+    - `basics/particles/` 助詞系列 — `case-particles`（格助詞進階）・`adverbial-particles`（副助詞）・`conjunctive-particles`（接続助詞）・
+      `sentence-final-particles`（終助詞）・`compound-particles`（複合助詞）；基礎款 `grammar/particles.md`（常用助詞）留在原處，頂端有系列導覽
     - `basics/parsing/` 解析 — `sentence-parsing.md`（拆句技巧）
   - `study-method.md` — 學習方法 guide (stays at root, outside the four categories)
 - `.vitepress/config.ts` — VitePress config (`srcDir: ./vault`, nav/sidebar, tabs plugin, local
@@ -106,15 +108,15 @@ Notes are **scannable comparison tables, not prose**. Optimize for "glance and r
 
 | 資料夾 | 分類 | 放什麼 | 何時寫入 |
 | --- | --- | --- | --- |
-| `vault/basics/` | 基礎（三個子資料夾：`vocab/` 文字・語彙、`grammar/` 文法、`parsing/` 解析） | `vocab/`：基本單字（功能詞 `function-words.md`；動詞／形容詞／名詞單字本 `verbs.md`・`adjectives.md`・`nouns.md`）。`grammar/`：動詞／形容詞／名詞活用、常用助詞、基本句型與動詞語法、複合動詞。`parsing/`：拆句技巧（`sentence-parsing.md`） | Miyago 問到基礎文法，或 agent 發現他基礎缺口時，補進 `basics/grammar/` 對應專課；問到或背了**單一單字**時，記進 `basics/vocab/` 對應的單字本；問「這句怎麼拆」的通則補進 `basics/parsing/` |
+| `vault/basics/` | 基礎（四個子資料夾：`vocab/` 文字・語彙、`grammar/` 文法、`particles/` 助詞系列、`parsing/` 解析） | `vocab/`：基本單字（功能詞 `function-words.md`；動詞／形容詞／名詞單字本 `verbs.md`・`adjectives.md`・`nouns.md`）。`grammar/`：動詞／形容詞／名詞活用、常用助詞、基本句型與動詞語法、複合動詞。`particles/`：助詞進階（格助詞・副助詞・接続助詞・終助詞・複合助詞，各一頁；基礎款 `grammar/particles.md` 留原處）。`parsing/`：拆句技巧（`sentence-parsing.md`） | Miyago 問到基礎文法，或 agent 發現他基礎缺口時，補進 `basics/grammar/` 對應專課（助詞類補進 `basics/particles/` 對應頁）；問到或背了**單一單字**時，記進 `basics/vocab/` 對應的單字本；問「這句怎麼拆」的通則補進 `basics/parsing/` |
 | `vault/compare/` | 比較 | 近義詞・相近用法的區別（例：から vs ので、は vs が、と・ば・たら・なら） | 問「A 和 B 差在哪」或錯題暴露混淆時；一組比較一個檔，或併入既有比較頁 |
 | `vault/examples/` | 實例 | Miyago 貼的真實素材（galgame、書、新聞截圖）的翻譯＋拆解；以及「中文生活用語 → 日文怎麼講」 | 他貼素材或問「這句日文怎麼講」時，答完自動記錄，不用問。依來源分檔：一部作品／一類來源一個檔，句號遞增（原文 → 翻譯 → 結構 → 片段表）；生活用語進 `examples/daily-phrases.md` |
 | `vault/mistakes/` | 我的錯題 | agent 出題考他時答錯率高的點；他自己造句或中日互譯翻錯的地方（≠ 主動請教） | 出題後依答錯情況斟酌收錄；他造句／翻譯有錯時收錄：原句 ✗ → 正確 ✓ → 錯因 → 連到對應 basics／compare 專課 |
 
 ### 分流判斷
 
-- **basics 內部再分流**：單一單字 → `basics/vocab/`；文法・活用・句型 → `basics/grammar/`；拆句技巧 → `basics/parsing/`。
-  新頁放進對應子資料夾，並在 `config.ts` 的 基礎 › 對應子群組註冊。
+- **basics 內部再分流**：單一單字 → `basics/vocab/`；文法・活用・句型 → `basics/grammar/`；**助詞（格・副・接続・終・複合）→ `basics/particles/`**；拆句技巧 → `basics/parsing/`。
+  新頁放進對應子資料夾，並在 `config.ts` 的 基礎 › 對應子群組註冊（nav 與 sidebar 兩處都要）。
 - **單一單字（問到或他在背）→ `basics/vocab/`**：依詞性記進 `verbs.md`／`adjectives.md`／`nouns.md`，
   欄位照該頁表頭：動詞標類型（五段／一段／不規則・自／他）＋ます形・て形・ない形；形容詞標 い／な ＋否定・過去・副詞化；
   名詞標能否 ＋ する。**不要記進 `examples/`**；單字在實例中出現時，單字本備註可連回實例。

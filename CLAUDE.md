@@ -6,7 +6,7 @@ Project tone, content conventions, and guardrails live in `AGENTS.md`. Read it f
 
 ## Claude-specific notes
 
-- Single source of truth is `vault/**/*.md` (four category folders `basics/ compare/ examples/ mistakes/`; `basics/` has sub-folders `vocab/ grammar/ parsing/`
+- Single source of truth is `vault/**/*.md` (four category folders `basics/ compare/ examples/ mistakes/`; `basics/` has sub-folders `vocab/ grammar/ particles/ parsing/`
   plus root `index.md` / `study-method.md`; also the Claude Desktop / Obsidian teaching vault).
   Edit content there only; never hand-maintain a parallel HTML copy. Where things go and when to
   auto-record them: `AGENTS.md` → 「Vault 分類與自動筆記規則」.

@@ -130,13 +130,23 @@ export default defineConfig({
               { text: '動詞變化型', link: '/basics/grammar/verb-conjugation' },
               { text: '形容詞變化型', link: '/basics/grammar/adjective-conjugation' },
               { text: '名詞活用', link: '/basics/grammar/noun-conjugation' },
-              { text: '常用助詞', link: '/basics/grammar/particles' },
               { text: '自他動詞', link: '/basics/grammar/jidoushi-tadoushi' },
               { text: 'の 接續', link: '/basics/grammar/no-nominalization' },
               { text: '授受動詞', link: '/basics/grammar/juju-doushi' },
               { text: 'て形複合', link: '/basics/grammar/te-compound' },
               { text: '複合動詞', link: '/basics/grammar/compound-verbs' },
               { text: '使役形用法', link: '/basics/grammar/causative' }
+            ]
+          },
+          {
+            text: '助詞',
+            items: [
+              { text: '常用助詞', link: '/basics/grammar/particles' },
+              { text: '格助詞進階', link: '/basics/particles/case-particles' },
+              { text: '副助詞', link: '/basics/particles/adverbial-particles' },
+              { text: '接続助詞', link: '/basics/particles/conjunctive-particles' },
+              { text: '終助詞', link: '/basics/particles/sentence-final-particles' },
+              { text: '複合助詞', link: '/basics/particles/compound-particles' }
             ]
           },
           {
@@ -205,13 +215,24 @@ export default defineConfig({
               { text: '動詞變化型', link: '/basics/grammar/verb-conjugation' },
               { text: '形容詞變化型', link: '/basics/grammar/adjective-conjugation' },
               { text: '名詞活用', link: '/basics/grammar/noun-conjugation' },
-              { text: '常用助詞', link: '/basics/grammar/particles' },
               { text: '自他動詞', link: '/basics/grammar/jidoushi-tadoushi' },
               { text: 'の 接續', link: '/basics/grammar/no-nominalization' },
               { text: '授受動詞', link: '/basics/grammar/juju-doushi' },
               { text: 'て形複合', link: '/basics/grammar/te-compound' },
               { text: '複合動詞', link: '/basics/grammar/compound-verbs' },
               { text: '使役形用法', link: '/basics/grammar/causative' }
+            ]
+          },
+          {
+            text: '助詞',
+            collapsed: false,
+            items: [
+              { text: '常用助詞', link: '/basics/grammar/particles' },
+              { text: '格助詞進階', link: '/basics/particles/case-particles' },
+              { text: '副助詞', link: '/basics/particles/adverbial-particles' },
+              { text: '接続助詞', link: '/basics/particles/conjunctive-particles' },
+              { text: '終助詞', link: '/basics/particles/sentence-final-particles' },
+              { text: '複合助詞', link: '/basics/particles/compound-particles' }
             ]
           },
           {

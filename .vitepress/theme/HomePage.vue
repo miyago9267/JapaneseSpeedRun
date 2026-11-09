@@ -8,6 +8,7 @@ const sections = [
       { icon: '動', title: '動詞變化型', sub: '全變化型・段位原理', link: '/basics/grammar/verb-conjugation' },
       { icon: '形', title: '形容詞變化型', sub: 'い・な形，條件陷阱', link: '/basics/grammar/adjective-conjugation' },
       { icon: '助', title: '常用助詞', sub: 'は・が・を・に・で・へ…', link: '/basics/grammar/particles' },
+      { icon: '合', title: '複合助詞', sub: 'について・に対して・によって…N2 重點', link: '/basics/particles/compound-particles' },
       { icon: '語', title: '基本單字', sub: 'こそあど・疑問詞・時間詞', link: '/basics/vocab/function-words' },
       { icon: '帳', title: '單字本', sub: '動詞・形容詞・名詞，標原型與變形', link: '/basics/vocab/verbs' },
       { icon: '自', title: '自他動詞', sub: 'を vs が・ている差異', link: '/basics/grammar/jidoushi-tadoushi' },

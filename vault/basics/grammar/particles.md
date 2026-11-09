@@ -16,6 +16,18 @@ type: lesson
 - **自我測驗**：先背「核心用法」欄的一個關鍵字，例句自己遮住再讀；陷阱表是考試和日常最常錯的地方，遮住答案自己選。
 - **卡住時**：は vs が → [は vs が](../../compare/wa-ga.md)；も・しか・だけ 這類 → [細節助詞](../../compare/focus-particles.md)；拆句 → [句子解析](../parsing/sentence-parsing.md)。
 
+## 助詞系列
+
+這頁是 N5/N4 的底層速查；往上深入看整組助詞系列：
+
+| 頁面 | 管什麼 | 級 |
+| --- | --- | --- |
+| [格助詞進階](../particles/case-particles.md) | が／の 交替・を vs が・に vs と・被動使役的「做的人」・で／から | 〔N4〕〜〔N2〕 |
+| [副助詞](../particles/adverbial-particles.md) | さえ・すら・こそ・など・くらい・ほど・きり・ずつ・なり… | 〔N4〕〜〔N1〕 |
+| [接続助詞](../particles/conjunctive-particles.md) | が・けど・のに・ても・ながら・ものの・ところで… | 〔N5〕〜〔N2〕 |
+| [終助詞](../particles/sentence-final-particles.md) | ね・よ・よね・わ・ぞ・ぜ・かな・っけ・じゃん… | 〔N5〕・〔日常〕 |
+| [複合助詞](../particles/compound-particles.md) | について・に対して・にとって・によって・をめぐって… | 〔N3〕〜〔N2〕 |
+
 ## 核心用法速查
 
 | 助詞 | 核心用法 | 例 |
