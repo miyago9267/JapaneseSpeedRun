@@ -25,6 +25,9 @@ const parse = (line: string) => {
   return m ? { second: m[1] === "B", text: m[2] } : { second: false, text: line };
 };
 
+const LEAD_MS = 900;
+const TAIL_MS = 700;
+
 const fail = (msg: string): never => {
   console.error(msg);
   process.exit(2);
@@ -37,13 +40,15 @@ function speakMac() {
     .map((l) => l.match(/^(.+?)\s{2,}ja_JP\b/)?.[1].trim())
     .filter((v): v is string => !!v);
   if (voices.length === 0) fail("no ja_JP voice: System Settings > Accessibility > Spoken Content > add Japanese voice");
-  const first = voices.find((v) => v.startsWith("Kyoko")) ?? voices[0];
-  const second = voices.find((v) => v !== first) ?? first;
+  const hq = (v: string) => /Enhanced|Premium|加強|高品質/.test(v);
+  const pick = (name: string) => voices.find((v) => v.startsWith(name) && hq(v)) ?? voices.find((v) => v.startsWith(name));
+  const first = pick("O-Ren") ?? pick("Kyoko") ?? voices[0];
+  const second = [pick("Kyoko"), pick("Otoya"), ...voices].find((v) => v && v !== first) ?? first;
   const rate = slow ? "120" : "175";
   for (const line of lines) {
     const { second: useSecond, text } = parse(line);
-    Bun.spawnSync(["say", "-v", useSecond ? second : first, "-r", rate, text]);
-    Bun.sleepSync(500);
+    // Leading/trailing silence keeps Bluetooth output from clipping the first and last syllables.
+    Bun.spawnSync(["say", "-v", useSecond ? second : first, "-r", rate, `[[slnc ${LEAD_MS}]]${text}[[slnc ${TAIL_MS}]]`]);
   }
 }
 
@@ -56,8 +61,11 @@ $s.Rate = $Rate
 foreach ($line in Get-Content -Encoding UTF8 $TextFile) {
   $idx = [int]$line.Substring(0, 1)
   $s.SelectVoice($v[[Math]::Min($idx, $v.Count - 1)])
-  $s.Speak($line.Substring(2))
-  Start-Sleep -Milliseconds 500
+  $p = New-Object System.Speech.Synthesis.PromptBuilder
+  $p.AppendBreak([TimeSpan]::FromMilliseconds(900))
+  $p.AppendText($line.Substring(2))
+  $p.AppendBreak([TimeSpan]::FromMilliseconds(700))
+  $s.Speak($p)
 }
 `;
 
