@@ -165,7 +165,8 @@ export default defineConfig({
           { text: '細節助詞', link: '/compare/focus-particles' },
           { text: '條件形', link: '/compare/conditional-forms' },
           { text: '推量・様態', link: '/compare/modality' },
-          { text: '理由・程度', link: '/compare/reason-degree' }
+          { text: '理由・程度', link: '/compare/reason-degree' },
+          { text: 'わけ系列', link: '/compare/wake' }
         ]
       },
       {
@@ -252,7 +253,8 @@ export default defineConfig({
           { text: '細節助詞', link: '/compare/focus-particles' },
           { text: '條件形', link: '/compare/conditional-forms' },
           { text: '推量・様態', link: '/compare/modality' },
-          { text: '理由・程度', link: '/compare/reason-degree' }
+          { text: '理由・程度', link: '/compare/reason-degree' },
+          { text: 'わけ系列', link: '/compare/wake' }
         ]
       },
       {
