@@ -166,7 +166,8 @@ export default defineConfig({
           { text: '條件形', link: '/compare/conditional-forms' },
           { text: '推量・様態', link: '/compare/modality' },
           { text: '理由・程度', link: '/compare/reason-degree' },
-          { text: 'わけ系列', link: '/compare/wake' }
+          { text: 'わけ系列', link: '/compare/wake' },
+          { text: 'とたん・まま', link: '/compare/tatan-mama' }
         ]
       },
       {
@@ -254,7 +255,8 @@ export default defineConfig({
           { text: '條件形', link: '/compare/conditional-forms' },
           { text: '推量・様態', link: '/compare/modality' },
           { text: '理由・程度', link: '/compare/reason-degree' },
-          { text: 'わけ系列', link: '/compare/wake' }
+          { text: 'わけ系列', link: '/compare/wake' },
+          { text: 'とたん・まま', link: '/compare/tatan-mama' }
         ]
       },
       {

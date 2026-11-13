@@ -26,6 +26,7 @@ const sections = [
       { icon: '条', title: '條件形', sub: 'と・ば・たら・なら', link: '/compare/conditional-forms' },
       { icon: '限', title: '細節助詞', sub: 'も・しか・だけ・ばかり', link: '/compare/focus-particles' },
       { icon: '訳', title: 'わけ系列', sub: 'わけだ・がない・にはいかない', link: '/compare/wake' },
+      { icon: '瞬', title: 'とたん・まま', sub: 'とたん・まま・ばかり・うちに', link: '/compare/tatan-mama' },
     ],
   },
   {
