@@ -28,6 +28,8 @@ type: lesson
 | [終助詞](../particles/sentence-final-particles.md) | ね・よ・よね・わ・ぞ・ぜ・かな・っけ・じゃん… | 〔N5〕・〔日常〕 |
 | [複合助詞](../particles/compound-particles.md) | について・に対して・にとって・によって・をめぐって… | 〔N3〕〜〔N2〕 |
 
+照順序學、每堂附練習句：[助詞拆句課程](../parsing/particle-course.md)
+
 ## 核心用法速查
 
 | 助詞 | 核心用法 | 例 |
