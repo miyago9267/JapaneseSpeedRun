@@ -39,6 +39,16 @@ const sections = [
     ],
   },
   {
+    title: '聽力練習',
+    sub: '手機打開就能聽，聴解 N2 風格・每包 10 題',
+    cards: [
+      { icon: '聴', title: '總覽・用法', sub: '怎麼聽、怎麼回報錯題', link: '/listening/' },
+      { icon: '壱', title: 'pack-01', sub: '口語縮約・敬語・數字時間', link: '/listening/pack-01' },
+      { icon: '弐', title: 'pack-02', sub: '授受・條件・わけがない', link: '/listening/pack-02' },
+      { icon: '参', title: 'pack-03', sub: 'じゃん・おかげで・金額日期', link: '/listening/pack-03' },
+    ],
+  },
+  {
     title: '實例',
     sub: '真實素材的翻譯拆解・生活用語怎麼講',
     cards: [
@@ -87,7 +97,7 @@ function openSearch() {
     <div class="jph-body">
       <div class="jph-status">
         <span class="jph-dot"></span>
-        共 31 篇筆記・涵蓋 N5–N1・持續更新
+        共 35 篇筆記・涵蓋 N5–N1・持續更新
       </div>
 
       <div

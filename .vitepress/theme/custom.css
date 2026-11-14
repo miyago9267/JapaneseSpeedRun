@@ -360,6 +360,11 @@
   opacity: 1;
 }
 
+/* Listening packs (vault/listening/): full-width audio player, comfortable tap target on phones. */
+.vp-doc audio { display: block; width: 100%; margin: 10px 0; }
+.vp-doc details { margin: 12px 0 28px; }
+.vp-doc details > summary { cursor: pointer; font-weight: 600; padding: 8px 0; }
+
 /* Ruby / furigana: vault 寫 {漢字|かんじ}，build 時轉成 <ruby>。
    rt 小一點、用次要文字色（亮暗都可讀）；段落・表格・清單加行高避免注音撞到上一行。 */
 .vp-doc ruby { ruby-position: over; ruby-align: center; }

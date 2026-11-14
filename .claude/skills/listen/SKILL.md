@@ -1,6 +1,6 @@
 ---
 name: listen
-description: 日文聽力練習（JLPT N2 聴解風格）：用本機語音念題，Miyago 只靠耳朵作答，批改後附假名原文，錯題記進 vault/mistakes 並推上去。Mac 用 say、Windows 用 SAPI。觸發：/listen、聽力、聴解、念給我聽、練聽力
+description: 日文聽力練習（JLPT N2 聴解風格）：用本機語音念題，Miyago 只靠耳朵作答，批改後附假名原文，錯題記進 vault/mistakes 並推上去。Mac 用 say、Windows 用 SAPI。另有「網頁聽力包」：build-pack.ts 產生 mp3 與網站頁面（手機可聽），Miyago 回報「聽力 pack-0X 錯 3、7」時走回報流程。觸發：/listen、聽力、聴解、念給我聽、練聽力、聽力包、聽力 pack
 ---
 
 # 聽力練習（聴解）
@@ -52,6 +52,46 @@ bun .claude/skills/listen/speak.ts "A: もう八時だよ。" "1. じゃ、そ�
 
 照 `quiz` skill 的「5. 收尾」：`bun run docs:build` 通過 → 只 `git add` 本次改動的檔案 → commit `feat(vault): listen YYYY-MM-DD 聽力錯題收錄`（不加 AI attribution）→ `git push origin main`。
 開始前先 `git pull --ff-only`，因為 Mac 和 Windows 兩台都會寫入 vault。
+
+## 6. 網頁聽力包（手機可聽）
+
+Miyago 離開電腦時用手機練：一包 10 題（即時応答 7＋課題理解／ポイント理解 3），音檔放在網站 `vault/listening/`。
+
+- 內容在 `.claude/skills/listen/packs/pack-NN.json`（單一來源）；`build-pack.ts` 讀它，同時產生 `vault/listening/audio/pack-NN/qNN.mp3` 和 `vault/listening/pack-NN.md`。**要改題目改 JSON 再重跑，不要直接改產生的 md。**
+- 自編題，不抄官方・市售教材。題材照第 0 節偏重（縮約・敬語・授受・否定條件・數字時間・慣用回應），並標 `JLPT`／`日常` track 與難度〔N?〕。
+- JSON 欄位見 `build-pack.ts` 檔頭註解。日文一律寫 ruby `{漢字|かな}`（數字・時間也要，例如 `{三時半|さんじはん}`），腳本會自動導出 TTS 文字、全假名行與頁面原文；漢字沒包 ruby 會報錯。每題要有 `zh`（中文翻譯）和 `point`（重點，附 vault 專課連結，先 Glob 確認路徑；沒有專課就補一條進 `basics/` 或 `compare/`）。
+- 干擾選項要「聽漏才會選到」（同音・數字・肯定否定・主體互換），不要出模稜兩可、兩個都能回的選項。
+
+**新增一包：**
+
+1. 複製既有 `packs/pack-NN.json` 當樣板，寫 `pack-(NN+1).json`。
+2. `bun .claude/skills/listen/build-pack.ts .claude/skills/listen/packs/pack-NN.json`。TTS 預設 `edge-tts`（神經語音：A ＝ Nanami 女、B ＝ Keita 男；PATH、`uvx edge-tts`、`python -m edge_tts` 依序找）；連不上時在 Windows 自動退回 SAPI Haruka（B 以 ffmpeg 降調區分），也可用 `--engine sapi|edge` 指定。`--only 3,5` 只重做指定題的音檔。
+3. 註冊：`.vitepress/config.ts` nav＋sidebar 的「聽力練習」群組、`vault/listening/index.md` 題包表、`HomePage.vue` 首頁卡片、`.github/workflows/deploy.yml` verify 清單加 `listening/pack-NN.html`。
+4. `bun run docs:build` 通過，檢查 `.vitepress/dist/listening/pack-NN.html` 裡每個 `<source src>` 都對得到 `dist/assets/` 的檔案；`ffprobe` 抽驗一個 mp3 長度。
+5. 只 `git add` 本次檔案（packs JSON・`vault/listening/` 音檔與頁面・註冊到的檔案）→ commit `feat(vault): listening pack-NN 聽力包`（不加 AI attribution）→ `git pull --rebase origin main` → `git push origin main`。
+6. 日文（假名・活用・語感）交回 Miyago 確認，把最沒把握的句子列出來。
+
+## 7. 回報流程（「聽力 pack-0X 錯 a、b」）
+
+Miyago 在手機上聽完後會說「聽力 pack-0X 錯 3、7」（沒說題號就問一次；全對就簡短肯定並問要不要出下一包）。
+
+1. 讀 `vault/listening/pack-0X.md`（或 `packs/pack-0X.json`），取出那幾題的題型・原文（ruby）・全假名・中文・選項與正解・`重點`。**不要重新念或猜**，以頁面為準。
+2. 每個錯題寫進 `vault/mistakes/my-pitfalls.md` 的 `## 聽力錯題` 節，沿用該節既有格式（見第 4 節）：
+
+   ```markdown
+   ### YYYY-MM-DD pack-0X 第N題 即時応答〔N2〕：一句話概括錯因
+
+   - 聽到：原文（ruby）（全假名）
+   - 作答：✗ 不知道選了哪個就寫「第 N 題錯，沒說選哪個」；有說就寫選項內容
+   - 正解：✓ 正解選項（ruby）（中文）
+   - 錯因：聽漏哪個音・不懂哪個表現（引用該題 `重點`，用自己的話補一兩句）
+   - 專課：[專課名稱](../basics/grammar/xxx.md)
+   ```
+
+   同一個點已經在節內出現過 → 不要新增，在原條目補「再犯日期」。課題理解題的「聽到」寫關鍵那幾句，不用整段對話。
+3. 錯因暴露 vault 缺的文法點 → 依 `AGENTS.md` 補進對應的 `basics/` 或 `compare/` 專課。
+4. 聊天裡簡短說明：每題一兩行（聽錯的是什麼・正解為什麼是它），最後點出這批錯題的共同類型（縮約／敬語／數字／否定條件），以及下一包要加強什麼。
+5. 收尾照第 5 節：`git pull --ff-only` → `bun run docs:build` 通過 → 只 `git add` 本次改動的檔案 → commit `feat(vault): listen pack-0X 聽力錯題收錄` → `git push origin main`。
 
 ## 隱私
 

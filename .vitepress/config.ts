@@ -179,6 +179,15 @@ export default defineConfig({
         ]
       },
       {
+        text: '聽力練習',
+        items: [
+          { text: '總覽・用法', link: '/listening/' },
+          { text: 'pack-01', link: '/listening/pack-01' },
+          { text: 'pack-02', link: '/listening/pack-02' },
+          { text: 'pack-03', link: '/listening/pack-03' }
+        ]
+      },
+      {
         text: '實例',
         items: [
           { text: '讀解筆記', link: '/examples/reading-notes' },
@@ -265,6 +274,15 @@ export default defineConfig({
           { text: '總覽', link: '/minna/' },
           { text: '初級 I', link: '/minna/shokyu-1' },
           { text: '初級 II', link: '/minna/shokyu-2' }
+        ]
+      },
+      {
+        text: '聽力練習',
+        items: [
+          { text: '總覽・用法', link: '/listening/' },
+          { text: 'pack-01', link: '/listening/pack-01' },
+          { text: 'pack-02', link: '/listening/pack-02' },
+          { text: 'pack-03', link: '/listening/pack-03' }
         ]
       },
       {

@@ -53,6 +53,8 @@ pull Miyago back into tooling. The only thing that routinely needs Miyago is Jap
       `sentence-final-particles`（終助詞）・`compound-particles`（複合助詞）；基礎款 `grammar/particles.md`（常用助詞）留在原處，頂端有系列導覽
     - `basics/parsing/` 解析 — `sentence-parsing.md`（拆句技巧）
   - `study-method.md` — 學習方法 guide (stays at root, outside the four categories)
+  - `minna/` — 《みんなの日本語》文型檢查表（進度索引，不是內容分類；見「`vault/minna/`」一節）
+  - `listening/` — 手機版聽力包：`index.md` ＋ `pack-NN.md`（頁面）＋ `audio/pack-NN/qNN.mp3`。練習線，不是第五個內容分類（見「`vault/listening/`」一節）。`pack-NN.md` 與 mp3 由 `.claude/skills/listen/build-pack.ts` 依 `.claude/skills/listen/packs/pack-NN.json` 產生
 - `.vitepress/config.ts` — VitePress config (`srcDir: ./vault`, nav/sidebar, tabs plugin, local
   search). Holds the `obsidian_tabs` markdown-it rule that derives `::: tabs` from the comment
   markers at build time (see Content tone) — the source stays Obsidian-native.
@@ -138,6 +140,16 @@ Notes are **scannable comparison tables, not prose**. Optimize for "glance and r
 - 課次歸屬依記憶整理，不確定的標 `⚠待對照`；Miyago 拍目次後再校正。
 - 中級 I・II **只依 Miyago 提供的目次照片建立**，沒照片不憑記憶填。
 - 新增課冊頁時照「寫入檢查清單」註冊 nav / sidebar，並加進 `deploy.yml` 的 verify 清單。
+
+### `vault/listening/` — 聽力練習線（不屬於上面四類）
+
+手機可聽的 N2 聴解風格題包，Miyago 離開電腦時練聽力用。**練習線，不是第五個內容分類**；文法本體仍只放 `basics/` `compare/`，這裡只放題目與答案解說，並連回專課。
+
+- 結構：`index.md`（用法・題包表）＋ `pack-NN.md`（每包 10 題）＋ `audio/pack-NN/qNN.mp3`。每題 `## 第N題　題型〔N?〕　JLPT／日常 track` → `<audio controls preload="none">` →（課題理解才有）中文情境・提問・日文選項 → `<details>` 答案與原文（答案・ruby 原文・全假名・中文翻譯・重點連專課）。
+- **單一來源是 `.claude/skills/listen/packs/pack-NN.json`**；頁面與 mp3 由 `bun .claude/skills/listen/build-pack.ts <json>` 產生（TTS：edge-tts 神經語音，連不上時退回 Windows SAPI）。要改題目改 JSON 再重跑，不要手改頁面。流程見 `.claude/skills/listen/SKILL.md`「網頁聽力包」。
+- 全部自編，不收官方・市售教材的原文或錄音。
+- 音檔相對路徑引用（`./audio/pack-NN/qNN.mp3`），build 時由 Vite 輸出到 `dist/assets/`；新增題包要把頁面加進 `config.ts`（nav＋sidebar「聽力練習」）、`index.md` 題包表、首頁卡片與 `deploy.yml` verify 清單。
+- Miyago 說「聽力 pack-0X 錯 3、7」時：agent 讀該頁取原文，把錯題寫進 `vault/mistakes/my-pitfalls.md` 的 `## 聽力錯題`（格式見 listen skill 第 7 節），在聊天簡短說明，再 build → commit → push。聽力錯題屬「我的錯題」，不在 `listening/` 內另記。
 
 ### 難度標記
 

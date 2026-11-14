@@ -8,6 +8,9 @@ Project tone, content conventions, and guardrails live in `AGENTS.md`. Read it f
 
 - Single source of truth is `vault/**/*.md` (four category folders `basics/ compare/ examples/ mistakes/`; `basics/` has sub-folders `vocab/ grammar/ particles/ parsing/`
   plus root `index.md` / `study-method.md`; also the Claude Desktop / Obsidian teaching vault).
+  Two practice tracks sit beside the four categories (not content categories): `vault/minna/` (textbook checklist) and
+  `vault/listening/` (phone listening packs; pages + mp3 generated from `.claude/skills/listen/packs/*.json` by
+  `.claude/skills/listen/build-pack.ts` — edit the JSON, not the page).
   Edit content there only; never hand-maintain a parallel HTML copy. Where things go and when to
   auto-record them: `AGENTS.md` → 「Vault 分類與自動筆記規則」.
 - After editing a lesson: register it in `.vitepress/config.ts` if new, then `bun run docs:build`
