@@ -152,7 +152,8 @@ export default defineConfig({
           {
             text: '解析',
             items: [
-              { text: '句子解析', link: '/basics/parsing/sentence-parsing' }
+              { text: '句子解析', link: '/basics/parsing/sentence-parsing' },
+              { text: '助詞拆句課程', link: '/basics/parsing/particle-course' }
             ]
           }
         ]
@@ -251,7 +252,8 @@ export default defineConfig({
             text: '解析',
             collapsed: false,
             items: [
-              { text: '句子解析', link: '/basics/parsing/sentence-parsing' }
+              { text: '句子解析', link: '/basics/parsing/sentence-parsing' },
+              { text: '助詞拆句課程', link: '/basics/parsing/particle-course' }
             ]
           }
         ]
