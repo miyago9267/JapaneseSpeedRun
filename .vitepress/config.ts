@@ -199,7 +199,8 @@ export default defineConfig({
         text: '我的錯題',
         items: [
           { text: '錯題整理', link: '/mistakes/my-pitfalls' },
-          { text: 'N2 模擬・文法卷 01', link: '/mistakes/n2-mock-grammar-01' }
+          { text: 'N2 模擬・文法卷 01', link: '/mistakes/n2-mock-grammar-01' },
+          { text: '測驗詳解', items: [{ text: '2026-11-15', link: '/mistakes/quiz/2026-11-15' }] }
         ]
       },
       { text: '學習方法', link: '/study-method' }
@@ -297,7 +298,8 @@ export default defineConfig({
         text: '我的錯題',
         items: [
           { text: '錯題整理', link: '/mistakes/my-pitfalls' },
-          { text: 'N2 模擬・文法卷 01', link: '/mistakes/n2-mock-grammar-01' }
+          { text: 'N2 模擬・文法卷 01', link: '/mistakes/n2-mock-grammar-01' },
+          { text: '測驗詳解', items: [{ text: '2026-11-15', link: '/mistakes/quiz/2026-11-15' }] }
         ]
       },
       {
