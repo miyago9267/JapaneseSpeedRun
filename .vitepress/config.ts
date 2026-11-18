@@ -193,7 +193,8 @@ export default defineConfig({
         items: [
           { text: '讀解筆記', link: '/examples/reading-notes' },
           { text: '新聞日文', link: '/examples/news-japanese' },
-          { text: '生活用語', link: '/examples/daily-phrases' }
+          { text: '生活用語', link: '/examples/daily-phrases' },
+          { text: '日記', link: '/examples/diary' }
         ]
       },
       {
@@ -293,7 +294,8 @@ export default defineConfig({
         items: [
           { text: '讀解筆記', link: '/examples/reading-notes' },
           { text: '新聞日文', link: '/examples/news-japanese' },
-          { text: '生活用語', link: '/examples/daily-phrases' }
+          { text: '生活用語', link: '/examples/daily-phrases' },
+          { text: '日記', link: '/examples/diary' }
         ]
       },
       {

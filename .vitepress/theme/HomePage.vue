@@ -55,6 +55,7 @@ const sections = [
       { icon: '読', title: '讀解筆記', sub: '原文逐句拆解', link: '/examples/reading-notes' },
       { icon: '報', title: '新聞日文', sub: '新聞常見表現', link: '/examples/news-japanese' },
       { icon: '話', title: '生活用語', sub: '中文怎麼說 → 日文怎麼講', link: '/examples/daily-phrases' },
+      { icon: '記', title: '日記', sub: '中文日記 → 口語版・書面版', link: '/examples/diary' },
     ],
   },
   {
