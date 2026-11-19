@@ -23,6 +23,7 @@ const sections = [
     cards: [
       { icon: '因', title: 'から vs ので', sub: '主觀・客觀・禮貌度', link: '/compare/kara-node' },
       { icon: '差', title: 'は vs が', sub: '主題與主語', link: '/compare/wa-ga' },
+      { icon: '格', title: 'に・で・を・へ・から', sub: '兩個都對時差在哪', link: '/compare/ni-de-wo' },
       { icon: '条', title: '條件形', sub: 'と・ば・たら・なら', link: '/compare/conditional-forms' },
       { icon: '限', title: '細節助詞', sub: 'も・しか・だけ・ばかり', link: '/compare/focus-particles' },
       { icon: '訳', title: 'わけ系列', sub: 'わけだ・がない・にはいかない', link: '/compare/wake' },

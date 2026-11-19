@@ -163,6 +163,7 @@ export default defineConfig({
         items: [
           { text: 'から vs ので', link: '/compare/kara-node' },
           { text: 'は vs が', link: '/compare/wa-ga' },
+          { text: 'に・で・を・へ・から', link: '/compare/ni-de-wo' },
           { text: '細節助詞', link: '/compare/focus-particles' },
           { text: '條件形', link: '/compare/conditional-forms' },
           { text: '推量・様態', link: '/compare/modality' },
@@ -264,6 +265,7 @@ export default defineConfig({
         items: [
           { text: 'から vs ので', link: '/compare/kara-node' },
           { text: 'は vs が', link: '/compare/wa-ga' },
+          { text: 'に・で・を・へ・から', link: '/compare/ni-de-wo' },
           { text: '細節助詞', link: '/compare/focus-particles' },
           { text: '條件形', link: '/compare/conditional-forms' },
           { text: '推量・様態', link: '/compare/modality' },
